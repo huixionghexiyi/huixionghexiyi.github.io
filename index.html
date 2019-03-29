@@ -140,17 +140,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-29T05:29:29.972Z">2019-03-29</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/learn/">learn</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 227 个字)
+                    7 分钟 读完 (大约 1117 个字)
                 </span>
                 
                 
@@ -159,19 +155,161 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/03/29/git/">GitLearning</a>
+                <a class="has-link-black-ter" href="/2019/03/29/temp.git/">Git的学习笔记</a>
             
         </h1>
         <div class="content">
-            <h1 id="Git学习总结"><a href="#Git学习总结" class="headerlink" title="Git学习总结"></a>Git学习总结</h1><h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>首先需要下载git，搜索引擎上搜一下就有了。</p>
-<h2 id="git和github有什么关系？区别？"><a href="#git和github有什么关系？区别？" class="headerlink" title="git和github有什么关系？区别？"></a>git和github有什么关系？区别？</h2><p>打个比方来讲就是，就像冰封王座和对战平台。</p>
-<p>不需要对战平台，自己几个小朋友连个局域网也能玩儿。甚至自己玩单机也行。</p>
-<p>而有了对战平台，就可以和全世界的基同性一起快乐的玩儿。</p>
-<h2 id="git能做什么？"><a href="#git能做什么？" class="headerlink" title="git能做什么？"></a>git能做什么？</h2><p>简单的说就像是一个时光机/后悔药，只要是正确的使用，你就永远不用担心的是：文件修改了，我后悔了。</p>
+            <h1 id="重要概念；"><a href="#重要概念；" class="headerlink" title="重要概念；"></a>重要概念；</h1><ul>
+<li><p>暂存区</p>
+<p>  <img src="images/git分区.jpg" alt="暂存区"></p>
+<ul>
+<li>工作区(workspace)</li>
+<li>暂存区(stage)</li>
+<li>当前版本(released)</li>
+</ul>
+</li>
+</ul>
 <hr>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>在正式的使用之前，我们先了解一个概念。你可以先大致的看一眼，了解以下。一会再回来看。</p>
-<p><img src="images/git分区.jpg" alt="分区"></p>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>初始化</p>
+<pre><code>git init
+</code></pre><p>把文件添加到仓库</p>
+<pre><code>git add &lt;filename&gt;
+git add &lt;filename1&gt; &lt;filename2&gt;
+git add .
+</code></pre><p>把文件提交到仓库</p>
+<pre><code>git commit -m &quot;message&quot;
+</code></pre><p>查看当前仓库状态：</p>
+<pre><code>git status
+</code></pre><p>查看某个修改的内容</p>
+<pre><code>git diff &lt;filename&gt;
+</code></pre><p>查看日志记录：</p>
+<pre><code>git log
+git log --pretty=oneline
+</code></pre><p>回到前面的版本：</p>
+<pre><code>git reset --hard HEAD^
+git reset --hard HEAD^^
+git reset --hard HEAD~100
+</code></pre><p>查看历史提交的命令(用于查找commit id)：</p>
+<pre><code>git reflog
+</code></pre><p>我们使用<code>git add</code> 将修改的文件提交到stage，再使用<code>git commit</code>一次性将stage中的所有提交到<code>released</code>里。</p>
+<p>丢弃工作区的内容：（本质是用版本库替换掉工workspace的内容,也可以看作是切换分支）</p>
+<pre><code>git checkout -- &lt;filename&gt;
+</code></pre><p>若<code>stage</code>中有内容就恢复成<code>stage</code>,没有则恢复<code>released</code>中的。</p>
+<p>切换分支：</p>
+<pre><code>git checkout -b &lt;borund&gt;
+</code></pre><p>将<code>stage</code>中的恢复到<code>workspace</code>中</p>
+<pre><code>git reset HEAD &lt;filename&gt;
+</code></pre><p>删除文件</p>
+<pre><code>rm &lt;filename&gt;
+</code></pre><hr>
+<h1 id="远程仓库github的设置"><a href="#远程仓库github的设置" class="headerlink" title="远程仓库github的设置"></a>远程仓库github的设置</h1><p>创建SSH Key:</p>
+<p>ssh-keygen -t rsa -C “<a href="mailto:meail@mail.com" target="_blank" rel="noopener">meail@mail.com</a>“</p>
+<p>再在GitHub里添加用户路径下的 <code>id_rsa.pub</code>公钥。</p>
+<p>关联一个远程仓库：</p>
+<pre><code>git remote add origin git@server-name:path/repo-name.git
+</code></pre><p>推送master分支到远程仓库：(第一次需要加 <code>-u</code> ，以后不需要)</p>
+<pre><code>git push -u origin master
+</code></pre><p>从远程仓库<code>clone</code> 一个仓库：</p>
+<pre><code>git clone git@github.com:michaelliao/gitskills.git
+</code></pre><hr>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>创建分支</p>
+<pre><code>git checkout -b dev
+或
+git branch dev
+git checkout dev
+</code></pre><p>查看分支</p>
+<pre><code>git branch
+</code></pre><p>切换分支 </p>
+<pre><code>git checkout &lt;branch&gt;
+</code></pre><p>合并分支</p>
+<pre><code>将目标分支合并到当前分支
+git merge &lt;目标分支&gt;
+</code></pre><p>删除分支</p>
+<pre><code>git branch -d &lt;branch&gt;
 
+强制删除
+git branch -D &lt;branch&gt;
+</code></pre><p>带参数的查看日志记录</p>
+<pre><code>git log --graph --pretty-oneline --abbrev-commit
+
+--graph   表示查看图表
+--pretty-oneline 单行查看
+--abbrev-commit  缩写的commit id
+</code></pre><hr>
+<h3 id="分支的知识点"><a href="#分支的知识点" class="headerlink" title="分支的知识点"></a>分支的知识点</h3><p>通常情况下：合并分支的时候回默认<code>Fast forward</code> 方式。（即文件没有被修改/删除，文件只是被添加（ps:我自己的理解））</p>
+<p>如果想要禁止快速合并：</p>
+<pre><code>git merge --no-off -m &quot;message&quot; &lt;branch&gt; 
+
+禁止`Fast forward`方式的合并，
+</code></pre><p>分支策略：</p>
+<p><code>master</code>应该是非常稳定的，<code>dev</code>是不稳定的，干活就从<code>dev</code>上再分支到每个人。</p>
+<p>对付bug分支：</p>
+<p><code>stash</code>，储藏(临时保存点)</p>
+<pre><code>保存进度
+git stash
+
+查看进度的储存list
+git stash list 
+
+读取进度
+git stash apply
+git stash drop
+或
+git stash opo
+
+读取指定的进度
+git stash apply stash@{0}
+</code></pre><hr>
+<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><hr>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p>创建标签</p>
+<pre><code>git tag &lt;标签名&gt;
+</code></pre><p>对历史commit创建标签：</p>
+<pre><code>git tag &lt;标签名&gt;  &lt;commit id&gt;
+</code></pre><p>查看标签</p>
+<pre><code>git show
+</code></pre><p>创建带说明的标签：</p>
+<pre><code>git tag -a &lt;标签名&gt; -m &quot;message&quot; &lt;commit id&gt;
+</code></pre><blockquote>
+<p>注意，标签总是和commit挂钩。当commit出现在master和dev中那么，这两个分支都可以看见标签。</p>
+</blockquote>
+<p>删除标签：</p>
+<pre><code>git tag -d &lt;标签名&gt;
+</code></pre><p>推送标签到远端：</p>
+<pre><code>git push origin &lt;tagname&gt;
+
+git push origin --tags
+</code></pre><p>删除远端的标签：</p>
+<pre><code>先删除本地的
+git tag -d &lt;标签名&gt;
+在删除远端的
+git push origin :refs/tags/&lt;标签名&gt;
+</code></pre><h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库fork到自己的仓库，然后clone到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
+<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>忽略特殊文件：</p>
+<p>只需要有一个<code>.gitignore</code> 文件即可。在里面添加要忽略的文件。</p>
+<p>常用用的<code>.gitignore</code>文件：</p>
+<p><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">忽略文件</a></p>
+<h2 id="忽略文件的原则是："><a href="#忽略文件的原则是：" class="headerlink" title="忽略文件的原则是："></a>忽略文件的原则是：</h2><p>忽略文件的原则是：</p>
+<ul>
+<li>忽略操作系统自动生成的文件，比如缩略图等；</li>
+<li>忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；</li>
+<li>忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。</li>
+</ul>
+<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><pre><code>将status 取别名为 st
+git config --global alias.st status
+</code></pre><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">建议使用的别名：</span><br><span class="line"></span><br><span class="line">    git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><br></pre></td></tr></table></figure>
+<p>删除别名：</p>
+<p>在config下文件<code>.gitconfig</code> 中有</p>
+<pre><code>    $ cat .gitconfig
+[alias]
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
+[user]
+    name = Your Name
+    email = your@email.com
+</code></pre><p>只需要删除alias中的行即可</p>
+<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2>
         </div>
         
         
@@ -342,7 +480,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        1
                     </p>
                 </div>
             </div>
@@ -352,7 +490,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        2
                     </p>
                 </div>
             </div>
@@ -444,14 +582,6 @@
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/learn/">
-            <span class="level-start">
-                <span class="level-item">learn</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/其他/">
             <span class="level-start">
                 <span class="level-item">其他</span>
@@ -471,7 +601,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Chaos/" style="font-size: 10px;">Chaos</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/others/" style="font-size: 10px;">others</a>
+        <a href="/tags/Chaos/" style="font-size: 10px;">Chaos</a> <a href="/tags/others/" style="font-size: 10px;">others</a>
     </div>
 </div>
 
@@ -490,10 +620,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T05:29:29.972Z">2019-03-29</time></div>
-                    <a href="/2019/03/29/git/" class="has-link-black-ter is-size-6">GitLearning</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time></div>
+                    <a href="/2019/03/29/temp.git/" class="has-link-black-ter is-size-6">Git的学习笔记</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/learn/">learn</a>
+                        
                     </p>
                 </div>
             </div>
@@ -564,13 +694,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Chaos/">
                         <span class="tag">Chaos</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
-                        <span class="tag">git</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -609,10 +732,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T05:29:29.972Z">2019-03-29</time></div>
-                    <a href="/2019/03/29/git/" class="has-link-black-ter is-size-6">GitLearning</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time></div>
+                    <a href="/2019/03/29/temp.git/" class="has-link-black-ter is-size-6">Git的学习笔记</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/learn/">learn</a>
+                        
                     </p>
                 </div>
             </div>
@@ -683,13 +806,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Chaos/">
                         <span class="tag">Chaos</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
-                        <span class="tag">git</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
