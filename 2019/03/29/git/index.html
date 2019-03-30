@@ -2,25 +2,25 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Git的学习笔记 - HuiXiong</title>
+<title>git - HuiXiong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     
-    <meta name="description" content="重要概念； 暂存区     工作区(workspace) 暂存区(stage) 当前版本(released)     指令初始化 git init 把文件添加到仓库 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库 git commit -m &amp;quot;message&amp;q">
+    <meta name="description" content="重要概念； 暂存区     工作区(workspace)  暂存区(stage)  当前版本(master)      指令初始化： git init 把文件添加到仓库:三种类型 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库：message自行修改 git commit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git的学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/temp.git/index.html">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/git/index.html">
 <meta property="og:site_name" content="HuiXiong">
-<meta property="og:description" content="重要概念； 暂存区     工作区(workspace) 暂存区(stage) 当前版本(released)     指令初始化 git init 把文件添加到仓库 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库 git commit -m &amp;quot;message&amp;q">
+<meta property="og:description" content="重要概念； 暂存区     工作区(workspace)  暂存区(stage)  当前版本(master)      指令初始化： git init 把文件添加到仓库:三种类型 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库：message自行修改 git commit">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/03/29/temp.git/images/git分区.jpg">
-<meta property="og:updated_time" content="2019-03-29T12:56:16.395Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/29/git/images/git分区.jpg">
+<meta property="og:updated_time" content="2019-03-30T06:06:04.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git的学习笔记">
-<meta name="twitter:description" content="重要概念； 暂存区     工作区(workspace) 暂存区(stage) 当前版本(released)     指令初始化 git init 把文件添加到仓库 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库 git commit -m &amp;quot;message&amp;q">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/29/temp.git/images/git分区.jpg">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content="重要概念； 暂存区     工作区(workspace)  暂存区(stage)  当前版本(master)      指令初始化： git init 把文件添加到仓库:三种类型 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库：message自行修改 git commit">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/29/git/images/git分区.jpg">
 
 
 
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Git的学习笔记" height="28">
+                <img src="/images/logo.svg" alt="git" height="28">
             
             </a>
         </div>
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1117 个字)
+                    9 分钟 读完 (大约 1291 个字)
                 </span>
                 
                 
@@ -160,32 +160,32 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Git的学习笔记
+                git
             
         </h1>
         <div class="content">
             <h1 id="重要概念；"><a href="#重要概念；" class="headerlink" title="重要概念；"></a>重要概念；</h1><ul>
 <li><p>暂存区</p>
-<p>  <img src="images/git分区.jpg" alt="暂存区"></p>
+<p>  <img src="images/git分区.jpg" alt="分区"></p>
 <ul>
-<li>工作区(workspace)</li>
-<li>暂存区(stage)</li>
-<li>当前版本(released)</li>
+<li>工作区(workspace) </li>
+<li>暂存区(stage) </li>
+<li>当前版本(master) </li>
 </ul>
 </li>
 </ul>
 <hr>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>初始化</p>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>初始化：</p>
 <pre><code>git init
-</code></pre><p>把文件添加到仓库</p>
+</code></pre><p>把文件添加到仓库:三种类型</p>
 <pre><code>git add &lt;filename&gt;
 git add &lt;filename1&gt; &lt;filename2&gt;
 git add .
-</code></pre><p>把文件提交到仓库</p>
+</code></pre><p>把文件提交到仓库：message自行修改</p>
 <pre><code>git commit -m &quot;message&quot;
 </code></pre><p>查看当前仓库状态：</p>
 <pre><code>git status
-</code></pre><p>查看某个修改的内容</p>
+</code></pre><p>查看某个修改的内容：</p>
 <pre><code>git diff &lt;filename&gt;
 </code></pre><p>查看日志记录：</p>
 <pre><code>git log
@@ -196,11 +196,10 @@ git reset --hard HEAD^^
 git reset --hard HEAD~100
 </code></pre><p>查看历史提交的命令(用于查找commit id)：</p>
 <pre><code>git reflog
-</code></pre><p>我们使用<code>git add</code> 将修改的文件提交到stage，再使用<code>git commit</code>一次性将stage中的所有提交到<code>released</code>里。</p>
-<p>丢弃工作区的内容：（本质是用版本库替换掉工workspace的内容,也可以看作是切换分支）</p>
+</code></pre><p>我们使用<code>git add</code> 将修改的文件提交到stage，再使用<code>git commit</code>一次性将stage中的所有提交到<code>master</code>（这里指<code>master</code>这个分支）里。</p>
+<p>丢弃工作区的内容：（本质是用版本库替换掉工workspace的内容,也可以看作是切换分支）<br>若<code>stage</code>中有内容就恢复成<code>stage</code>,没有则恢复<code>master</code>中的。</p>
 <pre><code>git checkout -- &lt;filename&gt;
-</code></pre><p>若<code>stage</code>中有内容就恢复成<code>stage</code>,没有则恢复<code>released</code>中的。</p>
-<p>切换分支：</p>
+</code></pre><p>切换分支：</p>
 <pre><code>git checkout -b &lt;borund&gt;
 </code></pre><p>将<code>stage</code>中的恢复到<code>workspace</code>中</p>
 <pre><code>git reset HEAD &lt;filename&gt;
@@ -208,19 +207,21 @@ git reset --hard HEAD~100
 <pre><code>rm &lt;filename&gt;
 </code></pre><hr>
 <h1 id="远程仓库github的设置"><a href="#远程仓库github的设置" class="headerlink" title="远程仓库github的设置"></a>远程仓库github的设置</h1><p>创建SSH Key:</p>
-<p>ssh-keygen -t rsa -C “<a href="mailto:meail@mail.com" target="_blank" rel="noopener">meail@mail.com</a>“</p>
-<p>再在GitHub里添加用户路径下的 <code>id_rsa.pub</code>公钥。</p>
+<pre><code>ssh-keygen -t rsa -C &quot;meail@mail.com&quot;
+</code></pre><p>再在GitHub里添加用户路径下的 <code>id_rsa.pub</code>公钥。</p>
 <p>关联一个远程仓库：</p>
 <pre><code>git remote add origin git@server-name:path/repo-name.git
 </code></pre><p>推送master分支到远程仓库：(第一次需要加 <code>-u</code> ，以后不需要)</p>
 <pre><code>git push -u origin master
 </code></pre><p>从远程仓库<code>clone</code> 一个仓库：</p>
 <pre><code>git clone git@github.com:michaelliao/gitskills.git
+</code></pre><p>删除本地仓库和远程仓库的关联关系：</p>
+<pre><code>git remote remove origin
 </code></pre><hr>
 <h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>创建分支</p>
 <pre><code>git checkout -b dev
-或
-git branch dev
+</code></pre><p>或</p>
+<pre><code>git branch dev
 git checkout dev
 </code></pre><p>查看分支</p>
 <pre><code>git branch
@@ -231,9 +232,8 @@ git checkout dev
 git merge &lt;目标分支&gt;
 </code></pre><p>删除分支</p>
 <pre><code>git branch -d &lt;branch&gt;
-
-强制删除
-git branch -D &lt;branch&gt;
+</code></pre><p>强制删除</p>
+<pre><code>git branch -D &lt;branch&gt;
 </code></pre><p>带参数的查看日志记录</p>
 <pre><code>git log --graph --pretty-oneline --abbrev-commit
 
@@ -242,30 +242,26 @@ git branch -D &lt;branch&gt;
 --abbrev-commit  缩写的commit id
 </code></pre><hr>
 <h3 id="分支的知识点"><a href="#分支的知识点" class="headerlink" title="分支的知识点"></a>分支的知识点</h3><p>通常情况下：合并分支的时候回默认<code>Fast forward</code> 方式。（即文件没有被修改/删除，文件只是被添加（ps:我自己的理解））</p>
-<p>如果想要禁止快速合并：</p>
+<p>禁止<code>Fast forward</code>方式的合并</p>
 <pre><code>git merge --no-off -m &quot;message&quot; &lt;branch&gt; 
-
-禁止`Fast forward`方式的合并，
 </code></pre><p>分支策略：</p>
 <p><code>master</code>应该是非常稳定的，<code>dev</code>是不稳定的，干活就从<code>dev</code>上再分支到每个人。</p>
 <p>对付bug分支：</p>
 <p><code>stash</code>，储藏(临时保存点)</p>
-<pre><code>保存进度
-git stash
-
-查看进度的储存list
-git stash list 
-
-读取进度
-git stash apply
+<p>保存进度</p>
+<pre><code>git stash
+</code></pre><p>查看进度的储存list</p>
+<pre><code>git stash list 
+</code></pre><p>读取进度</p>
+<pre><code>git stash apply
 git stash drop
-或
-git stash opo
-
-读取指定的进度
-git stash apply stash@{0}
+</code></pre><p>或</p>
+<pre><code>git stash opo
+</code></pre><p>读取指定的进度</p>
+<pre><code>git stash apply stash@{0}
 </code></pre><hr>
-<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><hr>
+<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><p>多人需要协作时。在<code>github</code>的项目仓库的设置中的<code>Collaborators</code>选项中将对方邀请进来即可。对方接受，他就对项目可以有写的权限。</p>
+<hr>
 <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p>创建标签</p>
 <pre><code>git tag &lt;标签名&gt;
 </code></pre><p>对历史commit创建标签：</p>
@@ -284,11 +280,15 @@ git stash apply stash@{0}
 
 git push origin --tags
 </code></pre><p>删除远端的标签：</p>
-<pre><code>先删除本地的
-git tag -d &lt;标签名&gt;
-在删除远端的
-git push origin :refs/tags/&lt;标签名&gt;
-</code></pre><h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库fork到自己的仓库，然后clone到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
+<ul>
+<li><p>先删除本地的</p>
+<pre><code>git tag -d &lt;标签名&gt;
+</code></pre></li>
+<li><p>再删除远端的</p>
+<pre><code>git push origin :refs/tags/&lt;标签名&gt;
+</code></pre></li>
+</ul>
+<h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库fork到自己的仓库，然后clone到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
 <h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>忽略特殊文件：</p>
 <p>只需要有一个<code>.gitignore</code> 文件即可。在里面添加要忽略的文件。</p>
 <p>常用用的<code>.gitignore</code>文件：</p>
@@ -314,7 +314,10 @@ git config --global alias.st status
     name = Your Name
     email = your@email.com
 </code></pre><p>只需要删除alias中的行即可</p>
-<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2>
+<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2><pre><code>这个再讲。
+</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>每次<code>commit</code>之后都有一个<code>commit id</code> ，而 所有的其他东西都是围绕着<code>commit id</code>在运转。所以在项目中<code>commit</code>之前一定要想好。</p>
+<p>无论是<code>master</code>、<code>dev</code>、还是<code>HEAD</code> 指针，都是围绕着<code>commit id</code>，变换指向，来实现不同版本之间的切换。</p>
+
         </div>
         
         
@@ -569,7 +572,7 @@ git config --global alias.st status
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time></div>
-                    <a href="/2019/03/29/temp.git/" class="has-link-black-ter is-size-6">Git的学习笔记</a>
+                    <a href="/2019/03/29/git/" class="has-link-black-ter is-size-6">git</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -681,7 +684,7 @@ git config --global alias.st status
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time></div>
-                    <a href="/2019/03/29/temp.git/" class="has-link-black-ter is-size-6">Git的学习笔记</a>
+                    <a href="/2019/03/29/git/" class="has-link-black-ter is-size-6">git</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -782,7 +785,7 @@ git config --global alias.st status
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Git的学习笔记" height="28">
+                    <img src="/images/logo.svg" alt="git" height="28">
                 
                 </a>
                 <p class="is-size-7">
