@@ -142,6 +142,10 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-03-30T11:50:13.509Z">2019-03-30</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
@@ -208,11 +212,15 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-03-30T06:27:15.877Z">2019-03-30</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 197 个字)
+                    22 分钟 读完 (大约 3229 个字)
                 </span>
                 
                 
@@ -228,24 +236,191 @@
             <h2 id="oracle的基本介绍"><a href="#oracle的基本介绍" class="headerlink" title="oracle的基本介绍"></a>oracle的基本介绍</h2><ul>
 <li>关系型数据库</li>
 </ul>
+<h3 id="基本语法（CURD）："><a href="#基本语法（CURD）：" class="headerlink" title="基本语法（CURD）："></a>基本语法（CURD）：</h3><hr>
+<ul>
+<li><p>select</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span></span><br><span class="line">     colum_1,</span><br><span class="line">     colum_2,</span><br><span class="line">     ...</span><br><span class="line"><span class="hljs-keyword">from</span></span><br><span class="line"> table_name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update</p>
+<blockquote>
+<p>对数据进行修改</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">update</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">set</span> 列 = <span class="hljs-string">''</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>insert </li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span>  <span class="hljs-keyword">table</span>(colum_1,colum_2,...) <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">" "</span>,<span class="hljs-string">" "</span>,...);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>delete</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">WHERE</span> 条件</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>alter</p>
+<blockquote>
+<p>对表或列进行修改。</p>
+</blockquote>
+</li>
+<li></li>
+</ul>
 <hr>
 <ul>
-<li>select</li>
-<li><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span></span><br><span class="line">     colum_1,</span><br><span class="line">     colum_2,</span><br><span class="line">     ...</span><br><span class="line"><span class="hljs-keyword">from</span></span><br><span class="line"> table_name;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>order by</p>
-</li>
+<li>order by</li>
 </ul>
 <figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">    column_3,</span><br><span class="line">    ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    column_1 [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>] [<span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">FIRST</span> | <span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">LAST</span>],</span><br><span class="line">    column_1 [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>] [<span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">FIRST</span> | <span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">LAST</span>],</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中<code>asc</code>表示升序(默认)，<code>desc</code> 降序， <code>nulls first</code> 空值放在前面</p>
 </blockquote>
-<p><strong>例句</strong>：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>, <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> credit_limit <span class="hljs-keyword">DESC</span>, <span class="hljs-keyword">name</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中两条语句时等价的，按照列在表中的位置指定也行。</span></span><br><span class="line"><span class="hljs-comment">--执行结果时先按credit_limit 降序，再按name 升序。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> customer_id, <span class="hljs-keyword">name</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">UPPER</span>( <span class="hljs-keyword">name</span> );</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--按照函数排序，upper()表示，</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>例句</strong>：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>, <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> credit_limit <span class="hljs-keyword">DESC</span>, <span class="hljs-keyword">name</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中两条语句是等价的，按照列在表中的位置指定也行。</span></span><br><span class="line"><span class="hljs-comment">--执行结果时先按credit_limit 降序，再按name 升序。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> customer_id, <span class="hljs-keyword">name</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">UPPER</span>( <span class="hljs-keyword">name</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--按照函数排序，upper()表示，</span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>distinct</li>
 </ul>
 <figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> </span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">        ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">--查询column_1 和column_2都不相同的行。（相当于去重）distinct 清楚、明确之意</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>where</p>
+</li>
+<li><p>and</p>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 null、false、true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--and 两边同时满足</span></span><br><span class="line"><span class="hljs-comment">--（其中 as 的作用是将前面的列名变为order_date ，可以省略）</span></span><br><span class="line"><span class="hljs-comment">--TO_CHAR(order_date,'YYYY-MM-DD') 是将日期显示为指定的格式。</span></span><br><span class="line"><span class="hljs-comment">--EXTRACT(YEAR FROM order_date) 指定年份为2017的列</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> order_id, customer_id, <span class="hljs-keyword">status</span>, TO_CHAR(order_date,<span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span> orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span>  <span class="hljs-keyword">AND</span> customer_id = <span class="hljs-number">2</span> </span><br><span class="line"><span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">FROM</span> order_date) = <span class="hljs-number">2017</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> order_date;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">---分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--结合or</span></span><br><span class="line">WHERE</span><br><span class="line">    (status = 'Canceled' OR status = 'Pending')</span><br><span class="line">    AND customer_id = 44</span><br></pre></td></tr></table></figure>
+<ul>
+<li>OR</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 ture、null、false</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    customer_id,</span><br><span class="line">    <span class="hljs-keyword">status</span>,</span><br><span class="line">    TO_CHAR(order_date, <span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span></span><br><span class="line">    <span class="hljs-keyword">OR</span> <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--可以用  IN 来代替多个 or</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN(60, 61, 62)</span><br><span class="line">ORDER BY</span><br><span class="line">    order_date DESC;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fetch子句语法</li>
+</ul>
+<p>语法：</p>
+<blockquote>
+<p>[ OFFSET offset ROWS]<br> FETCH  NEXT [  row_count | percent PERCENT  ] ROWS  [ ONLY | WITH TIES ]</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">-- OFFSET子句</span></span><br><span class="line"><span class="hljs-comment">--OFFSET子句指定在行限制开始之前要跳过行数。OFFSET子句是可选的。 如果跳过它，则偏移量为0，行限制从第一行开始计算。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- FETCH子句</span></span><br><span class="line"><span class="hljs-comment">--FETCH子句指定要返回的行数或百分比。</span></span><br><span class="line"></span><br><span class="line">FETCH NEXT 1 ROWS</span><br><span class="line">FETCH FIRST 1 ROW  <span class="hljs-comment">--两句结果相同，推荐使用第二句</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ONLY | WITH TIES选项</span></span><br><span class="line"><span class="hljs-comment">--仅返回FETCH NEXT(或FIRST)后的行数或行数的百分比。</span></span><br><span class="line"><span class="hljs-comment">--WITH TIES返回与最后一行相同的排序键。请注意，如果使用WITH TIES，则必须在查询中指定一个ORDER BY子句。如果不这样做，查询将不会返回额外的行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下查询语句仅能在Oracle 12c以上版本执行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    quantity <span class="hljs-keyword">DESC</span> </span><br><span class="line"><span class="hljs-keyword">FETCH</span> <span class="hljs-keyword">NEXT</span> <span class="hljs-number">5</span> <span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">ONLY</span>;<span class="hljs-comment">--指定返回前五行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 若是</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH NEXT 5 ROWS <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--返回前五行，外加与最后一行的quantity值相同的行</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>IN </li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 确定表达式是否与值列表匹配的Oracle IN运算符的语法如下所示</span></span><br><span class="line">expression [NOT] IN (v1,v2,...)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 并且表达式的语法与子查询匹配</span></span><br><span class="line">expression [NOT] IN (subquery)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- expression - 该表达式(expression)是任何有效的表达式，它可以是要匹配的表的列。</span></span><br><span class="line"><span class="hljs-comment">-- v1, v2, v3.. - IN运算符后面是逗号分隔值列表，用于测试匹配。所有值必须与表达式具有相同的数据类型。</span></span><br><span class="line"><span class="hljs-comment">-- subquery - 子查询返回一列的结果集以测试匹配。该列还必须具有与表达式相同的数据类型。</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN (54,55,56)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    status IN('Pending','Canceled')</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下示例返回负责订单状态为取消(Canceled)的销售员的ID，名字和姓氏，参考以下查询语句</span></span><br><span class="line">    <span class="hljs-keyword">SELECT</span> employee_id, first_name, last_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> employees</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    employee_id <span class="hljs-keyword">IN</span>(</span><br><span class="line">        <span class="hljs-keyword">SELECT</span></span><br><span class="line">            <span class="hljs-keyword">DISTINCT</span> salesman_id</span><br><span class="line">        <span class="hljs-keyword">FROM</span></span><br><span class="line">            orders</span><br><span class="line">        <span class="hljs-keyword">WHERE</span></span><br><span class="line">            <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line">    )</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> first_Name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Between</li>
+</ul>
+<blockquote>
+<p>BETWEEN运算符允许指定要测试的范围。当使用BETWEEN运算符为SELECT语句返回的行形成搜索条件时，只返回其值在指定范围内的行。</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 以下说明BETWEEN运算符的语法：</span></span><br><span class="line">expression [ NOT ] BETWEEN low AND high</span><br><span class="line"></span><br><span class="line">value &gt;= low AND value &lt;= high</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    standard_cost</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    standard_cost <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">500</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">600</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    standard_cost;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--分割</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    standard_cost NOT BETWEEN 500 AND 600</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查询2016年12月1日至2016年12月31日期间客户的订单，可以使用以下语句：</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id, customer_id, <span class="hljs-keyword">status</span>, order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    order_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-31'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>LIKE</li>
+</ul>
+<blockquote>
+<p>Oracle LIKE运算符的语法如下所示：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">expresion [NOT] LIKE pattern [ ESCAPE escape_characters ]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--expression：该表达式是一个列名称或一个表达式，要针对该模式(pattern)进行测试。</span></span><br><span class="line"><span class="hljs-comment">-- pattern：该模式是在表达式中搜索的字符串。此模式包含以下通配符：％(百分号)匹配零个或多个字符的任何字符串。_(下划线)匹配任何单个字符。</span></span><br><span class="line"><span class="hljs-comment">-- escape_character：escape_character是出现在通配符前面的字符，用于指定通配符不应被解释为通配符而是常规字符。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- %通配符</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    phone</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    contacts</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    last_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'St%'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    last_name;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- NOT LIKE</span></span><br><span class="line">WHERE</span><br><span class="line">    last_name NOT LIKE 'St%'  </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- _ 通配符，表示有由四个字符组成</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_i'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 混合通配符，表示至少4个字符组成</span></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_%';</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
+<p>COMMIT语句可以用来提交当前事务的所有更改。提交后，其他用户将能够看到您的更改。</p>
+</blockquote>
+<h3 id="COMMIT语句语法："><a href="#COMMIT语句语法：" class="headerlink" title="COMMIT语句语法："></a>COMMIT语句语法：</h3><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">COMMIT</span> [ <span class="hljs-keyword">WORK</span> ] [ <span class="hljs-keyword">COMMENT</span> clause ] [ WRITE clause ] [ <span class="hljs-keyword">FORCE</span> clause ];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WORK：可选的。它被Oracle添加为符合SQL标准。使用或不使用WORK参数来执行COMMIT将产生相同的结果。</li>
+<li>COMMENT clause：可选的。 它用于<code>指定与当前事务关联的注释</code>。 该注释最多可以包含在单引号中的255个字节的文本中。 如果出现问题，它将与事务ID一起存储在名为DBA_2PC_PENDING的系统视图中。</li>
+<li>WRITE clause：可选的。 它<code>用于指定将已提交事务的重做信息写入重做日志的优先级</code>。 用这个子句，有两个参数可以指定：<code>WAIT</code> 或 <code>NOWAIT</code> (如果省略，WAIT是默认值)IMMEDIATE或BATCH(IMMEDIATE是省略时的默认值)</li>
+<li><p>FORCE clause：可选的。 它用于强制提交可能已损坏或有疑问的事务。 有了这个子句，可以用3种方式指定FORCE：FORCE’string’，[integer]或FORCE CORRUPT_XID’string’或FORCE CORRUPT_XID_ALL</p>
+</li>
+<li><p>注意</p>
+<ul>
+<li>必须拥有DBA权限才能访问系统视图 - DBA_2PC_PENDING和V$CORRUPT_XID_LIST。</li>
+<li>必须拥有DBA权限才能指定COMMIT语句的某些功能。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- COMMIT </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">COMMIT</span>;</span><br><span class="line"><span class="hljs-comment">--等价于</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">WORK</span> WRITE <span class="hljs-keyword">WAIT</span> <span class="hljs-keyword">IMMEDIATE</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 添加备注</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'This is the comment for the transaction'</span>;</span><br><span class="line"><span class="hljs-comment">-- 如果事务出错或存在疑问，COMMIT会将包含在引号中的注释与事务ID一起存储在DBA_2PC_PENDING系统视图中。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 可以通过两种方式编写可疑事务的COMMIT：</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'22.14.67'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">WORK</span> <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'22.14.67'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="回滚事务-ROLLBACK"><a href="#回滚事务-ROLLBACK" class="headerlink" title="回滚事务  ROLLBACK"></a>回滚事务  ROLLBACK</h3><ul>
+<li><p>ROLLBACK语法</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ROLLBACK</span> [ <span class="hljs-keyword">WORK</span> ] [ <span class="hljs-keyword">TO</span> [<span class="hljs-keyword">SAVEPOINT</span>] savepoint_name  | <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'string'</span> ];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>WORK：可选的。 它被Oracle添加为符合SQL标准。 使用或不使用WORK参数来发出ROLLBACK会导致相同的结果。</p>
+</li>
+<li>TO SAVEPOINT savepoint_name：可选的。 ROLLBACK语句撤消当前会话的所有更改，直到由savepoint_name指定的保存点。 如果省略该子句，则所有更改都将被撤消。</li>
+<li>FORCE ‘string’：可选的。它用于强制回滚可能已损坏或有问题的事务。 使用此子句，可以将单引号中的事务ID指定为字符串。 可以在系统视图中找到名为DBA_2PC_PENDING的事务标识。</li>
+<li>必须拥有DBA权限才能访问系统视图：DBA_2PC_PENDING和V$CORRUPT_XID_LIST。</li>
+<li>您无法将有问题的事务回滚到保存点。</li>
+</ul>
+<h3 id="SET-TRANSACTION语句（设置事务）"><a href="#SET-TRANSACTION语句（设置事务）" class="headerlink" title="SET TRANSACTION语句（设置事务）"></a>SET TRANSACTION语句（设置事务）</h3><ul>
+<li>Oracle中SET TRANSACTION语句的语法是：<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SET</span> <span class="hljs-keyword">TRANSACTION</span> [ <span class="hljs-keyword">READ</span> <span class="hljs-keyword">ONLY</span> | <span class="hljs-keyword">READ</span> WRITE ]</span><br><span class="line">                [ <span class="hljs-keyword">ISOLATION</span> <span class="hljs-keyword">LEVEL</span> [ SERIALIZE | <span class="hljs-keyword">READ</span> COMMITED ]</span><br><span class="line">                [ <span class="hljs-keyword">USE</span> <span class="hljs-keyword">ROLLBACK</span> <span class="hljs-keyword">SEGMENT</span> <span class="hljs-string">'segment_name'</span> ]</span><br><span class="line">                [ <span class="hljs-keyword">NAME</span> <span class="hljs-string">'transaction_name'</span> ];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>● READ ONLY：可以将事务设置为只读事务。</p>
+<p>● READ WRITE：可以将事务设置为读/写事务。</p>
+<p>● ISOLATION LEVEL： 如果指定，它有两个选项：</p>
+<pre><code>1.ISOLATION LEVEL SERIALIZE：如果事务尝试更新由另一个事务更新并未提交的资源，则事务将失败。
 
+2.ISOLATION LEVEL READ COMMITTED：如果事务需要另一个事务持有的行锁，则事务将等待，直到行锁被释放。
+</code></pre><p>● USE ROLLBACK SEGMENT：可选的。 如果指定，它将事务分配给由’segment_name’标识的回退段，该段是用引号括起来的段名称。</p>
+<p>● NAME：为’transaction_name’标识的事务分配一个名称，该事务用引号括起来。</p>
+<p>LOCK TABLE语句（锁表）</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">LOCK</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">tables</span> <span class="hljs-keyword">IN</span> lock_mode <span class="hljs-keyword">MODE</span> [ <span class="hljs-keyword">WAIT</span> [, <span class="hljs-built_in">integer</span>] | <span class="hljs-keyword">NOWAIT</span> ];</span><br></pre></td></tr></table></figure>
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><blockquote>
+<p>外键是强制实施参照完整性的一种方式，使用外键就意味着一个表中的值在另一个表中也必须出现。被引用的表称为父表，而带有外键的表称为子表。子表中的外键通常会引用父表中的主键。</p>
+</blockquote>
+<p>创建外键：</p>
+<ul>
+<li>使用CREATE TABLE语句创建<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">  column1 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  column2 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_column</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> supplier</span><br><span class="line">( supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  contact_name varchar2(<span class="hljs-number">50</span>),</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> supplier_pk PRIMARY <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-comment">-- CONSTRAINT 约束 ，FOREIGN KEY 外键，REFERENCES 参考 </span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-comment">--在这个例子中，我们在supplier表上创建了一个名为supplier_pk的主键。 它只包含一个字段 - supplier_id字段。 然后，在products表上创建了一个名为fk_supplier的外键，该表根据supplier_id字段引用supplier表。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 多字段外键</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier_comp</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id, supplier_name)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id, supplier_name)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>ALTER TABLE语句创建：</p>
+<ul>
+<li>ALTER TABLE语句中创建外键的语法是：<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name</span><br><span class="line">   <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>示例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">  <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">  <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--多字段外键</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">  <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id, supplier_name)</span><br><span class="line">  <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id, supplier_name);</span><br></pre></td></tr></table></figure></p>
+<h3 id="级联删除"><a href="#级联删除" class="headerlink" title="级联删除"></a>级联删除</h3><p>CREATE TABLE语句定义级联删除：</p>
+<blockquote>
+<p>所谓的级联删除是指当主表中的一条记录被删除，那么子表中所关联的记录也相应的自动删除。</p>
+</blockquote>
+<ul>
+<li>使用CREATE TABLE语句定义级联删除</li>
+</ul>
+<p>语法：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">  column1 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  column2 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_column</span><br><span class="line">     <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">     <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">     <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--本质上只需要在添加外键的最后添加 ON DELETE CASCADE 就可以。</span></span><br></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> supplier</span><br><span class="line">( supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  contact_name varchar2(<span class="hljs-number">50</span>),</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> supplier_pk PRIMARY <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id)</span><br><span class="line">    <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 创建多字段的级联删除</span></span><br><span class="line"></span><br><span class="line">  CONSTRAINT fk_supplier_comp</span><br><span class="line">    FOREIGN KEY (supplier_id, supplier_name)</span><br><span class="line">    REFERENCES supplier(supplier_id, supplier_name)</span><br><span class="line">    ON <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br></pre></td></tr></table></figure>
+<p>ALTER TABLE语句定义级联删除：</p>
+<p>语法：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name</span><br><span class="line">   <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="删除外键"><a href="#删除外键" class="headerlink" title="删除外键"></a>删除外键</h3><p>语法：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
+<p>示例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier;</span><br></pre></td></tr></table></figure></p>
+<h3 id="禁用外键"><a href="#禁用外键" class="headerlink" title="禁用外键"></a>禁用外键</h3><p>语法：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">DISABLE</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">DISABLE</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier;</span><br></pre></td></tr></table></figure>
+<h3 id="启用外键"><a href="#启用外键" class="headerlink" title="启用外键"></a>启用外键</h3><blockquote>
+<p>一般默认情况下，创建外键即启用外键</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ENABLE</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p>Ascii()函数语法</p>
+<blockquote>
+<p>Ascii()函数可以返回代表指定字符的数字值代码<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ASCII('t')</span><br><span class="line">Result: 116</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>Asciistr()函数语法</p>
+<blockquote>
+<p>Asciistr()函数可以使用数据库字符集将任何字符集中的字符串转换为ASCII字符串。下面，就为大家介绍Asciistr()函数的语法及使用方法<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ASCIISTR('A B C Ä Ê')</span><br><span class="line">Result: 'A B C 0C4 0CA'</span><br><span class="line"></span><br><span class="line">ASCIISTR('A B C Õ Ø')</span><br><span class="line">Result: 'A B C 0D5 0D8'</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>Chr()函数语法</p>
+<blockquote>
+<p>Chr()函数可以根据数字代码返回字符，其功能和ASCII函数相反</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CHR(116)</span><br><span class="line">Result: 't'</span><br><span class="line"></span><br><span class="line">CHR(84)</span><br><span class="line">Result: 'T'</span><br></pre></td></tr></table></figure>
+<p>Compose()函数语法</p>
+<blockquote>
+<p>使用Compose()函数可以返回一个Unicode字符串</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COMPOSE('o' || unistr('\0308') )</span><br><span class="line">Result: ö</span><br><span class="line"></span><br><span class="line">COMPOSE('a' || unistr('\0302') )</span><br><span class="line">Result: â</span><br></pre></td></tr></table></figure>
+<p>||运算符</p>
+<blockquote>
+<p>||运算符可以将两个或两个以上的字符串连接在一起</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">'oraok' || '.com'</span><br><span class="line"><span class="hljs-comment">-- Result: 'oraok.com'</span></span><br><span class="line"></span><br><span class="line">'a' || 'b' || 'c' || 'd'</span><br><span class="line"><span class="hljs-comment">-- Result: 'abcd'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> first_name || <span class="hljs-string">' '</span> || last_name <span class="hljs-keyword">AS</span> customer_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中：  ''''  表示连接的 一个 '   ,可以认为 ''  在''  里时， '表示转义字符，类似于java中： "c:\\Windows\\..."  \表示转移字符 一样。</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-string">'Let'</span> || <span class="hljs-string">''''</span> || <span class="hljs-string">'s'</span> || <span class="hljs-string">' learn Oracle'</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> dual;</span><br><span class="line"><span class="hljs-comment">-- Result: 'Let's learn Oracle'</span></span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -267,6 +442,10 @@
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
@@ -612,7 +791,7 @@ git config --global alias.st status
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -721,6 +900,14 @@ git config --global alias.st status
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/笔记/">
+            <span class="level-start">
+                <span class="level-item">笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
         </a></li>
             </ul>
         </div>
@@ -755,7 +942,7 @@ git config --global alias.st status
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T11:50:13.509Z">2019-03-30</time></div>
                     <a href="/2019/03/30/JavaScript/" class="has-link-black-ter is-size-6">JavaScript</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
                     </p>
                 </div>
             </div>
@@ -768,7 +955,7 @@ git config --global alias.st status
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T06:27:15.877Z">2019-03-30</time></div>
                     <a href="/2019/03/30/oracle/" class="has-link-black-ter is-size-6">oracle</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
                     </p>
                 </div>
             </div>
@@ -781,7 +968,7 @@ git config --global alias.st status
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time></div>
                     <a href="/2019/03/29/git/" class="has-link-black-ter is-size-6">git</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
                     </p>
                 </div>
             </div>
@@ -893,7 +1080,7 @@ git config --global alias.st status
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T11:50:13.509Z">2019-03-30</time></div>
                     <a href="/2019/03/30/JavaScript/" class="has-link-black-ter is-size-6">JavaScript</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
                     </p>
                 </div>
             </div>
@@ -906,7 +1093,7 @@ git config --global alias.st status
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-30T06:27:15.877Z">2019-03-30</time></div>
                     <a href="/2019/03/30/oracle/" class="has-link-black-ter is-size-6">oracle</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
                     </p>
                 </div>
             </div>
@@ -919,7 +1106,7 @@ git config --global alias.st status
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time></div>
                     <a href="/2019/03/29/git/" class="has-link-black-ter is-size-6">git</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
                     </p>
                 </div>
             </div>
