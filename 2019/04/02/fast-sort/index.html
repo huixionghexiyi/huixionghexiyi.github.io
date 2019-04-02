@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: 其他 - HuiXiong</title>
+<title>快速排序 - HuiXiong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="HuiXiong">
-<meta property="og:url" content="http://yoursite.com/categories/其他/index.html">
+    <meta name="description" content="介绍：快速排序是一种较经典的算法。基本思想就是分治法。即，将一个问题分解成若干个子问题，且子问题和原始问题有同样的规律。又因为有着相同的规律，所以，往往需要用到递归。 而运用到快速排序种，大概就是，将一段数列的排序，分为若干个小排序。我们只需要将每个小排序都排好那整体的排序一定页就排好了。 可以这样思考，一段排好序的数列有什么特点？ 通过简单的思考，我们很容易得到这样的结论： 一段排好的数列，取其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速排序">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/fast-sort/index.html">
 <meta property="og:site_name" content="HuiXiong">
+<meta property="og:description" content="介绍：快速排序是一种较经典的算法。基本思想就是分治法。即，将一个问题分解成若干个子问题，且子问题和原始问题有同样的规律。又因为有着相同的规律，所以，往往需要用到递归。 而运用到快速排序种，大概就是，将一段数列的排序，分为若干个小排序。我们只需要将每个小排序都排好那整体的排序一定页就排好了。 可以这样思考，一段排好序的数列有什么特点？ 通过简单的思考，我们很容易得到这样的结论： 一段排好的数列，取其">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-02T11:20:23.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HuiXiong">
+<meta name="twitter:title" content="快速排序">
+<meta name="twitter:description" content="介绍：快速排序是一种较经典的算法。基本思想就是分治法。即，将一个问题分解成若干个子问题，且子问题和原始问题有同样的规律。又因为有着相同的规律，所以，往往需要用到递归。 而运用到快速排序种，大概就是，将一段数列的排序，分为若干个小排序。我们只需要将每个小排序都排好那整体的排序一定页就排好了。 可以这样思考，一段排好序的数列有什么特点？ 通过简单的思考，我们很容易得到这样的结论： 一段排好的数列，取其">
 
 
 
@@ -88,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="HuiXiong" height="28">
+                <img src="/images/logo.svg" alt="快速排序" height="28">
             
             </a>
         </div>
@@ -134,34 +138,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">其他</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-26T09:41:54.857Z">2019-03-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/其他/">其他</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-04-02T07:30:28.152Z">2019-04-02</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 7 个字)
+                    5 分钟 读完 (大约 736 个字)
                 </span>
                 
                 
@@ -170,12 +158,23 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/03/26/TheWinterIsComing/"></a>
+                快速排序
             
         </h1>
         <div class="content">
-            <h1 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h1><p> 终于想通啦。</p>
-
+            <h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><p>快速排序是一种较经典的算法。基本思想就是分治法。即，将一个问题分解成若干个子问题，且子问题和原始问题有同样的规律。又因为有着相同的规律，所以，往往需要用到递归。</p>
+<p>而运用到快速排序种，大概就是，将一段数列的排序，分为若干个小排序。我们只需要将每个小排序都排好那整体的排序一定页就排好了。</p>
+<p>可以这样思考，一段排好序的数列有什么特点？</p>
+<p>通过简单的思考，我们很容易得到这样的结论：</p>
+<p>一段排好的数列，取其中任意一个元素<code>X</code>，总有：<code>X</code>左边元素的总是小于<code>X</code>，<code>X</code>右边的总是大于<code>X</code>。</p>
+<p>不要小看这个显而易见的结论哦。</p>
+<p>那么，我们可以这样，在一段无序的数列中随机取一个数。将比它小的放到它的左边，比他大的放到它右边不就好了吗？</p>
+<p>这不还是无序的吗？</p>
+<p>那么，我们继续，以刚才那个数为分界线，将左边看成一个数列。执行同样的操作。在左边的数列随机取一个数将比它小的放到它的左边，比他大的放到它右边？一直这样下去。直到剩下3个的时候，我们再随机去一个数。如果正好取到着3个数的中间个那就太好了。将剩下2个中小的放到它左边，大的放到它右边。如果不是正好是中间个，那也没关系，再来一次，剩下2个，随便取那个都可以了。那这最小的子段不久排好了吗？同样的所有段都排好了。</p>
+<p>那么怎么实现呢？</p>
+<p>实现的方式有很多种。</p>
+<p>第一种：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nums[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> pivot = right;<span class="hljs-comment">//将一段无序数列的最右边定为轴。无所谓轴在不在中间。想想是不是？</span></span><br><span class="line">    <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">    定义一个索引，一会这个索引是要和最右边的poivt交换的。</span></span><br><span class="line"><span class="hljs-comment">    从left开始遍历，如果遍历的当前元素比poivt小，则和索引所指的元素交换。</span></span><br><span class="line"><span class="hljs-comment">    索引再自增1.</span></span><br><span class="line"><span class="hljs-comment">     那么所有比pivot小的都在索引的右边了。</span></span><br><span class="line"><span class="hljs-comment">    */</span></span><br><span class="line">    <span class="hljs-keyword">int</span> index = left;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =left;i&lt;right;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(nums[i]&lt;nums[pivot])&#123;</span><br><span class="line">            swap(nums[i],nums[index]);<span class="hljs-comment">//交换</span></span><br><span class="line">            index++;<span class="hljs-comment">//自增</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//遍历完之后呢，就交换索引所指的元素和pivot</span></span><br><span class="line">     swap(nums[index],nums[pivot]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//swap是交换,这里就不写了。</span></span><br><span class="line"></span><br><span class="line"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fastSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nums[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;</span><br><span class="line">     <span class="hljs-keyword">int</span> pivot = <span class="hljs-number">0</span>;</span><br><span class="line">     <span class="hljs-keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">         pivot = partition(nums,left,right);</span><br><span class="line">         fastSort(nums,left,pivot-<span class="hljs-number">1</span>);</span><br><span class="line">         fastSort(nums,pivot+<span class="hljs-number">1</span>,right);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -185,9 +184,55 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/30/JavaScript/">
+                <span class="level-item">JavaScript</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -679,7 +724,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="HuiXiong" height="28">
+                    <img src="/images/logo.svg" alt="快速排序" height="28">
                 
                 </a>
                 <p class="is-size-7">
