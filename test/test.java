@@ -1,6 +1,10 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class test {
 
@@ -39,6 +43,8 @@ public class test {
         int[] x = new int[] { 9, 4, 1, 6, 7, 2, 3, 5, 8 };
         test t = new test();
         t.qSort(x, 0, x.length - 1);
+        LinkedList<Integer> que = new LinkedList();
+        
 
     }
 }
