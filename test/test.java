@@ -42,9 +42,8 @@ public class test {
     public static void main(String[] args) {
         int[] x = new int[] { 9, 4, 1, 6, 7, 2, 3, 5, 8 };
         test t = new test();
-        t.qSort(x, 0, x.length - 1);
+        // t.qSort(x, 0, x.length - 1);
         LinkedList<Integer> que = new LinkedList();
-        
-
+           
     }
 }
