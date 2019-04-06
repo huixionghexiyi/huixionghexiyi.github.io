@@ -43,7 +43,12 @@ public class test {
         int[] x = new int[] { 9, 4, 1, 6, 7, 2, 3, 5, 8 };
         test t = new test();
         // t.qSort(x, 0, x.length - 1);
-        LinkedList<Integer> que = new LinkedList();
-           
+      int m = 4;
+      int  n= 2;
+      int s =1;
+        t.sys(s=n=m-=3);
+    }
+    void sys(int x){
+        System.out.println(x);
     }
 }
