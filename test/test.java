@@ -2,9 +2,13 @@ package test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 
 public class test {
 
@@ -38,17 +42,39 @@ public class test {
         }
 
     }
-
-    public static void main(String[] args) {
-        int[] x = new int[] { 9, 4, 1, 6, 7, 2, 3, 5, 8 };
-        test t = new test();
-        // t.qSort(x, 0, x.length - 1);
-      int m = 4;
-      int  n= 2;
-      int s =1;
-        t.sys(s=n=m-=3);
+    public boolean isHappy(int n) {
+        Set<Integer> set = new HashSet<>();
+        int pro = -1;
+        ArrayList<Integer> list = new ArrayList<>();
+        while(!set.contains(pro)){
+            list = ex(n);
+            for(int i =0;i<list.size();i++){
+                n = n+list.get(i)*list.get(i);
+            }
+            if(n == 1)
+                return true;
+            set.add(n);
+            n = 0;
+            list.clear();
+        }
+        return false;
     }
-    void sys(int x){
-        System.out.println(x);
+    ArrayList<Integer> ex(int n){
+        ArrayList<Integer> res= new ArrayList<>();
+        int temp =0;
+        while(n>0){
+            temp = n%10;
+            res.add(temp);
+            n = n/10;
+        }
+        return res;
+    }
+    public static void main(String[] args) {
+        test test = new test();
+        System.out.println(test.isHappy(19));
+        int[] res= new int[0];
+        HashMap<Character,Character> map = new HashMap();
+        char c = ' ';
     }
 }
+
