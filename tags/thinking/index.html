@@ -150,6 +150,98 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1045 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/08/DesignModel/Singleton/"></a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h2><ul>
+<li style="list-style: none"><input type="checkbox"> 添加案例。</li>
+<li style="list-style: none"><input type="checkbox"> 添加更多单例模式的模板。</li>
+</ul>
+<h1 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h1><p>原话是：</p>
+<blockquote>
+<p>Ensure a class has only one instance,and provide a global point of access to it.</p>
+<p>确保一个类只有一个实例，并且向整个系统提供这个实例。</p>
+</blockquote>
+<p><code>java</code>中实现单例模式通常有两种表现形式：</p>
+<ul>
+<li><a href="#饿汉模式">饿汉模式单例</a>：类加载时，就进行对象的实例化。</li>
+<li><a href="#懒汉模式">懒汉模式单例</a>：第一次引用类时，才进行对象的实例化。</li>
+</ul>
+<h2 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">new</span> Singleton();</span><br><span class="line">    <span class="hljs-comment">//构造方法私有，保证外界无法实例化</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton getInstance&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<p><code>static</code>关键字：<code>static</code>修饰的变量或方法是属于类的，变量在类加载的时候就已经实例化了。<code>static</code>修饰的方法所有的对象使用的是同一个方法。</p>
+<h2 id="private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。"><a href="#private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。" class="headerlink" title="private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。"></a><code>private</code>关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被<code>private</code>修饰，不能通过对象调用。只能通过<code>static</code>修饰的静态方法调用。</h2><h2 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function">synhronized <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(instance == <span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="hljs-keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<p><code>synhronized</code>关键字：<code>同步</code>，确保在多线程的环境下也是单例，因为，当多个线程同时调用这个方法时，由于使用了<code>synhronized</code>修饰，所以产生锁。允许最先到的线程访问，其他线程等待。当锁消除时，再去访问，实例已经被创建了。直接返回即可。</p>
+<p>为什么<code>懒汉模式</code>不用<code>sunhronized</code>修饰呢？因为实例已经被创建了。即使再多线程中同时调用也不会产生多例。</p>
+<hr>
+<h2 id="单例模式的优点"><a href="#单例模式的优点" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h2><ul>
+<li>频繁被创建和销毁的场景里，使用<code>单例模式</code>减少内存开支。</li>
+<li>创建一个对象需要较多的资源和性能开支的场景里（读取配置文件、产生其他依赖对象时），使用<code>单例模式</code>减少内存开支。</li>
+<li>避免多重占用（如：写文件）。避免了同一资源的同时操作。</li>
+<li>可以在系统设置全局访问点，优化和共享资源。（如：设计一个单例类，负责所有数据表的映射处理）</li>
+</ul>
+<hr>
+<h2 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h2><ul>
+<li>无法创建子类，扩展困难。（扩展只能修改代码）</li>
+<li>不利于测试。在并行开发的环境中，若采用单例模式的类没有完成，程序无法测试。</li>
+<li>由于单例类通常不实现接口。所以无法使用<code>mock</code>的方式虚拟一个对象。(我也不知道<code>mock</code>是什么方式)。</li>
+</ul>
+<hr>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>要求生成唯一序列号的环境。</li>
+<li>项目需要一个共享访问点或共享数据。（如：web页面中的计数器，不必存放到数据库中使用单例模式能保持数值，并能确保线程安全）</li>
+<li>创建一个对象需要消耗的资源过多，如访问IO和数据库等资源。</li>
+<li>需要大量静态常量和静态方法（如：工具类）的环境，（当然，也可以直接采用<code>static</code>声明的方式）。</li>
+</ul>
+<p>在Spring框架中每个<code>Bean</code>默认的就是单例模式。java基础库中<code>java.lang.Runtime</code>也是单例模式，其中<code>getRuntime()</code>方法返回了唯一实例。</p>
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>单例类分为<code>有状态</code>和<code>无状态</code>:</p>
+<ul>
+<li>有状态单例类：有状态的单例类一般是可变的，通常当作状态库使用。如：给系统提供唯一的序列号。</li>
+<li>无状态单例类:无状态单例类的对象一般是不变的，通常用来提供工具性的功能方法。如：IO或数据库等。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time>
                 
                 <div class="level-item">
@@ -160,7 +252,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13 分钟 读完 (大约 1961 个字)
+                    14 分钟 读完 (大约 2096 个字)
                 </span>
                 
                 
@@ -169,7 +261,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/07/DesignModel/"></a>
+                <a class="has-link-black-ter" href="/2019/04/07/DesignModel/DesignModel/"></a>
             
         </h1>
         <div class="content">
@@ -199,40 +291,41 @@
 <p>作用，一般是由动词引导的，比如：<code>你按这个按钮有什么用？</code> 这里的用就是指<code>作用</code>。</p>
 <p>当然，你也可以说：<code>这个按钮的作用是指什么？</code> 这样的逻辑，其实省略了按这个动作。</p>
 <h3 id="常见的创建型设计模式"><a href="#常见的创建型设计模式" class="headerlink" title="常见的创建型设计模式"></a>常见的创建型设计模式</h3><ul>
-<li>单例模式：一个类，只有一个实例，而且自行实例化，并且向整个系统提供这个实例。</li>
+<li><a href="Singleton.md">单例模式</a>：一个类，只有一个实例，而且自行实例化，并且向整个系统提供这个实例。</li>
 <li>工厂方法模式：工厂类是抽象类，世纪的创建工作又其子类来完成。用意是定义一个创建产品对象的工厂接口，将世纪创建工作推迟到子类中，强调<code>单个对象</code>的变化。</li>
-<li>抽象工厂模式：抽象工厂可以向客户提供接口，使客户可以在没有指定产品的具体类型的情况下创建多个产品族中的产品对象，强调<code>系列对象</code>的变化。</li>
-<li>建造者模式：将构造对象实例的逻辑移到类的外部，在类的外部定义了该类的构造逻辑。把一个复杂对象的构造过程从对象的表示中分离出来，其结果是将复杂对象简化为一个简单对象，强调<code>产品的构造过程</code>。</li>
-<li>原型模式：类似于工厂模式，不同在于原型模式通过复制一个现有对象生成新对象。</li>
+<li><a href="Factory.md">抽象工厂模式</a>：抽象工厂可以向客户提供接口，使客户可以在没有指定产品的具体类型的情况下创建多个产品族中的产品对象，强调<code>系列对象</code>的变化。</li>
+<li><a href="Builder.md">建造者模式</a>：将构造对象实例的逻辑移到类的外部，在类的外部定义了该类的构造逻辑。把一个复杂对象的构造过程从对象的表示中分离出来，其结果是将复杂对象简化为一个简单对象，强调<code>产品的构造过程</code>。</li>
+<li><a href="Prototype.md">原型模式</a>：类似于工厂模式，不同在于原型模式通过复制一个现有对象生成新对象。</li>
 </ul>
 <hr>
 <h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><blockquote>
 <p>是关于类和对象的结构的模式。采用继承机制来组合接口或实现(结结构型模式)，或通过组合一些对象实现新的功能(对象结构性模式)。不同结构性模式的区别在于侧重点不同。</p>
 </blockquote>
 <ul>
-<li>代理模式：为其他对象提供一种代理以控制对该对象的访问。</li>
-<li>装饰模式：动态的给一个对象添加一些额外的职责。比生成子类更为灵活。</li>
-<li>适配器模式：将一个类的接口编程客户端所需要的接口，从而使原本因为接口不匹配而无法在一起工作的两个类能在一起工作。</li>
-<li>桥梁模式：将抽象和实现解耦，使其能独立的变化。</li>
-<li>外观模式：要求一个子系统的内部和外部的通讯必须同通过一个统一的对象进行，外观模式提供一个高层次的接口。是的子系统更易于使用。</li>
-<li>享元模式：是池技术的重要实现方式，使用共享对象可有效地支持大量的细粒度的对象。</li>
+<li><a href="Proxy.md">代理模式</a>：为其他对象提供一种代理以控制对该对象的访问。</li>
+<li><a href="Decorator.md">装饰模式</a>：动态的给一个对象添加一些额外的职责。比生成子类更为灵活。</li>
+<li><a href="Adapter.md">适配器模式</a>：将一个类的接口编程客户端所需要的接口，从而使原本因为接口不匹配而无法在一起工作的两个类能在一起工作。</li>
+<li><a href="Composite.md">组合模式</a>：将对象组合成树形结构以表示<code>部分-整体</code>的层次结构，使得用户对单个对象的组合对象的使用具有一致性。</li>
+<li><a href="Bridge.md">桥梁模式</a>：将抽象和实现解耦，使其能独立的变化。</li>
+<li><a href="Facade.md">外观模式</a>：要求一个子系统的内部和外部的通讯必须同通过一个统一的对象进行，外观模式提供一个高层次的接口。是的子系统更易于使用。</li>
+<li><a href="Flyweight.md">享元模式</a>：是池技术的重要实现方式，使用共享对象可有效地支持大量的细粒度的对象。</li>
 </ul>
 <hr>
 <h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><blockquote>
 <p>关注的是对象的行为,用来解决对象之间的联系问题。</p>
 </blockquote>
 <ul>
-<li>模板方法模式：定义一个操作中的算法的框架，而将一些步骤延迟到子类中，使得子类可以在不改变算法的结构的情况下重写定义该算法某些步骤。</li>
-<li>命令模式：是一种高内聚的模式。将一个请求封装成一个对象，从而使用不同的请求把客户端参数化。对请求排队或者记录请求日志，可以提供命令的撤消和恢复功能。</li>
-<li>责任链模式：使多个对象都有机会处理请求，从而避免了<code>请求</code>的发送者和接受者之间的耦合关系。</li>
-<li>策略模式：定义一组算法，将每个算法都封装起来，并且使他们之间可以互换。</li>
-<li>迭代器模式：提供一种方法访问一个容器对象中的各个元素，而又不需要暴露该对象的内部结构。</li>
-<li>中介者模式：用一个中介对象封装一系列对象交互，中介者使各个对象不需要显示相互作用，从而使其耦合松散，而且可以独立地改变他们之间的交互。</li>
-<li>观察者模式：定义对象间的一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。</li>
-<li>备忘录模式：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。</li>
-<li>访问者模式：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新操作。</li>
-<li>状态模式：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类型，状态模式的核心是封装，状态的变更会引起行为的变更。</li>
-<li>解释器模式：给定一门<code>语言</code>，定义它的<code>文法</code>的一种表示，并定义一个<code>解释器</code>，该解释器使用该<code>文法</code>表示来解释语言中的句子。</li>
+<li><a href="TemplateMethod.md">模板方法模式</a>：定义一个操作中的算法的框架，而将一些步骤延迟到子类中，使得子类可以在不改变算法的结构的情况下重写定义该算法某些步骤。</li>
+<li><a href="Command.md">命令模式</a>：是一种高内聚的模式。将一个请求封装成一个对象，从而使用不同的请求把客户端参数化。对请求排队或者记录请求日志，可以提供命令的撤消和恢复功能。</li>
+<li><a href="ChainOfResponsibility.md">责任链模式</a>：使多个对象都有机会处理请求，从而避免了<code>请求</code>的发送者和接受者之间的耦合关系。</li>
+<li><a href="Stategy.md">策略模式</a>：定义一组算法，将每个算法都封装起来，并且使他们之间可以互换。</li>
+<li><a href="Iterator.md">迭代器模式</a>：提供一种方法访问一个容器对象中的各个元素，而又不需要暴露该对象的内部结构。</li>
+<li><a href="Mediator.md">中介者模式</a>：用一个中介对象封装一系列对象交互，中介者使各个对象不需要显示相互作用，从而使其耦合松散，而且可以独立地改变他们之间的交互。</li>
+<li><a href="Oberver.md">观察者模式</a>：定义对象间的一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。</li>
+<li><a href="Memento.md">备忘录模式</a>：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。</li>
+<li><a href="Visitor.md">访问者模式</a>：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新操作。</li>
+<li><a href="State.md">状态模式</a>：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类型，状态模式的核心是封装，状态的变更会引起行为的变更。</li>
+<li><a href="Interpreter.md">解释器模式</a>：给定一门<code>语言</code>，定义它的<code>文法</code>的一种表示，并定义一个<code>解释器</code>，该解释器使用该<code>文法</code>表示来解释语言中的句子。</li>
 </ul>
 <hr>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
@@ -245,6 +338,16 @@
 <p><code>行为型模式</code>关注的是对象的行为,用来解决对象之间的联系问题。</p>
 </blockquote>
 <p>今天就先大概的了解一下，多读几遍，名称和其功能可以说是比较吻合的。发挥想象力。记不住没关系，<code>重复是一种高效的记忆法。</code></p>
+<hr>
+<p>更新 2019年4月8日</p>
+<h2 id="六大原则"><a href="#六大原则" class="headerlink" title="六大原则"></a>六大原则</h2><ul>
+<li>单一职责原则</li>
+<li>里氏原则</li>
+<li>依赖倒置原则</li>
+<li>接口隔离原则</li>
+<li>迪米特原则</li>
+<li>开闭原则</li>
+</ul>
 
         </div>
         
@@ -303,7 +406,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        13
+                        14
                     </p>
                 </div>
             </div>
@@ -313,7 +416,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        6
                     </p>
                 </div>
             </div>
@@ -454,6 +557,14 @@
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/设计模式-创建型模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式-创建型模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
         </a></li>
             </ul>
         </div>
@@ -466,7 +577,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Chaos/" style="font-size: 10px;">Chaos</a> <a href="/tags/others/" style="font-size: 10px;">others</a> <a href="/tags/programme/" style="font-size: 20px;">programme</a> <a href="/tags/thinking/" style="font-size: 10px;">thinking</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
+        <a href="/tags/Chaos/" style="font-size: 10px;">Chaos</a> <a href="/tags/others/" style="font-size: 10px;">others</a> <a href="/tags/programme/" style="font-size: 20px;">programme</a> <a href="/tags/thinking/" style="font-size: 20px;">thinking</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
     </div>
 </div>
 
@@ -485,6 +596,32 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/DesignModel/Singleton/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time></div>
                     <a href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/" class="has-link-black-ter is-size-6">TAPD第四天</a>
                     <p class="is-size-7 is-uppercase">
@@ -498,21 +635,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T11:37:25.889Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/tempCodeRunnerFile/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/DesignModel/" class="has-link-black-ter is-size-6"></a>
+                    <a href="/2019/04/07/DesignModel/DesignModel/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -526,19 +650,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time></div>
                     <a href="/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/" class="has-link-black-ter is-size-6">TAPD第三天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-06T00:53:24.035Z">2019-04-06</time></div>
-                    <a href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/" class="has-link-black-ter is-size-6">TAPD第二天</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
@@ -564,7 +675,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">8</span>
+                    <span class="level-item tag">9</span>
                 </span>
             </a>
         </li>
@@ -617,7 +728,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -655,6 +766,32 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/DesignModel/Singleton/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time></div>
                     <a href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/" class="has-link-black-ter is-size-6">TAPD第四天</a>
                     <p class="is-size-7 is-uppercase">
@@ -668,21 +805,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T11:37:25.889Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/tempCodeRunnerFile/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/DesignModel/" class="has-link-black-ter is-size-6"></a>
+                    <a href="/2019/04/07/DesignModel/DesignModel/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -696,19 +820,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time></div>
                     <a href="/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/" class="has-link-black-ter is-size-6">TAPD第三天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-06T00:53:24.035Z">2019-04-06</time></div>
-                    <a href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/" class="has-link-black-ter is-size-6">TAPD第二天</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
@@ -734,7 +845,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">8</span>
+                    <span class="level-item tag">9</span>
                 </span>
             </a>
         </li>
@@ -787,7 +898,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

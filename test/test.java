@@ -69,6 +69,7 @@ public class test {
         }
         return res;
     }
+    
     public static void main(String[] args) {
         // test test = new test();
         // System.out.println(test.isHappy(19));
