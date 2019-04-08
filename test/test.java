@@ -74,7 +74,8 @@ public class test {
         System.out.println(test.isHappy(19));
         int[] res= new int[0];
         HashMap<Character,Character> map = new HashMap();
-        char c = ' ';
+        String str = new String();
+        StringBuilder strb = new StringBuilder();
     }
 }
 

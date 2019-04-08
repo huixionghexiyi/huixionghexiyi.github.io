@@ -17,7 +17,7 @@
 <meta property="og:description" content="重要概念； 暂存区     工作区(workspace)  暂存区(stage)  当前版本(master)      指令初始化： git init 把文件添加到仓库:三种类型 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库：message自行修改 git commit">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/03/29/git/images/git分区.jpg">
-<meta property="og:updated_time" content="2019-04-07T05:38:21.258Z">
+<meta property="og:updated_time" content="2019-04-08T01:48:40.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git">
 <meta name="twitter:description" content="重要概念； 暂存区     工作区(workspace)  暂存区(stage)  当前版本(master)      指令初始化： git init 把文件添加到仓库:三种类型 git add &amp;lt;filename&amp;gt; git add &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; git add . 把文件提交到仓库：message自行修改 git commit">
@@ -156,7 +156,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1311 个字)
+                    9 分钟 读完 (大约 1377 个字)
                 </span>
                 
                 
@@ -194,7 +194,7 @@ git add .
 <pre><code>git diff &lt;filename&gt;
 </code></pre><p>查看日志记录：</p>
 <pre><code>git log
-git log --pretty=oneline
+git log --pretty=oneline 
 </code></pre><p>回到前面的版本：</p>
 <pre><code>git reset --hard HEAD^
 git reset --hard HEAD^^
@@ -204,8 +204,8 @@ git reset --hard HEAD~100
 </code></pre><p>我们使用<code>git add</code> 将修改的文件提交到stage，再使用<code>git commit</code>一次性将stage中的所有提交到<code>master</code>（这里指<code>master</code>这个分支）里。</p>
 <p>丢弃工作区的内容：（本质是用版本库替换掉工workspace的内容,也可以看作是切换分支）<br>若<code>stage</code>中有内容就恢复成<code>stage</code>,没有则恢复<code>master</code>中的。</p>
 <pre><code>git checkout -- &lt;filename&gt;
-</code></pre><p>切换分支：</p>
-<pre><code>git checkout -b &lt;borund&gt;
+</code></pre><p>创建并切换分支：</p>
+<pre><code>git checkout -b &lt;branch&gt;
 </code></pre><p>将<code>stage</code>中的恢复到<code>workspace</code>中</p>
 <pre><code>git reset HEAD &lt;filename&gt;
 </code></pre><p>删除文件</p>
@@ -219,14 +219,14 @@ git reset --hard HEAD~100
 </code></pre><p>推送master分支到远程仓库：(第一次需要加 <code>-u</code> ，以后不需要)</p>
 <pre><code>git push -u origin master
 </code></pre><p>从远程仓库<code>clone</code> 一个仓库：</p>
-<pre><code>git clone git@github.com:michaelliao/gitskills.git
+<pre><code>git clone git@github.com:huixionghexiyi/gitskills.git
 </code></pre><p>删除本地仓库和远程仓库的关联关系：</p>
 <pre><code>git remote remove origin
 </code></pre><hr>
 <h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>创建分支</p>
 <pre><code>git checkout -b dev
-</code></pre><p>或</p>
-<pre><code>git branch dev
+或  
+git branch dev
 git checkout dev
 </code></pre><p>查看分支</p>
 <pre><code>git branch
@@ -246,14 +246,12 @@ git merge &lt;目标分支&gt;
 --pretty-oneline 单行查看
 --abbrev-commit  缩写的commit id
 </code></pre><hr>
-<h3 id="分支的知识点"><a href="#分支的知识点" class="headerlink" title="分支的知识点"></a>分支的知识点</h3><p>通常情况下：合并分支的时候回默认<code>Fast forward</code> 方式。（即文件没有被修改/删除，文件只是被添加（ps:我自己的理解））</p>
+<h3 id="分支的知识点："><a href="#分支的知识点：" class="headerlink" title="分支的知识点："></a>分支的知识点：</h3><p>通常情况下：合并分支的时候会默认使用<code>Fast forward</code> 方式。（即文件没有被修改/删除，文件只是被添加（ps:我自己的理解））</p>
 <p>禁止<code>Fast forward</code>方式的合并</p>
-<pre><code>git merge --no-off -m &quot;message&quot; &lt;branch&gt; 
-</code></pre><p>分支策略：</p>
-<p><code>master</code>应该是非常稳定的，<code>dev</code>是不稳定的，干活就从<code>dev</code>上再分支到每个人。</p>
-<p>对付bug分支：</p>
-<p><code>stash</code>，储藏(临时保存点)</p>
-<p>保存进度</p>
+<pre><code>git merge --no-ff -m &quot;message&quot; &lt;branch&gt; 
+</code></pre><h3 id="分支策略："><a href="#分支策略：" class="headerlink" title="分支策略："></a>分支策略：</h3><p><code>master</code>应该是非常稳定的，<code>dev</code>是不稳定的，干活的话，就是每个人就从<code>dev</code>上创建自己的分支。</p>
+<h3 id="对付bug分支："><a href="#对付bug分支：" class="headerlink" title="对付bug分支："></a>对付<code>bug</code>分支：</h3><p><code>stash</code>，储藏(临时保存点)</p>
+<p>保存当前工作区的进度</p>
 <pre><code>git stash
 </code></pre><p>查看进度的储存list</p>
 <pre><code>git stash list 
@@ -261,11 +259,11 @@ git merge &lt;目标分支&gt;
 <pre><code>git stash apply
 git stash drop
 </code></pre><p>或</p>
-<pre><code>git stash opo
+<pre><code>git stash pop
 </code></pre><p>读取指定的进度</p>
 <pre><code>git stash apply stash@{0}
 </code></pre><hr>
-<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><p>多人需要协作时。在<code>github</code>的项目仓库的设置中的<code>Collaborators</code>选项中将对方邀请进来即可。对方接受，他就对项目可以有写的权限。</p>
+<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><p>多人需要协作时。在<code>github</code>的项目仓库的设置中的<code>Collaborators</code>选项中将对方邀请进来即可。对方接受，他就对项目可以有写的权限。但是只有项目的拥有者可以选择合并哪个分支到<code>master</code>上（ps：自己的理解）。</p>
 <hr>
 <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p>创建标签</p>
 <pre><code>git tag &lt;标签名&gt;
@@ -293,7 +291,7 @@ git push origin --tags
 <pre><code>git push origin :refs/tags/&lt;标签名&gt;
 </code></pre></li>
 </ul>
-<h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库fork到自己的仓库，然后clone到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
+<h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库<code>fork</code>到自己的仓库，然后<code>clone</code>到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
 <h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>忽略特殊文件：</p>
 <p>只需要有一个<code>.gitignore</code> 文件即可。在里面添加要忽略的文件。</p>
 <p>常用用的<code>.gitignore</code>文件：</p>
@@ -319,13 +317,15 @@ git config --global alias.st status
     name = Your Name
     email = your@email.com
 </code></pre><p>只需要删除alias中的行即可</p>
-<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2><pre><code>这个再讲。
-</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>每次<code>commit</code>之后都有一个<code>commit id</code> ，而 所有的其他东西都是围绕着<code>commit id</code>在运转。所以在项目中<code>commit</code>之前一定要想好。</p>
+<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2><pre><code>这个暂时不需要。
+</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>每次<code>commit</code>之后都有一个<code>commit id</code> ，而所有的其他操作都是围绕着<code>commit id</code>在运转。所以在项目中<code>commit</code>之前一定要想好。</p>
 <p>无论是<code>master</code>、<code>dev</code>、还是<code>HEAD</code> 指针，都是围绕着<code>commit id</code>，变换指向，来实现不同版本之间的切换。</p>
 <h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>2019年3月30日</p>
 <p>强制本地覆盖远程的分支</p>
 <pre><code>git push origin &lt;branch&gt; --force
-</code></pre>
+</code></pre><p>2019年4月8日</p>
+<p>更新一些错别字</p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -445,7 +445,7 @@ git config --global alias.st status
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        11
+                        12
                     </p>
                 </div>
             </div>
@@ -627,6 +627,19 @@ git config --global alias.st status
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T11:37:25.889Z">2019-04-07</time></div>
+                    <a href="/2019/04/07/tempCodeRunnerFile/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time></div>
                     <a href="/2019/04/07/DesignModel/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -675,19 +688,6 @@ git config --global alias.st status
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T05:01:48.975Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/arithmeticNote/" class="has-link-black-ter is-size-6">算法思路总结</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/arithmeticNote/">arithmeticNote</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -706,7 +706,7 @@ git config --global alias.st status
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -797,6 +797,19 @@ git config --global alias.st status
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T11:37:25.889Z">2019-04-07</time></div>
+                    <a href="/2019/04/07/tempCodeRunnerFile/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time></div>
                     <a href="/2019/04/07/DesignModel/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -845,19 +858,6 @@ git config --global alias.st status
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T05:01:48.975Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/arithmeticNote/" class="has-link-black-ter is-size-6">算法思路总结</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/arithmeticNote/">arithmeticNote</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -876,7 +876,7 @@ git config --global alias.st status
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
