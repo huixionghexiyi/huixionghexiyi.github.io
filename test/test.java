@@ -70,12 +70,23 @@ public class test {
         return res;
     }
     public static void main(String[] args) {
-        test test = new test();
-        System.out.println(test.isHappy(19));
-        int[] res= new int[0];
+        // test test = new test();
+        // System.out.println(test.isHappy(19));
+        // int[] res= new int[0];
         HashMap<Character,Character> map = new HashMap();
-        String str = new String();
-        StringBuilder strb = new StringBuilder();
+        // String str = new String();
+        // StringBuilder strb = new StringBuilder();
+        // List<String> list= new ArrayList();
+        // list.clear();
+        // int max= Integer.MAX_VALUE;
+        Integer i = (int)'f';
+        System.out.println(i);
+        for (int var : map.values()) {
+            
+        }
+        
+
+
     }
 }
 

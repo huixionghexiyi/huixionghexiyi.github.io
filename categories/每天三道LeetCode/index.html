@@ -151,6 +151,57 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 312 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/">TAPD第四天</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/813/" target="_blank" rel="noopener">两个列表的最小索引和/输出元素</a></p>
+<p>思路：</p>
+<p>将其中一个<code>list</code>放入<code>HaspMap</code>中，遍历另一个<code>list</code>，通过<code>map.containsKey()</code>判断是否存在。具体代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> String[] findRestaurant(String[] list1, String[] list2) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> indexSum = Integer.MAX_VALUE;</span><br><span class="line">        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">        HashMap&lt;String,Integer&gt; map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list1.length;i++)&#123;<span class="hljs-comment">//将lsit1放入map中</span></span><br><span class="line">            map.put(list1[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;list2.length;j++)&#123;<span class="hljs-comment">//遍历list2</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(list2[j]))&#123;<span class="hljs-comment">//如果存在相同的key</span></span><br><span class="line">                <span class="hljs-keyword">if</span>((map.get(list2[j])+j)&lt;indexSum)&#123;<span class="hljs-comment">//如果索引最小</span></span><br><span class="line">                    indexSum = map.get(list2[j])+j;<span class="hljs-comment">//更新索引的和</span></span><br><span class="line">                    list.clear();<span class="hljs-comment">//清空结果</span></span><br><span class="line">                    list.add(list2[j]);<span class="hljs-comment">//重新添加</span></span><br><span class="line">                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>((map.get(list2[j])+j)==indexSum)&#123;<span class="hljs-comment">//如果索引和相等</span></span><br><span class="line">                    list.add(list2[j]);<span class="hljs-comment">//直接添加到结果</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] ss = <span class="hljs-keyword">new</span> String[list.size()];<span class="hljs-comment">//将list转成String[] 返回           </span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;k&lt;list.size();k++)&#123;</span><br><span class="line">            ss[k] = list.get(k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> ss;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/815/" target="_blank" rel="noopener">字符串中第一个唯一字符</a></p>
+<p><code>map</code>不只是用<code>java</code>给我们的<code>map</code>,数组，在某种意义上来讲也是<code>map</code>。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">firstUniqChar</span><span class="hljs-params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> map[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length();i++)</span><br><span class="line">            map[s.charAt(i) - <span class="hljs-string">'a'</span>]++;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length();i++)</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[s.charAt(i) - <span class="hljs-string">'a'</span>] == <span class="hljs-number">1</span>)</span><br><span class="line">                <span class="hljs-keyword">return</span> i;</span><br><span class="line">        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time>
                 
                 <div class="level-item">
@@ -397,7 +448,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        13
                     </p>
                 </div>
             </div>
@@ -530,7 +581,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                 <span class="level-item">每天三道LeetCode</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/笔记/">
@@ -574,6 +625,19 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/" class="has-link-black-ter is-size-6">TAPD第四天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -627,19 +691,6 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T08:03:56.336Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/ThreeAlgorithmPerDay/FirstDay/" class="has-link-black-ter is-size-6">TAPD第一天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -658,7 +709,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">8</span>
                 </span>
             </a>
         </li>
@@ -749,6 +800,19 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/" class="has-link-black-ter is-size-6">TAPD第四天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T11:37:25.889Z">2019-04-07</time></div>
                     <a href="/2019/04/07/tempCodeRunnerFile/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -797,19 +861,6 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T08:03:56.336Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/ThreeAlgorithmPerDay/FirstDay/" class="has-link-black-ter is-size-6">TAPD第一天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -828,7 +879,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">8</span>
                 </span>
             </a>
         </li>
