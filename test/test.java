@@ -77,14 +77,11 @@ public class test {
         HashMap<Character,Character> map = new HashMap();
         // String str = new String();
         // StringBuilder strb = new StringBuilder();
-        // List<String> list= new ArrayList();
+        List<String> list= new ArrayList();
         // list.clear();
         // int max= Integer.MAX_VALUE;
         Integer i = (int)'f';
-        System.out.println(i);
-        for (int var : map.values()) {
-            
-        }
+        list.z
         
 
 
