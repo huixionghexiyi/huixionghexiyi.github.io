@@ -81,10 +81,8 @@ public class test {
         // list.clear();
         // int max= Integer.MAX_VALUE;
         Integer i = (int)'f';
-        list.z
-        
-
-
+        int[] m = new  int['c'];
+        list.
     }
 }
 

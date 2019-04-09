@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>归档: 2019/4 - HuiXiong</title>
+<title>TAPD第五天 - HuiXiong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="HuiXiong">
-<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
+    <meta name="description" content="单词子集 题目讲得可能让人有点迷糊，简单再介绍一下题目的意思。大概意思是：在String[] A中有很多单词，String[] B中有很多单词片段(单词片段就是，从一个单词中提取出来的字母的组合，没有顺序)。 要求，找出A中包含B中所有单词片段的单词。注意：是找出单词。 思路：让每个单词中字母的数量和片段B中同一字母在所有片段中出现的次数的最高值做比较。 如果比前者所有的字母的数量都比后者多，那么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TAPD第五天">
+<meta property="og:url" content="http://yoursite.com/2019/04/09/ThreeAlgorithmPerDay/FifthDay/index.html">
 <meta property="og:site_name" content="HuiXiong">
+<meta property="og:description" content="单词子集 题目讲得可能让人有点迷糊，简单再介绍一下题目的意思。大概意思是：在String[] A中有很多单词，String[] B中有很多单词片段(单词片段就是，从一个单词中提取出来的字母的组合，没有顺序)。 要求，找出A中包含B中所有单词片段的单词。注意：是找出单词。 思路：让每个单词中字母的数量和片段B中同一字母在所有片段中出现的次数的最高值做比较。 如果比前者所有的字母的数量都比后者多，那么">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-09T06:29:36.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HuiXiong">
+<meta name="twitter:title" content="TAPD第五天">
+<meta name="twitter:description" content="单词子集 题目讲得可能让人有点迷糊，简单再介绍一下题目的意思。大概意思是：在String[] A中有很多单词，String[] B中有很多单词片段(单词片段就是，从一个单词中提取出来的字母的组合，没有顺序)。 要求，找出A中包含B中所有单词片段的单词。注意：是找出单词。 思路：让每个单词中字母的数量和片段B中同一字母在所有片段中出现的次数的最高值做比较。 如果比前者所有的字母的数量都比后者多，那么">
 
 
 
@@ -88,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="HuiXiong" height="28">
+                <img src="/images/logo.svg" alt="TAPD第五天" height="28">
             
             </a>
         </div>
@@ -133,225 +137,117 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 541 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                TAPD第五天
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://leetcode-cn.com/problems/word-subsets/submissions/" target="_blank" rel="noopener">单词子集</a></p>
+<p>题目讲得可能让人有点迷糊，简单再介绍一下题目的意思。大概意思是：<br>在<code>String[] A</code>中有很多单词，<code>String[] B</code>中有很多单词片段(单词片段就是，从一个单词中提取出来的字母的组合，没有顺序)。</p>
+<p>要求，找出A中包含B中所有单词片段的单词。注意：是找出单词。</p>
+<p>思路：让<code>每个单词中字母的数量</code>和<code>片段B中同一字母在所有片段中出现的次数的最高值</code>做比较。</p>
+<p>如果比前者所有的字母的数量都比后者多，那么这个单词满足条件。</p>
+<p>具体实现：通过<code>Map</code>是一种比较容易想到的方法。为A中没每个单词申请一个<code>Map</code>，存入字母和它在单词中的数量。将B中所有片段的<code>同一字母</code>和它<code>出现次数的最高值</code>保存到一个Map中。</p>
+<p>当然，数组也可以看成一种Map。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">wordSubsets</span><span class="hljs-params">(String[] A, String[] B)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">        <span class="hljs-keyword">if</span>(A == <span class="hljs-keyword">null</span>||B == <span class="hljs-keyword">null</span>||A.length == <span class="hljs-number">0</span> || B.length == <span class="hljs-number">0</span>)</span><br><span class="line">            <span class="hljs-keyword">return</span> res;</span><br><span class="line">        <span class="hljs-keyword">int</span> n = A.length;</span><br><span class="line">        <span class="hljs-keyword">int</span> m = B.length;</span><br><span class="line">        <span class="hljs-comment">//map中的key为A[i]中某个字符，value为A[i]中某个字符出现的次数</span></span><br><span class="line">         <span class="hljs-keyword">int</span>[][] mapA = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n][<span class="hljs-number">26</span>];</span><br><span class="line">         <span class="hljs-keyword">int</span>[]   mapB = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">        <span class="hljs-comment">//每一个map分别存储A中每一个单词的每一个字母出现的次数。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;A[i].length();j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">char</span> key = A[i].charAt(j);</span><br><span class="line">                mapA[i][key-<span class="hljs-string">'a'</span>]+=<span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="hljs-comment">//temp存储B中一个单词所有字母出现的次数。</span></span><br><span class="line">            <span class="hljs-keyword">int</span>[] temp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j =<span class="hljs-number">0</span>; j&lt;B[i].length();j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">char</span> key = B[i].charAt(j);</span><br><span class="line">                temp[key-<span class="hljs-string">'a'</span>] += <span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;temp.length;j++)&#123;</span><br><span class="line">        <span class="hljs-comment">//mapB中key存储B中所有单词的所有字母，value：该字母再所有单词中出现的次数最多的值。</span></span><br><span class="line">                <span class="hljs-keyword">if</span>(temp[j] == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                <span class="hljs-keyword">if</span>(mapB[j]!=<span class="hljs-number">0</span>)</span><br><span class="line">                    mapB[j] =Math.max(mapB[j],temp[j]);</span><br><span class="line">                <span class="hljs-keyword">else</span></span><br><span class="line">                    mapB[j] = temp[j];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//判断A[i]是否是B的父集有2种可能：A中没有字母B中的字母，A中字母出现的次数小于B中出现的次数。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;mapB.length;j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(mapB[j]!=<span class="hljs-number">0</span>)&#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span>(mapA[i][j]&lt;mapB[j])</span><br><span class="line">                        flag = <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(flag)</span><br><span class="line">                res.add(A[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/64/introduction-to-a-bst/172/" target="_blank" rel="noopener">二叉搜索树迭代器</a></p>
+<p>我们知道二叉搜索树里，往往和中序遍历联系在一起。迭代器也是这样。</p>
+<p>最愚蠢的一种做法时，我们将树通过中序遍历放入一个list中，然后再用一个索引指向我们要输出的值。</p>
+<p>回忆一下，中序遍历时如何实现的呢？</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//递归</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> ;</span><br><span class="line">        dfs(root.left);</span><br><span class="line">        list.add(root.val);</span><br><span class="line">        dfs(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//迭代</span></span><br><span class="line">    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">inorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        Stack&lt;TreeNode&gt; st = <span class="hljs-keyword">new</span> Stack();</span><br><span class="line">        TreeNode curr = root;</span><br><span class="line">        <span class="hljs-keyword">while</span>(curr!=<span class="hljs-keyword">null</span>||!st.isEmpty())&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(curr!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                st.push(curr);</span><br><span class="line">                curr = curr.left;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                curr = st.pop();</span><br><span class="line">                list.add(curr.val);</span><br><span class="line">                curr = curr.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>很显然，我们在迭代的中序遍历中很难再插入操作。而在迭代的中序遍历中很方便插入操作。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BSTIterator</span> </span>&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BSTIterator</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">while</span>(root!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            stack.push(root);</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/** <span class="hljs-doctag">@return</span> the next smallest number */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        TreeNode node = stack.pop();</span><br><span class="line">        <span class="hljs-keyword">if</span>(node.right!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            TreeNode temp = node.right;</span><br><span class="line">            <span class="hljs-keyword">while</span>(temp!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                stack.push(temp);</span><br><span class="line">                temp = temp.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> node.val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/** <span class="hljs-doctag">@return</span> whether we have a next smallest number */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(stack.isEmpty())</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
 
-<div class="card widget">
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        四月 2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time>
-                        <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time>
-                        <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time>
-                        <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time>
-                        <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time>
-                        <a href="/2019/04/08/DesignModel/Singleton/" class="has-link-black-ter is-size-6"></a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time>
-                        <a href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/" class="has-link-black-ter is-size-6">TAPD第四天</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time>
-                        <a href="/2019/04/07/DesignModel/DesignModel/" class="has-link-black-ter is-size-6"></a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time>
-                        <a href="/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/" class="has-link-black-ter is-size-6">TAPD第三天</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-06T00:53:24.035Z">2019-04-06</time>
-                        <a href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/" class="has-link-black-ter is-size-6">TAPD第二天</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-04T08:03:56.336Z">2019-04-04</time>
-                        <a href="/2019/04/04/ThreeAlgorithmPerDay/FirstDay/" class="has-link-black-ter is-size-6">TAPD第一天</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
 
 
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/04/page/0/">上一页</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/09/DesignModel/Factory/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item"></span>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/04/page/2/">下一页</a>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/08/DesignModel/Decorator/">
+                <span class="level-item"></span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link is-current" href="/archives/2019/04/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2019/04/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -915,7 +811,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="HuiXiong" height="28">
+                    <img src="/images/logo.svg" alt="TAPD第五天" height="28">
                 
                 </a>
                 <p class="is-size-7">
