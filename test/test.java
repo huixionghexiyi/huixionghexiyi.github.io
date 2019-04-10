@@ -69,20 +69,38 @@ public class test {
         }
         return res;
     }
-    
+    public boolean wordPattern(String pattern, String str) {
+        String[] ss = str.split(" ");
+        char[] cs = pattern.toCharArray();
+        // if(ss.length!=cs.length) return false;
+        String[] save = new String[26];
+        for(int i = 0 ;i<ss.length;i++){
+            if(save[cs[i]-'a']==null)
+                save[cs[i]-'a'] = ss[i];
+            else{
+                if(save[cs[i]-'a'].equals(ss[i])){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     public static void main(String[] args) {
-        // test test = new test();
+        test test = new test();
         // System.out.println(test.isHappy(19));
         // int[] res= new int[0];
         HashMap<Character,Character> map = new HashMap();
         // String str = new String();
         // StringBuilder strb = new StringBuilder();
-        List<String> list= new ArrayList();
+        // List<String> list= new ArrayList();
         // list.clear();
         // int max= Integer.MAX_VALUE;
-        Integer i = (int)'f';
-        int[] m = new  int['c'];
-        list.
+        // Integer i = (int)'f';
+        // int[] m = new  int['c'];
+        // String s = new String();
+        // s.split(" ");
+        Set<Integer> set = new HashSet();
+        
     }
 }
 

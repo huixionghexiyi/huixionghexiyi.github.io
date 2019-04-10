@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1428 个字)
+                    14 分钟 读完 (大约 2173 个字)
                 </span>
                 
                 
@@ -216,7 +216,30 @@
 <li>与其他模式混合使用。从而构造出扩展性更好的设计。</li>
 </ul>
 <hr>
-<h1 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h1>
+<h1 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h1><p>英文原话：</p>
+<p>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
+<p>为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类。</p>
+<p>当有多个业务品种需要分类时，通过抽象工厂模式产生需要的对象时一种非常好多解决方法。</p>
+<p>四种角色：</p>
+<p><a href="#工厂方法模式的四种角色：">与工厂方法模式相同。</a></p>
+<p>针对的是一族产品。如果产品族中只有一族产品，则等同于工厂方法模式。</p>
+<p>优点：</p>
+<p>约束为非公开状态，在不同的工厂中，各种产品之间可能具有不同的相互依赖关系，这些依赖关系由工厂封装在其内部对于工厂的使用者来说不可见。</p>
+<p>扩展非常容易。若要针对同一产品族简历新的生产线，只需实现产品族中所有产品接口并建立新的工厂类即可。</p>
+<p>缺点：</p>
+<p>产品族本身的扩展非常困难。如果产品族中增加一个新的产品类型，则需要修改多个接口，并影响已有的工厂类。</p>
+<p>应用场景：</p>
+<p>当一个对象族（或是一组没有任何关系的对象）都有一组相同的约束时，可以使用抽象工厂模式。</p>
+<p>例如：应用需要涉及不同的操作系统时，可以考虑使用抽象工厂模式，如果需要在三个不同的平台（Windows、Linux、Android）上运行，则可以通过抽象工厂模式屏蔽操作系统对应用的影响。三个擦欧总系统的功能、逻辑、UI都应该非常相似，不同的时调用的工厂方法不同。有不同的产品类去处理其与操作系统交互的信息。</p>
+<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a><code>实例：</code></h3><p>抽象工厂：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//英雄生产抽象工厂</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//获取力量型英雄</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体工厂:<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SentinelFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line"><span class="hljs-comment">//近卫军团工厂</span></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StrengHero(<span class="hljs-string">"斧王-力量"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IAgileHero <span class="hljs-title">getAgileHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AgileHero(<span class="hljs-string">"影魔-敏捷"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体工厂<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScourgeFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line"><span class="hljs-comment">//天灭军团工厂</span></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StrengHero(<span class="hljs-string">"流浪剑圣-力量"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IAgileHero <span class="hljs-title">getAgileHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AgileHero(<span class="hljs-string">"剑客-敏捷"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抽象产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IStrengthHero</span></span>&#123;<span class="hljs-comment">//力量型</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StrengHero</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IStrengthHero</span></span>&#123;<span class="hljs-comment">//力量型英雄的具体实现类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StrengHero</span><span class="hljs-params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>();</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"创建力量型英雄："</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抽象产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IAgileHero</span></span>&#123;<span class="hljs-comment">//敏捷型</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AgileHero</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IAgileHero</span></span>&#123;<span class="hljs-comment">//力量型英雄的具体实现类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AgileHero</span><span class="hljs-params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>();</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"创建敏捷型英雄："</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
         </div>
         
         
@@ -366,7 +389,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        17
+                        18
                     </p>
                 </div>
             </div>
@@ -499,7 +522,7 @@
                 <span class="level-item">每天三道LeetCode</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/笔记/">
@@ -556,6 +579,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
+                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
                     <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -604,19 +640,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Singleton/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -635,7 +658,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -726,6 +749,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
+                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
                     <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -774,19 +810,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Singleton/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -805,7 +828,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>

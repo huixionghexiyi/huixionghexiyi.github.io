@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: arithmeticNote - HuiXiong</title>
+<title>TAPD第六天 - HuiXiong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="HuiXiong">
-<meta property="og:url" content="http://yoursite.com/categories/arithmeticNote/index.html">
+    <meta name="description" content="填充每个节点的下一个右侧节点指针 递归：一个间隙一个间隙的遍历。 123456789101112131415161718192021222324252627282930313233343536/*// Definition for a Node.class Node &amp;#123;    public int val;    public Node left;    public Node righ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TAPD第六天">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/ThreeAlgorithmPerDay/SixthDay/index.html">
 <meta property="og:site_name" content="HuiXiong">
+<meta property="og:description" content="填充每个节点的下一个右侧节点指针 递归：一个间隙一个间隙的遍历。 123456789101112131415161718192021222324252627282930313233343536/*// Definition for a Node.class Node &amp;#123;    public int val;    public Node left;    public Node righ">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-10T05:18:35.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HuiXiong">
+<meta name="twitter:title" content="TAPD第六天">
+<meta name="twitter:description" content="填充每个节点的下一个右侧节点指针 递归：一个间隙一个间隙的遍历。 123456789101112131415161718192021222324252627282930313233343536/*// Definition for a Node.class Node &amp;#123;    public int val;    public Node left;    public Node righ">
 
 
 
@@ -88,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="HuiXiong" height="28">
+                <img src="/images/logo.svg" alt="TAPD第六天" height="28">
             
             </a>
         </div>
@@ -134,34 +138,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">arithmeticNote</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-04T05:01:48.975Z">2019-04-04</time>
+                <time class="level-item has-text-grey" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/arithmeticNote/">arithmeticNote</a>
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 444 个字)
+                    4 分钟 读完 (大约 573 个字)
                 </span>
                 
                 
@@ -170,17 +162,18 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/04/arithmeticNote/">算法思路总结</a>
+                TAPD第六天
             
         </h1>
         <div class="content">
-            <h2 id="总结一些算法的思路。"><a href="#总结一些算法的思路。" class="headerlink" title="总结一些算法的思路。"></a>总结一些算法的思路。</h2><h3 id="找出最大公约数"><a href="#找出最大公约数" class="headerlink" title="找出最大公约数"></a>找出最大公约数</h3><p>有许多问题的子问题里面就包含了<code>找最大公约数的问题</code>，所以在这里写出一个最常用的。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">comDivisor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> b&gt;<span class="hljs-number">0</span>?comDivisor(b,a%b):a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面可以看出，要求<code>a</code>和<code>b</code>的最大公约数，使用递归，并且不断的使用取余的方式求得。就是<code>辗转相除法</code>！中学学过啊。快忘记了。</p>
-<p>这里给出一个<code>LeetCode</code>上的例子：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">给定一副牌，每张牌上都写着一个整数。</span><br><span class="line"></span><br><span class="line">此时，你需要选定一个数字 X，使我们可以将整副牌按下述规则分成 <span class="hljs-number">1</span> 组或更多组：</span><br><span class="line"></span><br><span class="line">每组都有 X 张牌。</span><br><span class="line">组内所有的牌上都写着相同的整数。</span><br><span class="line">仅当你可选的 X &gt;= <span class="hljs-number">2</span> 时返回 <span class="hljs-keyword">true</span>。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">示例 <span class="hljs-number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]，[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]，[<span class="hljs-number">4</span>,<span class="hljs-number">4</span>]</span><br><span class="line">示例 <span class="hljs-number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]</span><br><span class="line">输出：<span class="hljs-keyword">false</span></span><br><span class="line">解释：没有满足要求的分组。</span><br><span class="line">示例 <span class="hljs-number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">false</span></span><br><span class="line">解释：没有满足要求的分组。</span><br><span class="line">示例 <span class="hljs-number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line">示例 <span class="hljs-number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="hljs-number">1</span> &lt;= deck.length &lt;= <span class="hljs-number">10000</span></span><br><span class="line"><span class="hljs-number">0</span> &lt;= deck[i] &lt; <span class="hljs-number">10000</span></span><br></pre></td></tr></table></figure>
-<p>思路是：将所有相同的数字的个数都统计出来。再取其最大公约数即可。统计所有数字可以利用Map的特点。以数组的值为key，个数为value。</p>
-<p>当然，你也可以用其他方法统计各个元素的数量，最后总是会转化成求最大公约数。</p>
+            <p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/17/" target="_blank" rel="noopener">填充每个节点的下一个右侧节点指针</a></p>
+<p>递归：一个间隙一个间隙的遍历。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">// Definition for a Node.</span></span><br><span class="line"><span class="hljs-comment">class Node &#123;</span></span><br><span class="line"><span class="hljs-comment">    public int val;</span></span><br><span class="line"><span class="hljs-comment">    public Node left;</span></span><br><span class="line"><span class="hljs-comment">    public Node right;</span></span><br><span class="line"><span class="hljs-comment">    public Node next;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node(int _val,Node _left,Node _right,Node _next) &#123;</span></span><br><span class="line"><span class="hljs-comment">        val = _val;</span></span><br><span class="line"><span class="hljs-comment">        left = _left;</span></span><br><span class="line"><span class="hljs-comment">        right = _right;</span></span><br><span class="line"><span class="hljs-comment">        next = _next;</span></span><br><span class="line"><span class="hljs-comment">    &#125;</span></span><br><span class="line"><span class="hljs-comment">&#125;;</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">connect</span><span class="hljs-params">(Node root)</span> </span>&#123;</span><br><span class="line">        c(root);</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">c</span><span class="hljs-params">(Node root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> ;</span><br><span class="line">        Node left = root.left;</span><br><span class="line">        Node right = root.right;</span><br><span class="line">        c(left);</span><br><span class="line">        c(right);</span><br><span class="line">        <span class="hljs-keyword">while</span>(left!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            left.next = right;</span><br><span class="line">            left = left.right;</span><br><span class="line">            right = right.left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>迭代：是一层一层的遍历。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">// Definition for a Node.</span></span><br><span class="line"><span class="hljs-comment">class Node &#123;</span></span><br><span class="line"><span class="hljs-comment">    public int val;</span></span><br><span class="line"><span class="hljs-comment">    public Node left;</span></span><br><span class="line"><span class="hljs-comment">    public Node right;</span></span><br><span class="line"><span class="hljs-comment">    public Node next;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node(int _val,Node _left,Node _right,Node _next) &#123;</span></span><br><span class="line"><span class="hljs-comment">        val = _val;</span></span><br><span class="line"><span class="hljs-comment">        left = _left;</span></span><br><span class="line"><span class="hljs-comment">        right = _right;</span></span><br><span class="line"><span class="hljs-comment">        next = _next;</span></span><br><span class="line"><span class="hljs-comment">    &#125;</span></span><br><span class="line"><span class="hljs-comment">&#125;;</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">connect</span><span class="hljs-params">(Node root)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;</span><br><span class="line">        Node cur = <span class="hljs-keyword">null</span>, start = root;</span><br><span class="line">        <span class="hljs-keyword">while</span> (start.left != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            cur = start;</span><br><span class="line">            <span class="hljs-keyword">while</span> (cur != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                cur.left.next = cur.right;</span><br><span class="line">                <span class="hljs-keyword">if</span> (cur.next != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                    cur.right.next = cur.next.left;</span><br><span class="line">                &#125;</span><br><span class="line">                cur = cur.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// 转移到下一层</span></span><br><span class="line">            start = start.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/18/" target="_blank" rel="noopener">填充每个节点的下一个右侧节点指针 II</a><br><code>任意树：</code></p>
+<p><a href="https://leetcode-cn.com/problems/word-pattern/submissions/" target="_blank" rel="noopener">单词模式</a></p>
+<p>很明显：这里需要用到一种一对一的映射表。但是遗憾的是，世界上没有一对一的映射表。（我自己认为的，如果有请告诉我。）但是我们可以用一堆多的映射表和一个遍历来解决。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">wordPattern</span><span class="hljs-params">(String pattern, String str)</span> </span>&#123;</span><br><span class="line">        String[] ss = str.split(<span class="hljs-string">" "</span>);</span><br><span class="line">        <span class="hljs-keyword">char</span>[] cs = pattern.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">if</span>(ss.length!=cs.length) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        String[] save = <span class="hljs-keyword">new</span> String[<span class="hljs-number">26</span>];<span class="hljs-comment">//题目说了只有小写字母。所以使用数组模拟map，一个序号对应一个值。一个值可以有不同的序号。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span> ;i&lt;ss.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(save[cs[i]-<span class="hljs-string">'a'</span>]==<span class="hljs-keyword">null</span>)&#123;<span class="hljs-comment">//如果序号所对应的值为空，判断其他序号是否有这个值ss[i]，有的话就是错误(这里就用到了遍历)，没有的话，就添加。</span></span><br><span class="line">                <span class="hljs-keyword">if</span>(isContains(save,ss[i]))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                save[cs[i]-<span class="hljs-string">'a'</span>] = ss[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(!save[cs[i]-<span class="hljs-string">'a'</span>].equals(ss[i]))&#123;<span class="hljs-comment">//如果当前的ss[i]的值和存储的值不相等，说明映射关系不正确。</span></span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isContains</span><span class="hljs-params">(String[] save,String target)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;save.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(save[i]!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(save[i].equals(target))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -191,9 +184,55 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/09/DesignModel/SixPrinciple/">
+                <span class="level-item"></span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -759,7 +798,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="HuiXiong" height="28">
+                    <img src="/images/logo.svg" alt="TAPD第六天" height="28">
                 
                 </a>
                 <p class="is-size-7">
