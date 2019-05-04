@@ -23,7 +23,19 @@
 // });
 
 //set的forEach
-var c = new Set(['A','B','C'])
-c.forEach(function(element,sameElement,set){
-  console.log(element)
-});
+// var set =new Map([[1,"a"],[2,"b"],[3,"4"]]);
+// set.forEach(function (element,index,array){//element是value,index是key相当于序号
+//     // element: 指向当前元素的值
+//     // index: 指向当前索引
+//     // array: 指向Array对象本身
+//   console.log(index+':'+element+"----->"+array);
+// } );
+
+function abs(x){
+  if(x>=0){
+    return x;
+  }else{
+    return -x;
+  }
+}
+console.log(abs(- 5));

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="huixiong`s Blog">
 <meta property="og:description" content="oracle的基本介绍 关系型数据库  基本语法（CURD）：  select 123456select     colum_1,     colum_2,     ...from table_name;  update  对数据进行修改    1update TABLE set 列 = &apos;&apos;  insert   1INSERT INTO  table(colum_1,colum_2,...) V">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T05:39:21.092Z">
+<meta property="og:updated_time" content="2019-04-20T06:33:21.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle">
 <meta name="twitter:description" content="oracle的基本介绍 关系型数据库  基本语法（CURD）：  select 123456select     colum_1,     colum_2,     ...from table_name;  update  对数据进行修改    1update TABLE set 列 = &apos;&apos;  insert   1INSERT INTO  table(colum_1,colum_2,...) V">
@@ -154,7 +154,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    22 分钟 读完 (大约 3229 个字)
+                    27 分钟 读完 (大约 4027 个字)
                 </span>
                 
                 
@@ -212,16 +212,17 @@
 </ul>
 <figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> </span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">        ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">--查询column_1 和column_2都不相同的行。（相当于去重）distinct 清楚、明确之意</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>where</p>
+<li>where<blockquote>
+<p>为查询返回结果集中的行记录指定过滤条件。</p>
+</blockquote>
 </li>
-<li><p>and</p>
-</li>
+<li>and</li>
 </ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 null、false、true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--and 两边同时满足</span></span><br><span class="line"><span class="hljs-comment">--（其中 as 的作用是将前面的列名变为order_date ，可以省略）</span></span><br><span class="line"><span class="hljs-comment">--TO_CHAR(order_date,'YYYY-MM-DD') 是将日期显示为指定的格式。</span></span><br><span class="line"><span class="hljs-comment">--EXTRACT(YEAR FROM order_date) 指定年份为2017的列</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> order_id, customer_id, <span class="hljs-keyword">status</span>, TO_CHAR(order_date,<span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span> orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span>  <span class="hljs-keyword">AND</span> customer_id = <span class="hljs-number">2</span> </span><br><span class="line"><span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">FROM</span> order_date) = <span class="hljs-number">2017</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> order_date;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">---分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--结合or</span></span><br><span class="line">WHERE</span><br><span class="line">    (status = 'Canceled' OR status = 'Pending')</span><br><span class="line">    AND customer_id = 44</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 false、null、true (之前写错了，写成null、false、true )</span></span><br><span class="line"><span class="hljs-comment">-- https://www.yiibai.com/oracle/oracle-and.html(参考链接)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--and 两边同时满足</span></span><br><span class="line"><span class="hljs-comment">--（其中 as 的作用是将前面的列名变为order_date ，可以省略）</span></span><br><span class="line"><span class="hljs-comment">--TO_CHAR(order_date,'YYYY-MM-DD') 是将日期显示为指定的格式。</span></span><br><span class="line"><span class="hljs-comment">--EXTRACT(YEAR FROM order_date) 指定年份为2017的列</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> order_id, customer_id, <span class="hljs-keyword">status</span>, TO_CHAR(order_date,<span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span> orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span>  <span class="hljs-keyword">AND</span> customer_id = <span class="hljs-number">2</span> </span><br><span class="line"><span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">FROM</span> order_date) = <span class="hljs-number">2017</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> order_date;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">---------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--结合or</span></span><br><span class="line">WHERE</span><br><span class="line">    (status = 'Canceled' OR status = 'Pending')</span><br><span class="line">    AND customer_id = 44</span><br></pre></td></tr></table></figure>
 <ul>
 <li>OR</li>
 </ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 ture、null、false</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    customer_id,</span><br><span class="line">    <span class="hljs-keyword">status</span>,</span><br><span class="line">    TO_CHAR(order_date, <span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span></span><br><span class="line">    <span class="hljs-keyword">OR</span> <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--可以用  IN 来代替多个 or</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN(60, 61, 62)</span><br><span class="line">ORDER BY</span><br><span class="line">    order_date DESC;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 ture、null、false</span></span><br><span class="line"><span class="hljs-comment">--当or左边已经为true时，则右边不再需要判断</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    customer_id,</span><br><span class="line">    <span class="hljs-keyword">status</span>,</span><br><span class="line">    TO_CHAR(order_date, <span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span></span><br><span class="line">    <span class="hljs-keyword">OR</span> <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--可以用  IN 来代替多个 or</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN(60, 61, 62)</span><br><span class="line">ORDER BY</span><br><span class="line">    order_date DESC;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>fetch子句语法</li>
 </ul>
@@ -229,7 +230,7 @@
 <blockquote>
 <p>[ OFFSET offset ROWS]<br> FETCH  NEXT [  row_count | percent PERCENT  ] ROWS  [ ONLY | WITH TIES ]</p>
 </blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">-- OFFSET子句</span></span><br><span class="line"><span class="hljs-comment">--OFFSET子句指定在行限制开始之前要跳过行数。OFFSET子句是可选的。 如果跳过它，则偏移量为0，行限制从第一行开始计算。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- FETCH子句</span></span><br><span class="line"><span class="hljs-comment">--FETCH子句指定要返回的行数或百分比。</span></span><br><span class="line"></span><br><span class="line">FETCH NEXT 1 ROWS</span><br><span class="line">FETCH FIRST 1 ROW  <span class="hljs-comment">--两句结果相同，推荐使用第二句</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ONLY | WITH TIES选项</span></span><br><span class="line"><span class="hljs-comment">--仅返回FETCH NEXT(或FIRST)后的行数或行数的百分比。</span></span><br><span class="line"><span class="hljs-comment">--WITH TIES返回与最后一行相同的排序键。请注意，如果使用WITH TIES，则必须在查询中指定一个ORDER BY子句。如果不这样做，查询将不会返回额外的行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下查询语句仅能在Oracle 12c以上版本执行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    quantity <span class="hljs-keyword">DESC</span> </span><br><span class="line"><span class="hljs-keyword">FETCH</span> <span class="hljs-keyword">NEXT</span> <span class="hljs-number">5</span> <span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">ONLY</span>;<span class="hljs-comment">--指定返回前五行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 若是</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH NEXT 5 ROWS <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--返回前五行，外加与最后一行的quantity值相同的行</span></span><br></pre></td></tr></table></figure>
+<p>使用行限制子句限制查询返回的行数。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">-- OFFSET子句</span></span><br><span class="line"><span class="hljs-comment">--OFFSET子句指定在行限制开始之前要跳过行数。OFFSET子句是可选的。 如果跳过它，则偏移量为0，行限制从第一行开始计算。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- FETCH子句</span></span><br><span class="line"><span class="hljs-comment">--FETCH子句指定要返回的行数或百分比。</span></span><br><span class="line"></span><br><span class="line">FETCH NEXT 1 ROWS</span><br><span class="line">FETCH FIRST 1 ROW  <span class="hljs-comment">--两句结果相同，推荐使用第二句</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ONLY | WITH TIES选项</span></span><br><span class="line"><span class="hljs-comment">--仅返回FETCH NEXT(或FIRST)后的行数或行数的百分比。</span></span><br><span class="line"><span class="hljs-comment">--WITH TIES返回与最后一行相同的排序键。请注意，如果使用WITH TIES，则必须在查询中指定一个ORDER BY子句。如果不这样做，查询将不会返回额外的行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下查询语句仅能在Oracle 12c以上版本执行</span></span><br><span class="line"><span class="hljs-comment">--由于本机装的只有11g所以不能使用该子句，只能使用</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name, quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">rownum</span>&lt;=<span class="hljs-number">5</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> quantity <span class="hljs-keyword">DESC</span>;</span><br><span class="line"><span class="hljs-comment">-----------------------------------</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    quantity <span class="hljs-keyword">DESC</span> </span><br><span class="line"><span class="hljs-keyword">FETCH</span> <span class="hljs-keyword">FIRST</span> <span class="hljs-number">5</span> <span class="hljs-keyword">ROW</span> <span class="hljs-keyword">ONLY</span>;<span class="hljs-comment">--指定返回前五行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 若是</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH FIRST 5 ROW <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--返回前五行，外加与最后一行的quantity值相同的行</span></span><br><span class="line"><span class="hljs-comment">--需要注意的时使用 WITH TIES时，必须有order by子句，不然不会返回任何额外的行</span></span><br><span class="line"><span class="hljs-comment">--以百分比限制返回行</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH FIRST 5 PERCENT ROW <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--取得5%的数据，如果求得是11.1行，则返回12行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--使用</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">OFFSET 10 ROWS </span><br><span class="line">FETCH FIRST 5  ROW <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--可以用于实现分页操作</span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>IN </li>
 </ul>
@@ -240,13 +241,39 @@
 <blockquote>
 <p>BETWEEN运算符允许指定要测试的范围。当使用BETWEEN运算符为SELECT语句返回的行形成搜索条件时，只返回其值在指定范围内的行。</p>
 </blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 以下说明BETWEEN运算符的语法：</span></span><br><span class="line">expression [ NOT ] BETWEEN low AND high</span><br><span class="line"></span><br><span class="line">value &gt;= low AND value &lt;= high</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    standard_cost</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    standard_cost <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">500</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">600</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    standard_cost;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--分割</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    standard_cost NOT BETWEEN 500 AND 600</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查询2016年12月1日至2016年12月31日期间客户的订单，可以使用以下语句：</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id, customer_id, <span class="hljs-keyword">status</span>, order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    order_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-31'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 以下说明BETWEEN运算符的语法：</span></span><br><span class="line">expression [ NOT ] BETWEEN low AND high</span><br><span class="line"></span><br><span class="line">value &gt;= low AND value &lt;= high</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    standard_cost</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    standard_cost <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">500</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">600</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    standard_cost;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----------------------------------</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    standard_cost NOT BETWEEN 500 AND 600</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查询2016年12月1日至2016年12月31日期间客户的订单，可以使用以下语句：</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id, customer_id, <span class="hljs-keyword">status</span>, order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    order_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-31'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>LIKE</li>
 </ul>
 <blockquote>
-<p>Oracle LIKE运算符的语法如下所示：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">expresion [NOT] LIKE pattern [ ESCAPE escape_characters ]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--expression：该表达式是一个列名称或一个表达式，要针对该模式(pattern)进行测试。</span></span><br><span class="line"><span class="hljs-comment">-- pattern：该模式是在表达式中搜索的字符串。此模式包含以下通配符：％(百分号)匹配零个或多个字符的任何字符串。_(下划线)匹配任何单个字符。</span></span><br><span class="line"><span class="hljs-comment">-- escape_character：escape_character是出现在通配符前面的字符，用于指定通配符不应被解释为通配符而是常规字符。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- %通配符</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    phone</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    contacts</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    last_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'St%'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    last_name;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- NOT LIKE</span></span><br><span class="line">WHERE</span><br><span class="line">    last_name NOT LIKE 'St%'  </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- _ 通配符，表示有由四个字符组成</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_i'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 混合通配符，表示至少4个字符组成</span></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_%';</span><br></pre></td></tr></table></figure></p>
+<p>Oracle LIKE运算符的语法如下所示：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">expresion [NOT] LIKE pattern [ ESCAPE escape_characters ]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--expression：该表达式是一个列名称或一个表达式，要针对该模式(pattern)进行测试。</span></span><br><span class="line"><span class="hljs-comment">-- pattern：该模式是在表达式中搜索的字符串。此模式包含以下通配符：％(百分号)匹配零个或多个字符的任何字符串。_(下划线)匹配任何单个字符。</span></span><br><span class="line"><span class="hljs-comment">-- escape_character：escape_character是出现在通配符前面的字符，用于指定通配符不应被解释为通配符而是常规字符。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- %通配符</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    phone</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    contacts</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    last_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'St%'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    last_name;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- NOT LIKE</span></span><br><span class="line">WHERE</span><br><span class="line">    last_name NOT LIKE 'St%'  </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- _ 通配符，表示有由四个字符组成</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_i'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 混合通配符，表示至少4个字符组成</span></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_%';</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--使用UPPER或者LOWER 可以不区分大小写</span></span><br><span class="line">WHERE</span><br><span class="line">    UPPER( first_name ) LIKE 'CH%'</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<ul>
+<li>ESCAPE<br>ESCAPE子句</li>
+</ul>
+<blockquote>
+<p>允许查找包含一个或多个通配符的字符串。例如，表可能包含具有百分比字符的数据，例如折扣值，折旧率。要搜索字符串25％<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LIKE '%25!%%' ESCAPE '!'</span><br><span class="line"><span class="hljs-comment">--表示 ！后面接的是字符，而不是通配符</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>GROUP BY</li>
+</ul>
+<p>GROUP BY子句在SELECT语句中用于按行或表达式的值将行组合到分组汇总的行中。 GROUP BY子句为每个分组返回一行。</p>
+<p>GROUP BY子句通常与AVG()，COUNT()，MAX()，MIN()和SUM()之类的集合函数一起使用。 在这种情况下，聚合函数返回每个分组的摘要信息。 例如，给定几个类别的产品，AVG()函数返回每个类别中产品的平均价格。</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--在有提供WHERE子句的情况下，GROUP BY子句必须放在WHERE子句之前。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    c1,</span><br><span class="line">    c2, </span><br><span class="line">    c3;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--如果要指定应该一次计算的多个分组级别，请使用ROLLUP语法</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    <span class="hljs-keyword">ROLLUP</span>(c1,c2,c3);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>HAVING</p>
+<blockquote>
+<p>HAVING子句是SELECT语句的可选子句。它用于过滤由GROUP BY子句返回的行分组。 这就是为什么HAVING子句通常与GROUP BY子句一起使用的原因。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">  <span class="hljs-comment">--若语句中不带group by ，则having会像where一样工作</span></span><br><span class="line">  <span class="hljs-comment">--HAVING子句过滤分组的行，而WHERE子句过滤行</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    c1</span><br><span class="line"><span class="hljs-keyword">HAVING</span></span><br><span class="line">    group_condition;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查找总金额值大于1百万的订单，请按如下所示添加HAVING子句：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) order_value</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    order_items</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_id</span><br><span class="line"><span class="hljs-keyword">HAVING</span></span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) &gt; <span class="hljs-number">1000000</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_value <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查找值大于500,000的订单，并且每个订单中的产品数量在10到12之间：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    <span class="hljs-keyword">COUNT</span>( item_id ) item_count,</span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) total</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    order_items</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_id</span><br><span class="line"><span class="hljs-keyword">HAVING</span></span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) &gt; <span class="hljs-number">500000</span> <span class="hljs-keyword">AND</span></span><br><span class="line">    <span class="hljs-keyword">COUNT</span>( item_id ) <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">10</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">12</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    total <span class="hljs-keyword">DESC</span>,</span><br><span class="line">    item_count <span class="hljs-keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子查询</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    list_price,</span><br><span class="line">    <span class="hljs-keyword">ROUND</span>(</span><br><span class="line">        (</span><br><span class="line">            <span class="hljs-keyword">SELECT</span></span><br><span class="line">                <span class="hljs-keyword">AVG</span>( list_price )</span><br><span class="line">            <span class="hljs-keyword">FROM</span></span><br><span class="line">                products p1</span><br><span class="line">            <span class="hljs-keyword">WHERE</span></span><br><span class="line">                p1. category_id = p2.category_id</span><br><span class="line">        ),</span><br><span class="line">        <span class="hljs-number">2</span></span><br><span class="line">    ) avg_list_price</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products p2</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    product_name;</span><br><span class="line"></span><br><span class="line">链接：</span><br><span class="line"><span class="hljs-comment">--https://www.yiibai.com/oracle/oracle-subquery.html#article-start</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="连接表"><a href="#连接表" class="headerlink" title="连接表"></a>连接表</h2><p>如何从表中查询具有与其他表匹配的行记录。</p>
 <hr>
 <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
 <p>COMMIT语句可以用来提交当前事务的所有更改。提交后，其他用户将能够看到您的更改。</p>
@@ -465,7 +492,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        24
                     </p>
                 </div>
             </div>
@@ -598,7 +625,7 @@
                 <span class="level-item">每天三道LeetCode</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/笔记/">
@@ -622,7 +649,7 @@
                 <span class="level-item">设计模式-创建型模式</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li>
             </ul>
@@ -655,62 +682,62 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
-                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
                 </div>
             </div>
@@ -734,7 +761,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -787,7 +814,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -825,62 +852,62 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
-                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
                 </div>
             </div>
@@ -904,7 +931,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -957,7 +984,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 

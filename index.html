@@ -140,6 +140,300 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 0 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/24/python/基本操作/"></a>
+            
+        </h1>
+        <div class="content">
+            <p># </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 44 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/20/IGotSomething/取余操作/">取余操作</a>
+            
+        </h1>
+        <div class="content">
+            <p>今天看了一下<code>HashMap</code>的实现，再到网上去发现了对一个数的取余(n%m)，如果这个数是<code>2^n</code>则，等价于:<code>(n-1)&amp;m</code>。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 394 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/20/oracleMethod/"></a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="分析函数-Lead-Lag"><a href="#分析函数-Lead-Lag" class="headerlink" title="分析函数 Lead(),Lag()"></a>分析函数 Lead(),Lag()</h2><blockquote>
+<p>判断在一定条件下的两条记录之间的时间差这样的需求。<code>Lead()</code>就是取当前顺序的下一条记录，相对<code>Lag()</code>就是取当前顺序的上一行记录。</p>
+</blockquote>
+<p>语法结构：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lead(value_expr [,offset][,default]) over([query_partition_clause] order by Order_by_clause)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li><code>value_expr</code> 值表达式，通常是字段，也可是是表达式。value_expr本身不支持分析函数，也就是lead不支持多层调用。</li>
+<li><code>offset</code> 偏移，应该是很熟悉的数学概念了，或者是相对偏移，表格来开当前行的第offset行，如果offset是整数就表示是顺序下的前第n行，如果是负数就是往后第n行。 如果不提供这个参数，就是默认为1.</li>
+<li><code>default</code> 默认值，如果没有找到，应该返回什么值的意思，有点类似nvl(col,value)。如果没有设置，且找不到，那么就返回Null</li>
+<li><p>over  理解成在一个结果集范围内，如果后面的partition by为空，那么就是当前的结果集范围内。</p>
+</li>
+<li><p>query_partition_clause  分区语句，对结果集合分区的语句，是可选的，如果没有就是所有的一个分区。</p>
+</li>
+<li>Order_by_clause 排序语句 必须需要 ,形如order by xxx desc/asc</li>
+</ul>
+<p>例如：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> tmp <span class="hljs-keyword">as</span>(  </span><br><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-string">'1'</span> <span class="hljs-keyword">id</span> ,<span class="hljs-string">'aa'</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">from</span> dual <span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span>  </span><br><span class="line"><span class="hljs-keyword">select</span> <span class="hljs-string">'2'</span> <span class="hljs-keyword">id</span> ,<span class="hljs-string">'bb'</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">from</span> dual  </span><br><span class="line">)  </span><br><span class="line"><span class="hljs-keyword">select</span> a.*,  </span><br><span class="line">       lag(<span class="hljs-keyword">name</span>,<span class="hljs-number">1</span>) <span class="hljs-keyword">over</span> (<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">desc</span>) lag  </span><br><span class="line"><span class="hljs-keyword">from</span> tmp a</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 379 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/20/mysql/"></a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="MySQL入门"><a href="#MySQL入门" class="headerlink" title="MySQL入门"></a>MySQL入门</h1><ul>
+<li><a href="http://www.yiibai.com/mysql/install-mysql.html" target="_blank" rel="noopener">安装MySQL</a></li>
+<li><a href="http://www.yiibai.com/mysql/sample-database.html" target="_blank" rel="noopener">下载示例数据库</a></li>
+<li><a href="http://www.yiibai.com/mysql/how-to-load-sample-database-into-mysql-database-server.html" target="_blank" rel="noopener">导入示例数据库到MySQL</a></li>
+</ul>
+<h1 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h1><ul>
+<li><a href="http://www.yiibai.com/mysql/select-statement-query-data.html" target="_blank" rel="noopener">select查询</a></li>
+<li><a href="http://www.yiibai.com/mysql/distinct.html" target="_blank" rel="noopener">MySQL DISTINCT语句</a></li>
+</ul>
+<h1 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h1><ul>
+<li>WHERE - 学习如何使用WHERE子句根据指定的条件过滤行记录。<br>-AND运算符 - 介绍如何使用AND运算符以组合布尔表达式以形成用于过滤数据的复杂条件。</li>
+<li>OR运算符 - 介绍OR运算符，并展示如何将OR运算符与AND运算符组合以过滤数据。</li>
+<li>IN运算符 - 学习如何在WHERE子句中使用IN运算符来确定值是否匹配列表或子查询中的指定值。</li>
+<li>BETWEEN运算符 - 显示如何使用BETWEEN运算符来根据指定范围查询数据。</li>
+<li>LIKE - 提供基于特定模式匹配查询数据的技术示例，以执行一些模糊查询。- LIMIT子句 - 使用LIMIT来限制SELECT语句返回的行数IS NULL - 使用IS NULL运算符测试值是否为NULL。</li>
+</ul>
+<h1 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h1><h1 id="连接表"><a href="#连接表" class="headerlink" title="连接表"></a>连接表</h1><h1 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a>分组数据</h1><h1 id="MySQL子查询，派生表和通用表达式"><a href="#MySQL子查询，派生表和通用表达式" class="headerlink" title="MySQL子查询，派生表和通用表达式"></a>MySQL子查询，派生表和通用表达式</h1><h1 id="使用SET操作符"><a href="#使用SET操作符" class="headerlink" title="使用SET操作符"></a>使用SET操作符</h1><h1 id="修改MySQL中的数据"><a href="#修改MySQL中的数据" class="headerlink" title="修改MySQL中的数据"></a>修改MySQL中的数据</h1><h1 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h1><h1 id="管理MySQL数据库和表"><a href="#管理MySQL数据库和表" class="headerlink" title="管理MySQL数据库和表"></a>管理MySQL数据库和表</h1><h1 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h1><h1 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h1><h1 id="MySQL约束"><a href="#MySQL约束" class="headerlink" title="MySQL约束"></a>MySQL约束</h1><h1 id="MySQL全球化"><a href="#MySQL全球化" class="headerlink" title="MySQL全球化"></a>MySQL全球化</h1><h1 id="MySQL导入和导出"><a href="#MySQL导入和导出" class="headerlink" title="MySQL导入和导出"></a>MySQL导入和导出</h1>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 24 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/11/ThreeAlgorithmPerDay/7th/">TAPD第七天</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="由于实习原因。从今天开始。只有周日再刷题。2019年4月11日"><a href="#由于实习原因。从今天开始。只有周日再刷题。2019年4月11日" class="headerlink" title="由于实习原因。从今天开始。只有周日再刷题。2019年4月11日"></a>由于实习原因。从今天开始。只有周日再刷题。2019年4月11日</h1>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-10T08:58:22.556Z">2019-04-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 403 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/10/DesignModel/Builder/"></a>
+            
+        </h1>
+        <div class="content">
+            <p>前面，我们已经知道了。<code>单例模式</code>和<code>抽象工厂模式</code>。回忆一下。</p>
+<p>单例模式就是一个类只有一个实例，而且单例模式的创建分为饿汉和懒汉模式，顾名思义，饿汉就是加载类的时候就创建实例。懒汉就是第一次调用的时候才创建实例。</p>
+<p>抽象工厂模式，通过工厂创建实例。通常由很多产生不同对象的具体工厂。而这些工厂由实现同一个抽象工厂。具体工厂生产的产品也可能相同，但是是不同的工厂生产的，可以说是不同的品牌。同时又可以又不同的特性。</p>
+<p>英文原话:</p>
+<p>Separate the construction of a complex object from its representation so that the same construction process can create different represetations.</p>
+<p>将一个复杂对象的构建与他的表示分离,使得同样的构造过程可以创建不同的表.</p>
+<h2 id="四种角色"><a href="#四种角色" class="headerlink" title="四种角色:"></a>四种角色:</h2><ul>
+<li>抽象建造者（Builder）：该角色用于规范产品的各个组成部分，并进行抽象，一般独立于应用程序的逻辑。</li>
+<li>具体建造者（Concrete Buider）：实现抽象建造者中定义的方法。并返回一个组件好的产品实例。</li>
+<li>产品（Product）：该角色是建造者中的复杂对象，一个系统中会有多个产品类，这些产品类并不一定有共同的接口，可以是完全不想管的</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time>
                 
                 <div class="level-item">
@@ -150,7 +444,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 573 个字)
+                    6 分钟 读完 (大约 930 个字)
                 </span>
                 
                 
@@ -168,6 +462,10 @@
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">// Definition for a Node.</span></span><br><span class="line"><span class="hljs-comment">class Node &#123;</span></span><br><span class="line"><span class="hljs-comment">    public int val;</span></span><br><span class="line"><span class="hljs-comment">    public Node left;</span></span><br><span class="line"><span class="hljs-comment">    public Node right;</span></span><br><span class="line"><span class="hljs-comment">    public Node next;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node(int _val,Node _left,Node _right,Node _next) &#123;</span></span><br><span class="line"><span class="hljs-comment">        val = _val;</span></span><br><span class="line"><span class="hljs-comment">        left = _left;</span></span><br><span class="line"><span class="hljs-comment">        right = _right;</span></span><br><span class="line"><span class="hljs-comment">        next = _next;</span></span><br><span class="line"><span class="hljs-comment">    &#125;</span></span><br><span class="line"><span class="hljs-comment">&#125;;</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">connect</span><span class="hljs-params">(Node root)</span> </span>&#123;</span><br><span class="line">        c(root);</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">c</span><span class="hljs-params">(Node root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> ;</span><br><span class="line">        Node left = root.left;</span><br><span class="line">        Node right = root.right;</span><br><span class="line">        c(left);</span><br><span class="line">        c(right);</span><br><span class="line">        <span class="hljs-keyword">while</span>(left!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            left.next = right;</span><br><span class="line">            left = left.right;</span><br><span class="line">            right = right.left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>迭代：是一层一层的遍历。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">// Definition for a Node.</span></span><br><span class="line"><span class="hljs-comment">class Node &#123;</span></span><br><span class="line"><span class="hljs-comment">    public int val;</span></span><br><span class="line"><span class="hljs-comment">    public Node left;</span></span><br><span class="line"><span class="hljs-comment">    public Node right;</span></span><br><span class="line"><span class="hljs-comment">    public Node next;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node(int _val,Node _left,Node _right,Node _next) &#123;</span></span><br><span class="line"><span class="hljs-comment">        val = _val;</span></span><br><span class="line"><span class="hljs-comment">        left = _left;</span></span><br><span class="line"><span class="hljs-comment">        right = _right;</span></span><br><span class="line"><span class="hljs-comment">        next = _next;</span></span><br><span class="line"><span class="hljs-comment">    &#125;</span></span><br><span class="line"><span class="hljs-comment">&#125;;</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">connect</span><span class="hljs-params">(Node root)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;</span><br><span class="line">        Node cur = <span class="hljs-keyword">null</span>, start = root;</span><br><span class="line">        <span class="hljs-keyword">while</span> (start.left != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            cur = start;</span><br><span class="line">            <span class="hljs-keyword">while</span> (cur != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                cur.left.next = cur.right;</span><br><span class="line">                <span class="hljs-keyword">if</span> (cur.next != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                    cur.right.next = cur.next.left;</span><br><span class="line">                &#125;</span><br><span class="line">                cur = cur.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// 转移到下一层</span></span><br><span class="line">            start = start.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/18/" target="_blank" rel="noopener">填充每个节点的下一个右侧节点指针 II</a><br><code>任意树：</code></p>
+<p>一种比较直接的办法是：<br>将每一层按从左到右的顺序放入一个<code>list</code>中，遍历list求得一层。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">// Definition for a Node.</span></span><br><span class="line"><span class="hljs-comment">class Node &#123;</span></span><br><span class="line"><span class="hljs-comment">    public int val;</span></span><br><span class="line"><span class="hljs-comment">    public Node left;</span></span><br><span class="line"><span class="hljs-comment">    public Node right;</span></span><br><span class="line"><span class="hljs-comment">    public Node next;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node(int _val,Node _left,Node _right,Node _next) &#123;</span></span><br><span class="line"><span class="hljs-comment">        val = _val;</span></span><br><span class="line"><span class="hljs-comment">        left = _left;</span></span><br><span class="line"><span class="hljs-comment">        right = _right;</span></span><br><span class="line"><span class="hljs-comment">        next = _next;</span></span><br><span class="line"><span class="hljs-comment">    &#125;</span></span><br><span class="line"><span class="hljs-comment">&#125;;</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">connect</span><span class="hljs-params">(Node root)</span> </span>&#123;</span><br><span class="line">       <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;</span><br><span class="line">        Queue&lt;Node&gt; que = <span class="hljs-keyword">new</span> LinkedList();</span><br><span class="line">        que.offer(root);</span><br><span class="line">        <span class="hljs-keyword">while</span>(!que.isEmpty())&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> size = que.size();</span><br><span class="line">            List&lt;Node&gt; list = <span class="hljs-keyword">new</span> LinkedList();</span><br><span class="line">            <span class="hljs-keyword">while</span>(size--&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">                Node curr = que.poll();</span><br><span class="line">                <span class="hljs-keyword">if</span>(curr.left!=<span class="hljs-keyword">null</span>) que.offer(curr.left);</span><br><span class="line">                <span class="hljs-keyword">if</span>(curr.right!=<span class="hljs-keyword">null</span>) que.offer(curr.right);</span><br><span class="line">                list.add(curr);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i&lt;list.size()-<span class="hljs-number">1</span>;i++)&#123;</span><br><span class="line">                list.get(i).next = list.get(i+<span class="hljs-number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一种思路：判断当前节点是否有右节点。没有的话就在父节点中找。因为是一层一层的所以父节点一定是可以通过<code>next</code>的找到邻近节点的。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">// Definition for a Node.</span></span><br><span class="line"><span class="hljs-comment">class Node &#123;</span></span><br><span class="line"><span class="hljs-comment">    public int val;</span></span><br><span class="line"><span class="hljs-comment">    public Node left;</span></span><br><span class="line"><span class="hljs-comment">    public Node right;</span></span><br><span class="line"><span class="hljs-comment">    public Node next;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">    public Node(int _val,Node _left,Node _right,Node _next) &#123;</span></span><br><span class="line"><span class="hljs-comment">        val = _val;</span></span><br><span class="line"><span class="hljs-comment">        left = _left;</span></span><br><span class="line"><span class="hljs-comment">        right = _right;</span></span><br><span class="line"><span class="hljs-comment">        next = _next;</span></span><br><span class="line"><span class="hljs-comment">    &#125;</span></span><br><span class="line"><span class="hljs-comment">&#125;;</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">connect</span><span class="hljs-params">(Node root)</span> </span>&#123;</span><br><span class="line">        connectInternal(root, <span class="hljs-keyword">null</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">connectInternal</span><span class="hljs-params">(Node root, Node parent)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> (parent != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (root == parent.left &amp;&amp; parent.right != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                root.next = parent.right;</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                <span class="hljs-comment">// 循环遍历上一层parent为head的单向链表，直到遇到下一个子节点</span></span><br><span class="line">                Node point = parent.next, next = <span class="hljs-keyword">null</span>;</span><br><span class="line">                <span class="hljs-keyword">while</span> (point != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (point.left == <span class="hljs-keyword">null</span> &amp;&amp; point.right == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                        point = point.next;</span><br><span class="line">                        <span class="hljs-keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (point.left != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                        next = point.left;</span><br><span class="line">                    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                        next = point.right;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="hljs-keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                root.next = next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        connectInternal(root.right, root);</span><br><span class="line">        connectInternal(root.left, root);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode-cn.com/problems/word-pattern/submissions/" target="_blank" rel="noopener">单词模式</a></p>
 <p>很明显：这里需要用到一种一对一的映射表。但是遗憾的是，世界上没有一对一的映射表。（我自己认为的，如果有请告诉我。）但是我们可以用一堆多的映射表和一个遍历来解决。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">wordPattern</span><span class="hljs-params">(String pattern, String str)</span> </span>&#123;</span><br><span class="line">        String[] ss = str.split(<span class="hljs-string">" "</span>);</span><br><span class="line">        <span class="hljs-keyword">char</span>[] cs = pattern.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">if</span>(ss.length!=cs.length) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        String[] save = <span class="hljs-keyword">new</span> String[<span class="hljs-number">26</span>];<span class="hljs-comment">//题目说了只有小写字母。所以使用数组模拟map，一个序号对应一个值。一个值可以有不同的序号。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span> ;i&lt;ss.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(save[cs[i]-<span class="hljs-string">'a'</span>]==<span class="hljs-keyword">null</span>)&#123;<span class="hljs-comment">//如果序号所对应的值为空，判断其他序号是否有这个值ss[i]，有的话就是错误(这里就用到了遍历)，没有的话，就添加。</span></span><br><span class="line">                <span class="hljs-keyword">if</span>(isContains(save,ss[i]))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                save[cs[i]-<span class="hljs-string">'a'</span>] = ss[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(!save[cs[i]-<span class="hljs-string">'a'</span>].equals(ss[i]))&#123;<span class="hljs-comment">//如果当前的ss[i]的值和存储的值不相等，说明映射关系不正确。</span></span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isContains</span><span class="hljs-params">(String[] save,String target)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;save.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(save[i]!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(save[i].equals(target))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -249,7 +547,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2173 个字)
+                    14 分钟 读完 (大约 2167 个字)
                 </span>
                 
                 
@@ -271,7 +569,7 @@
 <p>Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to sub classes.</p>
 <p>定义一个用于创建对象的接口，让子类决定实例化哪个类。工厂方法使一个类的实例化延迟到其子类。</p>
 <ul>
-<li><a href="#简单工厂模式">简单工厂模式</a>:一个工厂类在产品类实例化的中心位置，它知道每一个产品，它决定哪一个产品类应当被实例化。有点：允许客户端相对独立与产品的创建过程，并且在系统引入新产品的时候无需修复客户端，即在某种程度上支持“开-闭”原则。缺点：支持“开-闭”原则的力度不够，一旦有新的产品加入到系统中，就需要修改工厂类，并将逻辑加入到工厂类中。</li>
+<li>简单工厂模式:一个工厂类在产品类实例化的中心位置，它知道每一个产品，它决定哪一个产品类应当被实例化。有点：允许客户端相对独立与产品的创建过程，并且在系统引入新产品的时候无需修复客户端，即在某种程度上支持“开-闭”原则。缺点：支持“开-闭”原则的力度不够，一旦有新的产品加入到系统中，就需要修改工厂类，并将逻辑加入到工厂类中。</li>
 <li><a href="#工厂方法模式">工厂方法模式</a>:是对简单工厂模式的进一步抽象。避免了其缺点，保留了优点。核心的工厂类不再负责所有产品的创建，而是将具体的创建工作交给其子类。这个核心类成为一个抽象工厂的角色，仅负责给出具体工厂子类必须实现的接口，不接触细节。</li>
 <li><a href="#抽象工厂模式">抽象工厂模式</a>:工厂方法模式是针对一个产品等级结构，而抽象工厂模式则需要面对多个产品等级结构。</li>
 </ul>
@@ -416,473 +714,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    几秒 读完 (大约 0 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/08/DesignModel/Decorator/"></a>
-            
-        </h1>
-        <div class="content">
-            
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    7 分钟 读完 (大约 1045 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/08/DesignModel/Singleton/"></a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h2><ul>
-<li style="list-style: none"><input type="checkbox"> 添加案例。</li>
-<li style="list-style: none"><input type="checkbox"> 添加更多单例模式的模板。</li>
-</ul>
-<h1 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h1><p>原话是：</p>
-<blockquote>
-<p>Ensure a class has only one instance,and provide a global point of access to it.</p>
-<p>确保一个类只有一个实例，并且向整个系统提供这个实例。</p>
-</blockquote>
-<p><code>java</code>中实现单例模式通常有两种表现形式：</p>
-<ul>
-<li><a href="#饿汉模式">饿汉模式单例</a>：类加载时，就进行对象的实例化。</li>
-<li><a href="#懒汉模式">懒汉模式单例</a>：第一次引用类时，才进行对象的实例化。</li>
-</ul>
-<h2 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">new</span> Singleton();</span><br><span class="line">    <span class="hljs-comment">//构造方法私有，保证外界无法实例化</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton getInstance&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>知识点：</p>
-<p><code>static</code>关键字：<code>static</code>修饰的变量或方法是属于类的，变量在类加载的时候就已经实例化了。<code>static</code>修饰的方法所有的对象使用的是同一个方法。</p>
-<h2 id="private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。"><a href="#private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。" class="headerlink" title="private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。"></a><code>private</code>关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被<code>private</code>修饰，不能通过对象调用。只能通过<code>static</code>修饰的静态方法调用。</h2><h2 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function">synhronized <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(instance == <span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="hljs-keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>知识点：</p>
-<p><code>synhronized</code>关键字：<code>同步</code>，确保在多线程的环境下也是单例，因为，当多个线程同时调用这个方法时，由于使用了<code>synhronized</code>修饰，所以产生锁。允许最先到的线程访问，其他线程等待。当锁消除时，再去访问，实例已经被创建了。直接返回即可。</p>
-<p>为什么<code>懒汉模式</code>不用<code>sunhronized</code>修饰呢？因为实例已经被创建了。即使再多线程中同时调用也不会产生多例。</p>
-<hr>
-<h2 id="单例模式的优点"><a href="#单例模式的优点" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h2><ul>
-<li>频繁被创建和销毁的场景里，使用<code>单例模式</code>减少内存开支。</li>
-<li>创建一个对象需要较多的资源和性能开支的场景里（读取配置文件、产生其他依赖对象时），使用<code>单例模式</code>减少内存开支。</li>
-<li>避免多重占用（如：写文件）。避免了同一资源的同时操作。</li>
-<li>可以在系统设置全局访问点，优化和共享资源。（如：设计一个单例类，负责所有数据表的映射处理）</li>
-</ul>
-<hr>
-<h2 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h2><ul>
-<li>无法创建子类，扩展困难。（扩展只能修改代码）</li>
-<li>不利于测试。在并行开发的环境中，若采用单例模式的类没有完成，程序无法测试。</li>
-<li>由于单例类通常不实现接口。所以无法使用<code>mock</code>的方式虚拟一个对象。(我也不知道<code>mock</code>是什么方式)。</li>
-</ul>
-<hr>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
-<li>要求生成唯一序列号的环境。</li>
-<li>项目需要一个共享访问点或共享数据。（如：web页面中的计数器，不必存放到数据库中使用单例模式能保持数值，并能确保线程安全）</li>
-<li>创建一个对象需要消耗的资源过多，如访问IO和数据库等资源。</li>
-<li>需要大量静态常量和静态方法（如：工具类）的环境，（当然，也可以直接采用<code>static</code>声明的方式）。</li>
-</ul>
-<p>在Spring框架中每个<code>Bean</code>默认的就是单例模式。java基础库中<code>java.lang.Runtime</code>也是单例模式，其中<code>getRuntime()</code>方法返回了唯一实例。</p>
-<hr>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>单例类分为<code>有状态</code>和<code>无状态</code>:</p>
-<ul>
-<li>有状态单例类：有状态的单例类一般是可变的，通常当作状态库使用。如：给系统提供唯一的序列号。</li>
-<li>无状态单例类:无状态单例类的对象一般是不变的，通常用来提供工具性的功能方法。如：IO或数据库等。</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 146 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/">TAPD第四天</a>
-            
-        </h1>
-        <div class="content">
-            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/813/" target="_blank" rel="noopener">两个列表的最小索引和/输出元素</a></p>
-<p>思路：</p>
-<p>将其中一个<code>list</code>放入<code>HaspMap</code>中，遍历另一个<code>list</code>，通过<code>map.containsKey()</code>判断是否存在。具体代码如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> String[] findRestaurant(String[] list1, String[] list2) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> indexSum = Integer.MAX_VALUE;</span><br><span class="line">        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">        HashMap&lt;String,Integer&gt; map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list1.length;i++)&#123;<span class="hljs-comment">//将lsit1放入map中</span></span><br><span class="line">            map.put(list1[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;list2.length;j++)&#123;<span class="hljs-comment">//遍历list2</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(list2[j]))&#123;<span class="hljs-comment">//如果存在相同的key</span></span><br><span class="line">                <span class="hljs-keyword">if</span>((map.get(list2[j])+j)&lt;indexSum)&#123;<span class="hljs-comment">//如果索引最小</span></span><br><span class="line">                    indexSum = map.get(list2[j])+j;<span class="hljs-comment">//更新索引的和</span></span><br><span class="line">                    list.clear();<span class="hljs-comment">//清空结果</span></span><br><span class="line">                    list.add(list2[j]);<span class="hljs-comment">//重新添加</span></span><br><span class="line">                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>((map.get(list2[j])+j)==indexSum)&#123;<span class="hljs-comment">//如果索引和相等</span></span><br><span class="line">                    list.add(list2[j]);<span class="hljs-comment">//直接添加到结果</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] ss = <span class="hljs-keyword">new</span> String[list.size()];<span class="hljs-comment">//将list转成String[] 返回           </span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;k&lt;list.size();k++)&#123;</span><br><span class="line">            ss[k] = list.get(k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> ss;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/815/" target="_blank" rel="noopener">字符串中第一个唯一字符</a></p>
-<p><code>map</code>不只是用<code>java</code>给我们的<code>map</code>,数组，在某种意义上来讲也是<code>map</code>。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">firstUniqChar</span><span class="hljs-params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> map[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length();i++)</span><br><span class="line">            map[s.charAt(i) - <span class="hljs-string">'a'</span>]++;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length();i++)</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[s.charAt(i) - <span class="hljs-string">'a'</span>] == <span class="hljs-number">1</span>)</span><br><span class="line">                <span class="hljs-keyword">return</span> i;</span><br><span class="line">        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/64/introduction-to-a-bst/171/" target="_blank" rel="noopener">验证二叉搜索树</a></p>
-<p>二叉搜索树，如果用中序遍历的话，是一个递增的数列。输出这个数列，再看是否是递增数列。可是这样比较麻烦，如果这么做，怎么想也觉得不舒服。</p>
-<p>所以下面这个方法很舒服。</p>
-<p>每个节点中的值必须大于（或等于）存储在其左侧子树中的任何值。</p>
-<p>每个节点中的值必须小于（或等于）存储在其右子树中的任何值。</p>
-<p>递归判断，只需要判断当前的值比最大的小，最小的大，就可以了。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> f(root,Integer.MIN_VALUE,Integer.MAX_VALUE);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">f</span><span class="hljs-params">(TreeNode root,<span class="hljs-keyword">int</span> min,<span class="hljs-keyword">int</span> max)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root.val&lt;=min||root.val&gt;=max)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> f(root.left,min,root.val)&amp;&amp;f(root.right,root.val,max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    14 分钟 读完 (大约 2117 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/07/DesignModel/DesignModel/"></a>
-            
-        </h1>
-        <div class="content">
-            <p>2019-4-7</p>
-<blockquote>
-<p>设计一个模式的过程就是将问题抽象化，忽略不重要的细节后发现问题本质，并找到普遍适用的解决方案的过程。</p>
-</blockquote>
-<p>上面那句话是参考了<code>西安电子科技大学出版</code>的<code>《java设计模式》</code>中对设计模式的理解。</p>
-<p>本文，将通过自己的理解或者参考书中内容。如有不对的地方，你也找不到我。</p>
-<p>首先。要先知道设计模式的六大原则：<a href="SixPrinciple.md">跳转</a></p>
-<hr>
-<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><p>一般写在前面的话，都是对内容的极大的总结，但是往往在没有后面的实例做铺垫的时候并不能深刻的理解。所以，最好的方式是：多读几遍或者多读几遍。</p>
-<blockquote>
-<p>创建型模式适用于创建对象的模式，抽象了实例化的过程，帮助一个系统独立于其关联对象的创建、组合和表示方式。</p>
-</blockquote>
-<p>功能：</p>
-<ul>
-<li>将系统所使用的具体类的信息封装。</li>
-<li>隐藏类的实例是如何被创建和组织的。外界对于这些对象只知道他们共同的接口，而不清楚具体实现细节。</li>
-</ul>
-<p>作用：</p>
-<ul>
-<li>封装创建逻辑。</li>
-<li>封装创建逻辑的变化，修改尽量少的代码甚至不修改代码。</li>
-</ul>
-<p>话外：功能和作用，有什么区别呢？</p>
-<p>功能，前面一边是由名词引导的，比如：<code>这个按钮的功能是什么？</code> </p>
-<p>作用，一般是由动词引导的，比如：<code>你按这个按钮有什么用？</code> 这里的用就是指<code>作用</code>。</p>
-<p>当然，你也可以说：<code>这个按钮的作用是指什么？</code> 这样的逻辑，其实省略了按这个动作。</p>
-<h3 id="常见的创建型设计模式"><a href="#常见的创建型设计模式" class="headerlink" title="常见的创建型设计模式"></a>常见的创建型设计模式</h3><ul>
-<li><a href="Singleton.md">单例模式</a>：一个类，只有一个实例，而且自行实例化，并且向整个系统提供这个实例。</li>
-<li>工厂方法模式：工厂类是抽象类，世纪的创建工作又其子类来完成。用意是定义一个创建产品对象的工厂接口，将世纪创建工作推迟到子类中，强调<code>单个对象</code>的变化。</li>
-<li><a href="Factory.md">抽象工厂模式</a>：抽象工厂可以向客户提供接口，使客户可以在没有指定产品的具体类型的情况下创建多个产品族中的产品对象，强调<code>系列对象</code>的变化。</li>
-<li><a href="Builder.md">建造者模式</a>：将构造对象实例的逻辑移到类的外部，在类的外部定义了该类的构造逻辑。把一个复杂对象的构造过程从对象的表示中分离出来，其结果是将复杂对象简化为一个简单对象，强调<code>产品的构造过程</code>。</li>
-<li><a href="Prototype.md">原型模式</a>：类似于工厂模式，不同在于原型模式通过复制一个现有对象生成新对象。</li>
-</ul>
-<hr>
-<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><blockquote>
-<p>是关于类和对象的结构的模式。采用继承机制来组合接口或实现(结结构型模式)，或通过组合一些对象实现新的功能(对象结构性模式)。不同结构性模式的区别在于侧重点不同。</p>
-</blockquote>
-<ul>
-<li><a href="Proxy.md">代理模式</a>：为其他对象提供一种代理以控制对该对象的访问。</li>
-<li><a href="Decorator.md">装饰模式</a>：动态的给一个对象添加一些额外的职责。比生成子类更为灵活。</li>
-<li><a href="Adapter.md">适配器模式</a>：将一个类的接口编程客户端所需要的接口，从而使原本因为接口不匹配而无法在一起工作的两个类能在一起工作。</li>
-<li><a href="Composite.md">组合模式</a>：将对象组合成树形结构以表示<code>部分-整体</code>的层次结构，使得用户对单个对象的组合对象的使用具有一致性。</li>
-<li><a href="Bridge.md">桥梁模式</a>：将抽象和实现解耦，使其能独立的变化。</li>
-<li><a href="Facade.md">外观模式</a>：要求一个子系统的内部和外部的通讯必须同通过一个统一的对象进行，外观模式提供一个高层次的接口。是的子系统更易于使用。</li>
-<li><a href="Flyweight.md">享元模式</a>：是池技术的重要实现方式，使用共享对象可有效地支持大量的细粒度的对象。</li>
-</ul>
-<hr>
-<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><blockquote>
-<p>关注的是对象的行为,用来解决对象之间的联系问题。</p>
-</blockquote>
-<ul>
-<li><a href="TemplateMethod.md">模板方法模式</a>：定义一个操作中的算法的框架，而将一些步骤延迟到子类中，使得子类可以在不改变算法的结构的情况下重写定义该算法某些步骤。</li>
-<li><a href="Command.md">命令模式</a>：是一种高内聚的模式。将一个请求封装成一个对象，从而使用不同的请求把客户端参数化。对请求排队或者记录请求日志，可以提供命令的撤消和恢复功能。</li>
-<li><a href="ChainOfResponsibility.md">责任链模式</a>：使多个对象都有机会处理请求，从而避免了<code>请求</code>的发送者和接受者之间的耦合关系。</li>
-<li><a href="Stategy.md">策略模式</a>：定义一组算法，将每个算法都封装起来，并且使他们之间可以互换。</li>
-<li><a href="Iterator.md">迭代器模式</a>：提供一种方法访问一个容器对象中的各个元素，而又不需要暴露该对象的内部结构。</li>
-<li><a href="Mediator.md">中介者模式</a>：用一个中介对象封装一系列对象交互，中介者使各个对象不需要显示相互作用，从而使其耦合松散，而且可以独立地改变他们之间的交互。</li>
-<li><a href="Oberver.md">观察者模式</a>：定义对象间的一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。</li>
-<li><a href="Memento.md">备忘录模式</a>：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。</li>
-<li><a href="Visitor.md">访问者模式</a>：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新操作。</li>
-<li><a href="State.md">状态模式</a>：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类型，状态模式的核心是封装，状态的变更会引起行为的变更。</li>
-<li><a href="Interpreter.md">解释器模式</a>：给定一门<code>语言</code>，定义它的<code>文法</code>的一种表示，并定义一个<code>解释器</code>，该解释器使用该<code>文法</code>表示来解释语言中的句子。</li>
-</ul>
-<hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p><code>创建型模式</code>适用于创建对象的模式，抽象了实例化的过程，帮助一个系统独立于其关联对象的创建、组合和表示方式。</p>
-</blockquote>
-<blockquote>
-<p><code>结构型模式</code>是关于类和对象的结构的模式。采用继承机制来组合接口或实现(结结构型模式)，或通过组合一些对象实现新的功能(对象结构性模式)。不同结构性模式的区别在于侧重点不同。</p>
-</blockquote>
-<blockquote>
-<p><code>行为型模式</code>关注的是对象的行为,用来解决对象之间的联系问题。</p>
-</blockquote>
-<p>今天就先大概的了解一下，多读几遍，名称和其功能可以说是比较吻合的。发挥想象力。记不住没关系，<code>重复是一种高效的记忆法。</code></p>
-<hr>
-<p>更新 2019年4月8日</p>
-<h2 id="六大原则"><a href="#六大原则" class="headerlink" title="六大原则"></a>六大原则</h2><ul>
-<li>单一职责原则</li>
-<li>里氏原则</li>
-<li>依赖倒置原则</li>
-<li>接口隔离原则</li>
-<li>迪米特原则</li>
-<li>开闭原则</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 511 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/">TAPD第三天</a>
-            
-        </h1>
-        <div class="content">
-            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/204/practical-application-hash-set/808/" target="_blank" rel="noopener">快乐数</a></p>
-<p>首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">getNum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">        res.add(temp);</span><br><span class="line">        n = n/<span class="hljs-number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后再考虑，循环条件，从题目可以知道，当再求和的过程中出现，我们已经求过的数，说明出现额循环。后面再计算也不会得到结果。</p>
-<p>所以，最终的算法如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet();</span><br><span class="line">        List&lt;Integer&gt; list = ex(n);</span><br><span class="line">        <span class="hljs-keyword">while</span>(!set.contains(n))&#123;</span><br><span class="line">            set.add(n);</span><br><span class="line">            n = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">                n = n+list.get(i)*list.get(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            list = ex(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">ex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">            temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">            res.add(temp);</span><br><span class="line">            n = n/<span class="hljs-number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然 你也可以从数学上的规律入手。当 <code>n == 4</code>的时候，就一定循环。</p>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/811/" target="_blank" rel="noopener">两数之和，输出序号</a></p>
-<p>使用<code>Map</code>，模板如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * Template for using hash map to find duplicates.</span></span><br><span class="line"><span class="hljs-comment"> * Replace ReturnType with the actual type of your return value.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function">ReturnType <span class="hljs-title">aggregateByKey_hashmap</span><span class="hljs-params">(List&lt;Type&gt; keys)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// Replace Type and InfoType with actual type of your key and value</span></span><br><span class="line">    Map&lt;Type, InfoType&gt; hashmap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">for</span> (Type key : keys) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (hashmap.containsKey(key)) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (hashmap.get(key) satisfies the requirement) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">// Value can be any information you needed (e.g. index)</span></span><br><span class="line">        hashmap.put(key, value);    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) &#123;</span><br><span class="line">         <span class="hljs-keyword">if</span>(nums.length&lt;<span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">0</span>];</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] res= <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> sub = target - nums[i];</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(sub))&#123;</span><br><span class="line">                res[<span class="hljs-number">0</span>] = map.get(sub);</span><br><span class="line">                res[<span class="hljs-number">1</span>] = i;</span><br><span class="line">                <span class="hljs-keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/812/" target="_blank" rel="noopener">同构字符串</a></p>
-<p>这个问题，我的解法是比较麻烦的。看到大神的算法还是自叹不如。对语言掌握竟然到了如此地步。不过还是将自己的算法写出来。</p>
-<p>简单分析一下：其实和上一题的模板有点类似。也是<code>for</code>循环查找目标结果，没有的话，将参数添加进map，直到遍历完成。<code>map</code>中<code>key</code>不能重复，所以将<code>t</code><br>中的值，映射为<code>s</code>对应序号的值。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.length()==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        HashMap&lt;Character,Character&gt;  map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">char</span> c = <span class="hljs-string">' '</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;t.length();i++)&#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(c))&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(t.charAt(i)!=map.get(c))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(map.containsValue(t.charAt(i)))&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                map.put(c,t.charAt(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>时间最快的做法：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span>[] sc = s.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">char</span>[] tc = t.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] map = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">512</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = sc.length-<span class="hljs-number">1</span>;i &gt;= <span class="hljs-number">0</span>;i--) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[sc[i]] != map[tc[i]+<span class="hljs-number">256</span>]) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map[sc[i]] = map[tc[i] + <span class="hljs-number">256</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个算法的思路大概是这样：相同的<code>char</code>对应的ASCII码是相同的，<code>map</code>的长度其实使用ASCII码最大的数字乘2就可以了(即127*2+2，不溢出就行)。至于为什么是要用<code>512</code>，大概因为<code>512</code>是<code>整数</code>吧。映射的不是字符，而是数字，结果是一样的。这个想法非常巧妙。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-06T00:53:24.035Z">2019-04-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 分钟 读完 (大约 1207 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/">TAPD第二天</a>
-            
-        </h1>
-        <div class="content">
-            <p>昨天2019年4月5日是清明节，在宿舍玩了一天游戏。实在罪过，现在补上。</p>
-<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/3/solve-problems-recursively/14/" target="_blank" rel="noopener">路径总和</a></p>
-<p>还记得上次前面的文章讲的<code>自顶向下</code>和<code>自底向上</code>吗？考虑一下两种思路都可以吗？</p>
-<p>当遇到树问题时，请先思考一下两个问题：</p>
-<ul>
-<li>你能确定一些参数，从该节点自身解决出发寻找答案吗？</li>
-<li>你可以使用这些参数和节点本身的值来决定什么应该是传递给它子节点的参数吗？</li>
-</ul>
-<p>如果答案都是肯定的，那么请尝试使用 “自顶向下” 的递归来解决此问题。</p>
-<p>或者你可以这样思考：</p>
-<ul>
-<li>对于树中的任意一个节点，如果你知道它子节点的答案，你能计算出该节点的答案吗？ </li>
-</ul>
-<p>如果答案是肯定的，那么 “自底向上” 的递归可能是一个不错的解决方法。</p>
-<p>我们能确定一些参数传递给子节点吗？是的，可以，我们将<code>sum</code>减去自身传递下去，知道结束条件，并且等于<code>0</code>的时候。</p>
-<p>我们能觉得这些参数和节点本身的值来决定应该传递什么参数吗？当然，传递下去的值就是减去自身后的<code>sum</code>。(其实和第一个问题是类似的)。</p>
-<p>那么，我们载来考虑<code>自底向上</code>：</p>
-<p>对于任意节点，我们能知道其子节点求得自身的值吗？思考一下，好像也是可以的。当我们找到最后的<code>叶子节点</code>的时候，逐渐求和到头，如果等于我们需要的sum的华，就返回<code>true</code>。</p>
-<p>实现一下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//自顶向下</span></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root.left==<span class="hljs-keyword">null</span>&amp;&amp;root.right==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> sum-root.val==<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> hasPathSum(root.right,sum-root.val)||hasPathSum(root.left,sum-root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里解释一下，代码非常简洁。但是，我在思考的时候还是遇到了一些问题，我总结一下：</p>
-<ul>
-<li>首先，边界条件。有时候，用到递归的时候，我总是习惯性的将边界条件看成当root==null时为边界条件。但是，这里并不是。比如，有如下节点：<code>root，root.left!=null,root.right==null,root.left.left==null,root.left.right==null</code>的时候。右节点为空。如果直接传递下去的话就会直接返回结果。下面给出<strong>错误的代码：</strong></li>
-</ul>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> sum==<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> hasPathSum(root.right,sum-root.val)||hasPathSum(root.left,sum-root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>其次，参数。习惯的，我在一个数减一或加一的时候总是有<code>i--</code>或<code>++i</code>，这样的，自增自减的操作。但是传递参数的时候不可以，如果时<code>i--</code>,<code>java</code>会将<code>i</code>先传递到调用的方法再减一。所以建议在参数的传递中，使用<code>i-1</code>，而不是自增自减。</li>
-</ul>
-<pre><code>这里我遇到了一个问题，当测试用例是：
-[5,4,8,11,null,13,4,7,2,null,null,null,1]
-22
-的时候，
-将：return hasPathSum(root.right,sum-root.val)||hasPathSum(root.left,sum-root.val);
-变成：
-return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
-结果就会出错。
-</code></pre><p>自底向上：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/15/" target="_blank" rel="noopener">根据中序/后序遍历的序列构造二叉树</a></p>
-<p>思考以下，中序遍历和后续遍历的特点。</p>
-<p>中序遍历中，如果我们能确定一个点是根节点，那么。在根节点左边的就是左子树的所有节点。在根节点右边的就是右子树的所有节点。</p>
-<p>后序遍历呢？后序遍历的最后一个节点一定是根节点，两中遍历结合，我们就能找逐渐的将二叉树描述出来。</p>
-<p>所以，一个二叉树，可以简单的分为，根-左-右。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">buildTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] inorder, <span class="hljs-keyword">int</span>[] postorder)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> len = inorder.length;</span><br><span class="line">        <span class="hljs-keyword">return</span>  constructTree(inorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>,postorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * il,ir 中序遍历中从左到右，</span></span><br><span class="line"><span class="hljs-comment">     * pl,pr 后序遍历中 从左到右。</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-function">TreeNode <span class="hljs-title">constructTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] inorder,<span class="hljs-keyword">int</span> il,<span class="hljs-keyword">int</span> ir,<span class="hljs-keyword">int</span>[] postorder,<span class="hljs-keyword">int</span> pl,<span class="hljs-keyword">int</span> pr)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(il&gt;ir||pl&gt;pr)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode root = <span class="hljs-keyword">new</span> TreeNode(postorder[pr]);</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = il;i&lt;=ir;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(inorder[i]==root.val)&#123;</span><br><span class="line">                root.left = constructTree(inorder,il,i-<span class="hljs-number">1</span>,postorder,pl,pl+i-il-<span class="hljs-number">1</span>);</span><br><span class="line">                root.right = constructTree(inorder,i+<span class="hljs-number">1</span>,ir,postorder,pl+i-il,pr-<span class="hljs-number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -898,6 +729,8 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             <li><a class="pagination-link is-current" href="/">1</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
             
         </ul>
     </nav>
@@ -936,7 +769,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        24
                     </p>
                 </div>
             </div>
@@ -1069,7 +902,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                 <span class="level-item">每天三道LeetCode</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/笔记/">
@@ -1093,7 +926,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                 <span class="level-item">设计模式-创建型模式</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li>
             </ul>
@@ -1126,62 +959,62 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
-                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
                 </div>
             </div>
@@ -1205,7 +1038,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1258,7 +1091,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1296,62 +1129,62 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
-                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
                 </div>
             </div>
@@ -1375,7 +1208,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1428,7 +1261,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 

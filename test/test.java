@@ -85,12 +85,18 @@ public class test {
         }
         return true;
     }
+
+
+//////
+
+//////
+
     public static void main(String[] args) {
         test test = new test();
         // System.out.println(test.isHappy(19));
         // int[] res= new int[0];
         HashMap<Character,Character> map = new HashMap();
-        // String str = new String();
+         String str = new String();
         // StringBuilder strb = new StringBuilder();
         // List<String> list= new ArrayList();
         // list.clear();
@@ -100,7 +106,11 @@ public class test {
         // String s = new String();
         // s.split(" ");
         Set<Integer> set = new HashSet();
-        
+        char[] cs = str.toCharArray();
+        for (char var : cs) {
+            
+        }
+
     }
 }
 

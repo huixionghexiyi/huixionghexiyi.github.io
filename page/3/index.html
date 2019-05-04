@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>huixiong`s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="huixiong`s Blog">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="huixiong`s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="huixiong`s Blog">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="huixiong`s Blog" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-30T06:27:15.877Z">2019-03-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    27 分钟 读完 (大约 4027 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/03/30/oracle/">oracle</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="oracle的基本介绍"><a href="#oracle的基本介绍" class="headerlink" title="oracle的基本介绍"></a>oracle的基本介绍</h2><ul>
+<li>关系型数据库</li>
+</ul>
+<h3 id="基本语法（CURD）："><a href="#基本语法（CURD）：" class="headerlink" title="基本语法（CURD）："></a>基本语法（CURD）：</h3><hr>
+<ul>
+<li><p>select</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span></span><br><span class="line">     colum_1,</span><br><span class="line">     colum_2,</span><br><span class="line">     ...</span><br><span class="line"><span class="hljs-keyword">from</span></span><br><span class="line"> table_name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update</p>
+<blockquote>
+<p>对数据进行修改</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">update</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">set</span> 列 = <span class="hljs-string">''</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>insert </li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span>  <span class="hljs-keyword">table</span>(colum_1,colum_2,...) <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">" "</span>,<span class="hljs-string">" "</span>,...);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>delete</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">WHERE</span> 条件</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>alter</p>
+<blockquote>
+<p>对表或列进行修改。</p>
+</blockquote>
+</li>
+<li></li>
+</ul>
+<hr>
+<ul>
+<li>order by</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">    column_3,</span><br><span class="line">    ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    column_1 [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>] [<span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">FIRST</span> | <span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">LAST</span>],</span><br><span class="line">    column_1 [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>] [<span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">FIRST</span> | <span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">LAST</span>],</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中<code>asc</code>表示升序(默认)，<code>desc</code> 降序， <code>nulls first</code> 空值放在前面</p>
+</blockquote>
+<p><strong>例句</strong>：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>, <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> credit_limit <span class="hljs-keyword">DESC</span>, <span class="hljs-keyword">name</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中两条语句是等价的，按照列在表中的位置指定也行。</span></span><br><span class="line"><span class="hljs-comment">--执行结果时先按credit_limit 降序，再按name 升序。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> customer_id, <span class="hljs-keyword">name</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">UPPER</span>( <span class="hljs-keyword">name</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--按照函数排序，upper()表示，</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>distinct</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> </span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">        ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">--查询column_1 和column_2都不相同的行。（相当于去重）distinct 清楚、明确之意</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>where<blockquote>
+<p>为查询返回结果集中的行记录指定过滤条件。</p>
+</blockquote>
+</li>
+<li>and</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 false、null、true (之前写错了，写成null、false、true )</span></span><br><span class="line"><span class="hljs-comment">-- https://www.yiibai.com/oracle/oracle-and.html(参考链接)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--and 两边同时满足</span></span><br><span class="line"><span class="hljs-comment">--（其中 as 的作用是将前面的列名变为order_date ，可以省略）</span></span><br><span class="line"><span class="hljs-comment">--TO_CHAR(order_date,'YYYY-MM-DD') 是将日期显示为指定的格式。</span></span><br><span class="line"><span class="hljs-comment">--EXTRACT(YEAR FROM order_date) 指定年份为2017的列</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> order_id, customer_id, <span class="hljs-keyword">status</span>, TO_CHAR(order_date,<span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span> orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span>  <span class="hljs-keyword">AND</span> customer_id = <span class="hljs-number">2</span> </span><br><span class="line"><span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">FROM</span> order_date) = <span class="hljs-number">2017</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> order_date;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">---------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--结合or</span></span><br><span class="line">WHERE</span><br><span class="line">    (status = 'Canceled' OR status = 'Pending')</span><br><span class="line">    AND customer_id = 44</span><br></pre></td></tr></table></figure>
+<ul>
+<li>OR</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 ture、null、false</span></span><br><span class="line"><span class="hljs-comment">--当or左边已经为true时，则右边不再需要判断</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    customer_id,</span><br><span class="line">    <span class="hljs-keyword">status</span>,</span><br><span class="line">    TO_CHAR(order_date, <span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span></span><br><span class="line">    <span class="hljs-keyword">OR</span> <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--可以用  IN 来代替多个 or</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN(60, 61, 62)</span><br><span class="line">ORDER BY</span><br><span class="line">    order_date DESC;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fetch子句语法</li>
+</ul>
+<p>语法：</p>
+<blockquote>
+<p>[ OFFSET offset ROWS]<br> FETCH  NEXT [  row_count | percent PERCENT  ] ROWS  [ ONLY | WITH TIES ]</p>
+</blockquote>
+<p>使用行限制子句限制查询返回的行数。<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">-- OFFSET子句</span></span><br><span class="line"><span class="hljs-comment">--OFFSET子句指定在行限制开始之前要跳过行数。OFFSET子句是可选的。 如果跳过它，则偏移量为0，行限制从第一行开始计算。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- FETCH子句</span></span><br><span class="line"><span class="hljs-comment">--FETCH子句指定要返回的行数或百分比。</span></span><br><span class="line"></span><br><span class="line">FETCH NEXT 1 ROWS</span><br><span class="line">FETCH FIRST 1 ROW  <span class="hljs-comment">--两句结果相同，推荐使用第二句</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ONLY | WITH TIES选项</span></span><br><span class="line"><span class="hljs-comment">--仅返回FETCH NEXT(或FIRST)后的行数或行数的百分比。</span></span><br><span class="line"><span class="hljs-comment">--WITH TIES返回与最后一行相同的排序键。请注意，如果使用WITH TIES，则必须在查询中指定一个ORDER BY子句。如果不这样做，查询将不会返回额外的行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下查询语句仅能在Oracle 12c以上版本执行</span></span><br><span class="line"><span class="hljs-comment">--由于本机装的只有11g所以不能使用该子句，只能使用</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name, quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">rownum</span>&lt;=<span class="hljs-number">5</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> quantity <span class="hljs-keyword">DESC</span>;</span><br><span class="line"><span class="hljs-comment">-----------------------------------</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    quantity <span class="hljs-keyword">DESC</span> </span><br><span class="line"><span class="hljs-keyword">FETCH</span> <span class="hljs-keyword">FIRST</span> <span class="hljs-number">5</span> <span class="hljs-keyword">ROW</span> <span class="hljs-keyword">ONLY</span>;<span class="hljs-comment">--指定返回前五行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 若是</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH FIRST 5 ROW <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--返回前五行，外加与最后一行的quantity值相同的行</span></span><br><span class="line"><span class="hljs-comment">--需要注意的时使用 WITH TIES时，必须有order by子句，不然不会返回任何额外的行</span></span><br><span class="line"><span class="hljs-comment">--以百分比限制返回行</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH FIRST 5 PERCENT ROW <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--取得5%的数据，如果求得是11.1行，则返回12行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--使用</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">OFFSET 10 ROWS </span><br><span class="line">FETCH FIRST 5  ROW <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--可以用于实现分页操作</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>IN </li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 确定表达式是否与值列表匹配的Oracle IN运算符的语法如下所示</span></span><br><span class="line">expression [NOT] IN (v1,v2,...)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 并且表达式的语法与子查询匹配</span></span><br><span class="line">expression [NOT] IN (subquery)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- expression - 该表达式(expression)是任何有效的表达式，它可以是要匹配的表的列。</span></span><br><span class="line"><span class="hljs-comment">-- v1, v2, v3.. - IN运算符后面是逗号分隔值列表，用于测试匹配。所有值必须与表达式具有相同的数据类型。</span></span><br><span class="line"><span class="hljs-comment">-- subquery - 子查询返回一列的结果集以测试匹配。该列还必须具有与表达式相同的数据类型。</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN (54,55,56)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    status IN('Pending','Canceled')</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下示例返回负责订单状态为取消(Canceled)的销售员的ID，名字和姓氏，参考以下查询语句</span></span><br><span class="line">    <span class="hljs-keyword">SELECT</span> employee_id, first_name, last_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> employees</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    employee_id <span class="hljs-keyword">IN</span>(</span><br><span class="line">        <span class="hljs-keyword">SELECT</span></span><br><span class="line">            <span class="hljs-keyword">DISTINCT</span> salesman_id</span><br><span class="line">        <span class="hljs-keyword">FROM</span></span><br><span class="line">            orders</span><br><span class="line">        <span class="hljs-keyword">WHERE</span></span><br><span class="line">            <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line">    )</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> first_Name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Between</li>
+</ul>
+<blockquote>
+<p>BETWEEN运算符允许指定要测试的范围。当使用BETWEEN运算符为SELECT语句返回的行形成搜索条件时，只返回其值在指定范围内的行。</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 以下说明BETWEEN运算符的语法：</span></span><br><span class="line">expression [ NOT ] BETWEEN low AND high</span><br><span class="line"></span><br><span class="line">value &gt;= low AND value &lt;= high</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    standard_cost</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    standard_cost <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">500</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">600</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    standard_cost;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----------------------------------</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    standard_cost NOT BETWEEN 500 AND 600</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查询2016年12月1日至2016年12月31日期间客户的订单，可以使用以下语句：</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id, customer_id, <span class="hljs-keyword">status</span>, order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    order_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-31'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>LIKE</li>
+</ul>
+<blockquote>
+<p>Oracle LIKE运算符的语法如下所示：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">expresion [NOT] LIKE pattern [ ESCAPE escape_characters ]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--expression：该表达式是一个列名称或一个表达式，要针对该模式(pattern)进行测试。</span></span><br><span class="line"><span class="hljs-comment">-- pattern：该模式是在表达式中搜索的字符串。此模式包含以下通配符：％(百分号)匹配零个或多个字符的任何字符串。_(下划线)匹配任何单个字符。</span></span><br><span class="line"><span class="hljs-comment">-- escape_character：escape_character是出现在通配符前面的字符，用于指定通配符不应被解释为通配符而是常规字符。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- %通配符</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    phone</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    contacts</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    last_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'St%'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    last_name;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- NOT LIKE</span></span><br><span class="line">WHERE</span><br><span class="line">    last_name NOT LIKE 'St%'  </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- _ 通配符，表示有由四个字符组成</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_i'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 混合通配符，表示至少4个字符组成</span></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_%';</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--使用UPPER或者LOWER 可以不区分大小写</span></span><br><span class="line">WHERE</span><br><span class="line">    UPPER( first_name ) LIKE 'CH%'</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>ESCAPE<br>ESCAPE子句</li>
+</ul>
+<blockquote>
+<p>允许查找包含一个或多个通配符的字符串。例如，表可能包含具有百分比字符的数据，例如折扣值，折旧率。要搜索字符串25％<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LIKE '%25!%%' ESCAPE '!'</span><br><span class="line"><span class="hljs-comment">--表示 ！后面接的是字符，而不是通配符</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>GROUP BY</li>
+</ul>
+<p>GROUP BY子句在SELECT语句中用于按行或表达式的值将行组合到分组汇总的行中。 GROUP BY子句为每个分组返回一行。</p>
+<p>GROUP BY子句通常与AVG()，COUNT()，MAX()，MIN()和SUM()之类的集合函数一起使用。 在这种情况下，聚合函数返回每个分组的摘要信息。 例如，给定几个类别的产品，AVG()函数返回每个类别中产品的平均价格。</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--在有提供WHERE子句的情况下，GROUP BY子句必须放在WHERE子句之前。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    c1,</span><br><span class="line">    c2, </span><br><span class="line">    c3;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--如果要指定应该一次计算的多个分组级别，请使用ROLLUP语法</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    <span class="hljs-keyword">ROLLUP</span>(c1,c2,c3);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>HAVING</p>
+<blockquote>
+<p>HAVING子句是SELECT语句的可选子句。它用于过滤由GROUP BY子句返回的行分组。 这就是为什么HAVING子句通常与GROUP BY子句一起使用的原因。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">  <span class="hljs-comment">--若语句中不带group by ，则having会像where一样工作</span></span><br><span class="line">  <span class="hljs-comment">--HAVING子句过滤分组的行，而WHERE子句过滤行</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    c1</span><br><span class="line"><span class="hljs-keyword">HAVING</span></span><br><span class="line">    group_condition;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查找总金额值大于1百万的订单，请按如下所示添加HAVING子句：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) order_value</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    order_items</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_id</span><br><span class="line"><span class="hljs-keyword">HAVING</span></span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) &gt; <span class="hljs-number">1000000</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_value <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查找值大于500,000的订单，并且每个订单中的产品数量在10到12之间：</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    <span class="hljs-keyword">COUNT</span>( item_id ) item_count,</span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) total</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    order_items</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_id</span><br><span class="line"><span class="hljs-keyword">HAVING</span></span><br><span class="line">    <span class="hljs-keyword">SUM</span>( unit_price * quantity ) &gt; <span class="hljs-number">500000</span> <span class="hljs-keyword">AND</span></span><br><span class="line">    <span class="hljs-keyword">COUNT</span>( item_id ) <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">10</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">12</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    total <span class="hljs-keyword">DESC</span>,</span><br><span class="line">    item_count <span class="hljs-keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子查询</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    list_price,</span><br><span class="line">    <span class="hljs-keyword">ROUND</span>(</span><br><span class="line">        (</span><br><span class="line">            <span class="hljs-keyword">SELECT</span></span><br><span class="line">                <span class="hljs-keyword">AVG</span>( list_price )</span><br><span class="line">            <span class="hljs-keyword">FROM</span></span><br><span class="line">                products p1</span><br><span class="line">            <span class="hljs-keyword">WHERE</span></span><br><span class="line">                p1. category_id = p2.category_id</span><br><span class="line">        ),</span><br><span class="line">        <span class="hljs-number">2</span></span><br><span class="line">    ) avg_list_price</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products p2</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    product_name;</span><br><span class="line"></span><br><span class="line">链接：</span><br><span class="line"><span class="hljs-comment">--https://www.yiibai.com/oracle/oracle-subquery.html#article-start</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="连接表"><a href="#连接表" class="headerlink" title="连接表"></a>连接表</h2><p>如何从表中查询具有与其他表匹配的行记录。</p>
+<hr>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
+<p>COMMIT语句可以用来提交当前事务的所有更改。提交后，其他用户将能够看到您的更改。</p>
+</blockquote>
+<h3 id="COMMIT语句语法："><a href="#COMMIT语句语法：" class="headerlink" title="COMMIT语句语法："></a>COMMIT语句语法：</h3><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">COMMIT</span> [ <span class="hljs-keyword">WORK</span> ] [ <span class="hljs-keyword">COMMENT</span> clause ] [ WRITE clause ] [ <span class="hljs-keyword">FORCE</span> clause ];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WORK：可选的。它被Oracle添加为符合SQL标准。使用或不使用WORK参数来执行COMMIT将产生相同的结果。</li>
+<li>COMMENT clause：可选的。 它用于<code>指定与当前事务关联的注释</code>。 该注释最多可以包含在单引号中的255个字节的文本中。 如果出现问题，它将与事务ID一起存储在名为DBA_2PC_PENDING的系统视图中。</li>
+<li>WRITE clause：可选的。 它<code>用于指定将已提交事务的重做信息写入重做日志的优先级</code>。 用这个子句，有两个参数可以指定：<code>WAIT</code> 或 <code>NOWAIT</code> (如果省略，WAIT是默认值)IMMEDIATE或BATCH(IMMEDIATE是省略时的默认值)</li>
+<li><p>FORCE clause：可选的。 它用于强制提交可能已损坏或有疑问的事务。 有了这个子句，可以用3种方式指定FORCE：FORCE’string’，[integer]或FORCE CORRUPT_XID’string’或FORCE CORRUPT_XID_ALL</p>
+</li>
+<li><p>注意</p>
+<ul>
+<li>必须拥有DBA权限才能访问系统视图 - DBA_2PC_PENDING和V$CORRUPT_XID_LIST。</li>
+<li>必须拥有DBA权限才能指定COMMIT语句的某些功能。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- COMMIT </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">COMMIT</span>;</span><br><span class="line"><span class="hljs-comment">--等价于</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">WORK</span> WRITE <span class="hljs-keyword">WAIT</span> <span class="hljs-keyword">IMMEDIATE</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 添加备注</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'This is the comment for the transaction'</span>;</span><br><span class="line"><span class="hljs-comment">-- 如果事务出错或存在疑问，COMMIT会将包含在引号中的注释与事务ID一起存储在DBA_2PC_PENDING系统视图中。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 可以通过两种方式编写可疑事务的COMMIT：</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'22.14.67'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">WORK</span> <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'22.14.67'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="回滚事务-ROLLBACK"><a href="#回滚事务-ROLLBACK" class="headerlink" title="回滚事务  ROLLBACK"></a>回滚事务  ROLLBACK</h3><ul>
+<li><p>ROLLBACK语法</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ROLLBACK</span> [ <span class="hljs-keyword">WORK</span> ] [ <span class="hljs-keyword">TO</span> [<span class="hljs-keyword">SAVEPOINT</span>] savepoint_name  | <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'string'</span> ];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>WORK：可选的。 它被Oracle添加为符合SQL标准。 使用或不使用WORK参数来发出ROLLBACK会导致相同的结果。</p>
+</li>
+<li>TO SAVEPOINT savepoint_name：可选的。 ROLLBACK语句撤消当前会话的所有更改，直到由savepoint_name指定的保存点。 如果省略该子句，则所有更改都将被撤消。</li>
+<li>FORCE ‘string’：可选的。它用于强制回滚可能已损坏或有问题的事务。 使用此子句，可以将单引号中的事务ID指定为字符串。 可以在系统视图中找到名为DBA_2PC_PENDING的事务标识。</li>
+<li>必须拥有DBA权限才能访问系统视图：DBA_2PC_PENDING和V$CORRUPT_XID_LIST。</li>
+<li>您无法将有问题的事务回滚到保存点。</li>
+</ul>
+<h3 id="SET-TRANSACTION语句（设置事务）"><a href="#SET-TRANSACTION语句（设置事务）" class="headerlink" title="SET TRANSACTION语句（设置事务）"></a>SET TRANSACTION语句（设置事务）</h3><ul>
+<li>Oracle中SET TRANSACTION语句的语法是：<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SET</span> <span class="hljs-keyword">TRANSACTION</span> [ <span class="hljs-keyword">READ</span> <span class="hljs-keyword">ONLY</span> | <span class="hljs-keyword">READ</span> WRITE ]</span><br><span class="line">                [ <span class="hljs-keyword">ISOLATION</span> <span class="hljs-keyword">LEVEL</span> [ SERIALIZE | <span class="hljs-keyword">READ</span> COMMITED ]</span><br><span class="line">                [ <span class="hljs-keyword">USE</span> <span class="hljs-keyword">ROLLBACK</span> <span class="hljs-keyword">SEGMENT</span> <span class="hljs-string">'segment_name'</span> ]</span><br><span class="line">                [ <span class="hljs-keyword">NAME</span> <span class="hljs-string">'transaction_name'</span> ];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>● READ ONLY：可以将事务设置为只读事务。</p>
+<p>● READ WRITE：可以将事务设置为读/写事务。</p>
+<p>● ISOLATION LEVEL： 如果指定，它有两个选项：</p>
+<pre><code>1.ISOLATION LEVEL SERIALIZE：如果事务尝试更新由另一个事务更新并未提交的资源，则事务将失败。
+
+2.ISOLATION LEVEL READ COMMITTED：如果事务需要另一个事务持有的行锁，则事务将等待，直到行锁被释放。
+</code></pre><p>● USE ROLLBACK SEGMENT：可选的。 如果指定，它将事务分配给由’segment_name’标识的回退段，该段是用引号括起来的段名称。</p>
+<p>● NAME：为’transaction_name’标识的事务分配一个名称，该事务用引号括起来。</p>
+<p>LOCK TABLE语句（锁表）</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">LOCK</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">tables</span> <span class="hljs-keyword">IN</span> lock_mode <span class="hljs-keyword">MODE</span> [ <span class="hljs-keyword">WAIT</span> [, <span class="hljs-built_in">integer</span>] | <span class="hljs-keyword">NOWAIT</span> ];</span><br></pre></td></tr></table></figure>
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><blockquote>
+<p>外键是强制实施参照完整性的一种方式，使用外键就意味着一个表中的值在另一个表中也必须出现。被引用的表称为父表，而带有外键的表称为子表。子表中的外键通常会引用父表中的主键。</p>
+</blockquote>
+<p>创建外键：</p>
+<ul>
+<li>使用CREATE TABLE语句创建<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">  column1 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  column2 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_column</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> supplier</span><br><span class="line">( supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  contact_name varchar2(<span class="hljs-number">50</span>),</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> supplier_pk PRIMARY <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-comment">-- CONSTRAINT 约束 ，FOREIGN KEY 外键，REFERENCES 参考 </span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-comment">--在这个例子中，我们在supplier表上创建了一个名为supplier_pk的主键。 它只包含一个字段 - supplier_id字段。 然后，在products表上创建了一个名为fk_supplier的外键，该表根据supplier_id字段引用supplier表。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 多字段外键</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier_comp</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id, supplier_name)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id, supplier_name)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>ALTER TABLE语句创建：</p>
+<ul>
+<li>ALTER TABLE语句中创建外键的语法是：<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name</span><br><span class="line">   <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>示例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">  <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">  <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--多字段外键</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">  <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id, supplier_name)</span><br><span class="line">  <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id, supplier_name);</span><br></pre></td></tr></table></figure></p>
+<h3 id="级联删除"><a href="#级联删除" class="headerlink" title="级联删除"></a>级联删除</h3><p>CREATE TABLE语句定义级联删除：</p>
+<blockquote>
+<p>所谓的级联删除是指当主表中的一条记录被删除，那么子表中所关联的记录也相应的自动删除。</p>
+</blockquote>
+<ul>
+<li>使用CREATE TABLE语句定义级联删除</li>
+</ul>
+<p>语法：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">  column1 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  column2 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_column</span><br><span class="line">     <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">     <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">     <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--本质上只需要在添加外键的最后添加 ON DELETE CASCADE 就可以。</span></span><br></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> supplier</span><br><span class="line">( supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  contact_name varchar2(<span class="hljs-number">50</span>),</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> supplier_pk PRIMARY <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id)</span><br><span class="line">    <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 创建多字段的级联删除</span></span><br><span class="line"></span><br><span class="line">  CONSTRAINT fk_supplier_comp</span><br><span class="line">    FOREIGN KEY (supplier_id, supplier_name)</span><br><span class="line">    REFERENCES supplier(supplier_id, supplier_name)</span><br><span class="line">    ON <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br></pre></td></tr></table></figure>
+<p>ALTER TABLE语句定义级联删除：</p>
+<p>语法：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name</span><br><span class="line">   <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="删除外键"><a href="#删除外键" class="headerlink" title="删除外键"></a>删除外键</h3><p>语法：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
+<p>示例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier;</span><br></pre></td></tr></table></figure></p>
+<h3 id="禁用外键"><a href="#禁用外键" class="headerlink" title="禁用外键"></a>禁用外键</h3><p>语法：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">DISABLE</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">DISABLE</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier;</span><br></pre></td></tr></table></figure>
+<h3 id="启用外键"><a href="#启用外键" class="headerlink" title="启用外键"></a>启用外键</h3><blockquote>
+<p>一般默认情况下，创建外键即启用外键</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ENABLE</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p>Ascii()函数语法</p>
+<blockquote>
+<p>Ascii()函数可以返回代表指定字符的数字值代码<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ASCII('t')</span><br><span class="line">Result: 116</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>Asciistr()函数语法</p>
+<blockquote>
+<p>Asciistr()函数可以使用数据库字符集将任何字符集中的字符串转换为ASCII字符串。下面，就为大家介绍Asciistr()函数的语法及使用方法<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ASCIISTR('A B C Ä Ê')</span><br><span class="line">Result: 'A B C 0C4 0CA'</span><br><span class="line"></span><br><span class="line">ASCIISTR('A B C Õ Ø')</span><br><span class="line">Result: 'A B C 0D5 0D8'</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>Chr()函数语法</p>
+<blockquote>
+<p>Chr()函数可以根据数字代码返回字符，其功能和ASCII函数相反</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CHR(116)</span><br><span class="line">Result: 't'</span><br><span class="line"></span><br><span class="line">CHR(84)</span><br><span class="line">Result: 'T'</span><br></pre></td></tr></table></figure>
+<p>Compose()函数语法</p>
+<blockquote>
+<p>使用Compose()函数可以返回一个Unicode字符串</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COMPOSE('o' || unistr('\0308') )</span><br><span class="line">Result: ö</span><br><span class="line"></span><br><span class="line">COMPOSE('a' || unistr('\0302') )</span><br><span class="line">Result: â</span><br></pre></td></tr></table></figure>
+<p>||运算符</p>
+<blockquote>
+<p>||运算符可以将两个或两个以上的字符串连接在一起</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">'oraok' || '.com'</span><br><span class="line"><span class="hljs-comment">-- Result: 'oraok.com'</span></span><br><span class="line"></span><br><span class="line">'a' || 'b' || 'c' || 'd'</span><br><span class="line"><span class="hljs-comment">-- Result: 'abcd'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> first_name || <span class="hljs-string">' '</span> || last_name <span class="hljs-keyword">AS</span> customer_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中：  ''''  表示连接的 一个 '   ,可以认为 ''  在''  里时， '表示转义字符，类似于java中： "c:\\Windows\\..."  \表示转移字符 一样。</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-string">'Let'</span> || <span class="hljs-string">''''</span> || <span class="hljs-string">'s'</span> || <span class="hljs-string">' learn Oracle'</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> dual;</span><br><span class="line"><span class="hljs-comment">-- Result: 'Let's learn Oracle'</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1380 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/03/29/git/">git</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="重要概念；"><a href="#重要概念；" class="headerlink" title="重要概念；"></a>重要概念；</h1><ul>
+<li><p>暂存区</p>
+<p>  <img src="https://i.loli.net/2019/05/04/5ccd546754ac8.jpg" alt="git分区"></p>
+<ul>
+<li>工作区(workspace) </li>
+<li>暂存区(stage) </li>
+<li>当前版本(master) </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>初始化：</p>
+<pre><code>git init
+</code></pre><p>把文件添加到仓库:三种类型</p>
+<pre><code>git add &lt;filename&gt;
+git add &lt;filename1&gt; &lt;filename2&gt;
+git add .
+</code></pre><p>把文件提交到仓库：message自行修改</p>
+<pre><code>git commit -m &quot;message&quot;
+</code></pre><p>查看当前仓库状态：</p>
+<pre><code>git status
+</code></pre><p>查看某个修改的内容：</p>
+<pre><code>git diff &lt;filename&gt;
+</code></pre><p>查看日志记录：</p>
+<pre><code>git log
+git log --pretty=oneline 
+</code></pre><p>回到前面的版本：</p>
+<pre><code>git reset --hard HEAD^
+git reset --hard HEAD^^
+git reset --hard HEAD~100
+</code></pre><p>查看历史提交的命令(用于查找commit id)：</p>
+<pre><code>git reflog
+</code></pre><p>我们使用<code>git add</code> 将修改的文件提交到stage，再使用<code>git commit</code>一次性将stage中的所有提交到<code>master</code>（这里指<code>master</code>这个分支）里。</p>
+<p>丢弃工作区的内容：（本质是用版本库替换掉工workspace的内容,也可以看作是切换分支）<br>若<code>stage</code>中有内容就恢复成<code>stage</code>,没有则恢复<code>master</code>中的。</p>
+<pre><code>git checkout -- &lt;filename&gt;
+</code></pre><p>创建并切换分支：</p>
+<pre><code>git checkout -b &lt;branch&gt;
+</code></pre><p>将<code>stage</code>中的恢复到<code>workspace</code>中</p>
+<pre><code>git reset HEAD &lt;filename&gt;
+</code></pre><p>删除文件</p>
+<pre><code>rm &lt;filename&gt;
+</code></pre><hr>
+<h1 id="远程仓库github的设置"><a href="#远程仓库github的设置" class="headerlink" title="远程仓库github的设置"></a>远程仓库github的设置</h1><p>创建SSH Key:</p>
+<pre><code>ssh-keygen -t rsa -C &quot;meail@mail.com&quot;
+</code></pre><p>再在GitHub里添加用户路径下的 <code>id_rsa.pub</code>公钥。</p>
+<p>关联一个远程仓库：</p>
+<pre><code>git remote add origin git@server-name:path/repo-name.git
+</code></pre><p>推送master分支到远程仓库：(第一次需要加 <code>-u</code> ，以后不需要)</p>
+<pre><code>git push -u origin master
+</code></pre><p>从远程仓库<code>clone</code> 一个仓库：</p>
+<pre><code>git clone git@github.com:huixionghexiyi/gitskills.git
+</code></pre><p>删除本地仓库和远程仓库的关联关系：</p>
+<pre><code>git remote remove origin
+</code></pre><hr>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>创建分支</p>
+<pre><code>git checkout -b dev
+或  
+git branch dev
+git checkout dev
+</code></pre><p>查看分支</p>
+<pre><code>git branch
+</code></pre><p>切换分支 </p>
+<pre><code>git checkout &lt;branch&gt;
+</code></pre><p>合并分支</p>
+<pre><code>将目标分支合并到当前分支
+git merge &lt;目标分支&gt;
+</code></pre><p>删除分支</p>
+<pre><code>git branch -d &lt;branch&gt;
+</code></pre><p>强制删除</p>
+<pre><code>git branch -D &lt;branch&gt;
+</code></pre><p>带参数的查看日志记录</p>
+<pre><code>git log --graph --pretty-oneline --abbrev-commit
+
+--graph   表示查看图表
+--pretty-oneline 单行查看
+--abbrev-commit  缩写的commit id
+</code></pre><hr>
+<h3 id="分支的知识点："><a href="#分支的知识点：" class="headerlink" title="分支的知识点："></a>分支的知识点：</h3><p>通常情况下：合并分支的时候会默认使用<code>Fast forward</code> 方式。（即文件没有被修改/删除，文件只是被添加（ps:我自己的理解））</p>
+<p>禁止<code>Fast forward</code>方式的合并</p>
+<pre><code>git merge --no-ff -m &quot;message&quot; &lt;branch&gt; 
+</code></pre><h3 id="分支策略："><a href="#分支策略：" class="headerlink" title="分支策略："></a>分支策略：</h3><p><code>master</code>应该是非常稳定的，<code>dev</code>是不稳定的，干活的话，就是每个人就从<code>dev</code>上创建自己的分支。</p>
+<h3 id="对付bug分支："><a href="#对付bug分支：" class="headerlink" title="对付bug分支："></a>对付<code>bug</code>分支：</h3><p><code>stash</code>，储藏(临时保存点)</p>
+<p>保存当前工作区的进度</p>
+<pre><code>git stash
+</code></pre><p>查看进度的储存list</p>
+<pre><code>git stash list 
+</code></pre><p>读取进度</p>
+<pre><code>git stash apply
+git stash drop
+</code></pre><p>或</p>
+<pre><code>git stash pop
+</code></pre><p>读取指定的进度</p>
+<pre><code>git stash apply stash@{0}
+</code></pre><hr>
+<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><p>多人需要协作时。在<code>github</code>的项目仓库的设置中的<code>Collaborators</code>选项中将对方邀请进来即可。对方接受，他就对项目可以有写的权限。但是只有项目的拥有者可以选择合并哪个分支到<code>master</code>上（ps：自己的理解）。</p>
+<hr>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p>创建标签</p>
+<pre><code>git tag &lt;标签名&gt;
+</code></pre><p>对历史commit创建标签：</p>
+<pre><code>git tag &lt;标签名&gt;  &lt;commit id&gt;
+</code></pre><p>查看标签</p>
+<pre><code>git show
+</code></pre><p>创建带说明的标签：</p>
+<pre><code>git tag -a &lt;标签名&gt; -m &quot;message&quot; &lt;commit id&gt;
+</code></pre><blockquote>
+<p>注意，标签总是和commit挂钩。当commit出现在master和dev中那么，这两个分支都可以看见标签。</p>
+</blockquote>
+<p>删除标签：</p>
+<pre><code>git tag -d &lt;标签名&gt;
+</code></pre><p>推送标签到远端：</p>
+<pre><code>git push origin &lt;tagname&gt;
+
+git push origin --tags
+</code></pre><p>删除远端的标签：</p>
+<ul>
+<li><p>先删除本地的</p>
+<pre><code>git tag -d &lt;标签名&gt;
+</code></pre></li>
+<li><p>再删除远端的</p>
+<pre><code>git push origin :refs/tags/&lt;标签名&gt;
+</code></pre></li>
+</ul>
+<h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库<code>fork</code>到自己的仓库，然后<code>clone</code>到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
+<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>忽略特殊文件：</p>
+<p>只需要有一个<code>.gitignore</code> 文件即可。在里面添加要忽略的文件。</p>
+<p>常用用的<code>.gitignore</code>文件：</p>
+<p><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">忽略文件</a></p>
+<h2 id="忽略文件的原则是："><a href="#忽略文件的原则是：" class="headerlink" title="忽略文件的原则是："></a>忽略文件的原则是：</h2><p>忽略文件的原则是：</p>
+<ul>
+<li>忽略操作系统自动生成的文件，比如缩略图等；</li>
+<li>忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；</li>
+<li>忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。</li>
+</ul>
+<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><pre><code>将status 取别名为 st
+git config --global alias.st status
+</code></pre><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">建议使用的别名：</span><br><span class="line"></span><br><span class="line">    git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><br></pre></td></tr></table></figure>
+<p>删除别名：</p>
+<p>在config下文件<code>.gitconfig</code> 中有</p>
+<pre><code>    $ cat .gitconfig
+[alias]
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
+[user]
+    name = Your Name
+    email = your@email.com
+</code></pre><p>只需要删除alias中的行即可</p>
+<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2><pre><code>这个暂时不需要。
+</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>每次<code>commit</code>之后都有一个<code>commit id</code> ，而所有的其他操作都是围绕着<code>commit id</code>在运转。所以在项目中<code>commit</code>之前一定要想好。</p>
+<p>无论是<code>master</code>、<code>dev</code>、还是<code>HEAD</code> 指针，都是围绕着<code>commit id</code>，变换指向，来实现不同版本之间的切换。</p>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>2019年3月30日</p>
+<p>强制本地覆盖远程的分支</p>
+<pre><code>git push origin &lt;branch&gt; --force
+</code></pre><p>2019年4月8日</p>
+<p>更新一些错别字</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-28T12:46:14.215Z">2019-03-28</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 250 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/03/28/DoWeNeedTesktop/"></a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h1><p>2019年3月29日13点28分</p>
+<ul>
+<li><p>超级人类知识储备系统，星际备份。月球2个，火星1个。</p>
+<ul>
+<li>虚拟地球、天网系统。</li>
+</ul>
+</li>
+<li><p>实验：</p>
+<ul>
+<li>将人类的婴儿放在陌生的环境里，自然培养。</li>
+</ul>
+</li>
+<li><p>脾气守恒定理：</p>
+</li>
+</ul>
+<ul>
+<li>广告词：正宗好凉茶，正中好声音。欢迎收看又凉茶领导者加多宝独家冠名的加多宝中国好声音。这个小天还是熟悉的味道。还时好听的声音。百雀羚草本，天然不刺激，中国好声音又百雀羚草本天然护肤独家特约播出，本届好声音有味道是最得意的门生将踏上百雀羚天然草本音乐之旅。天翼好网络，传递好声音，互动上翼聊。中国电信天锡菲Young邀你参与我们的节目互动，赢取飞Young五千元纯流量大礼包。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-26T09:41:54.857Z">2019-03-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/其他/">其他</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 367 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/03/26/TheWinterIsComing/"></a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h1><p>独立思考是突破颜值文化的唯一出路。</p>
+<h1 id="2019-4-4"><a href="#2019-4-4" class="headerlink" title="2019-4-4"></a>2019-4-4</h1><p>前几天因为毕设的事情注册了一个researcher账号，使用的是学校的邮箱。结果今天<code>google</code>给我推荐了 <code>RESEARCHER</code> 的应用给我。</p>
+<p>同一天，我更新了猎聘网的简历信息，猎聘网的员工就给我打电话。通知我在天津有招聘会。</p>
+<p>VSCode的<code>bug</code>，不能重复。但是一次编写的代码的过程中，突然且回到桌面。但后再切回来的时候。VSCode的窗口总是再最前面。不能被其他窗口覆盖。重启软件后恢复。细节：突然返回桌面的原因是，我将<code>双击触控板</code>设置为了显示桌面。</p>
+<h1 id="2019年4月11日"><a href="#2019年4月11日" class="headerlink" title="2019年4月11日"></a>2019年4月11日</h1><p> 为什么在11点-12点之前收拾书包从图书馆离开的人大部分都显得特别着急？</p>
+<p> 最直接的第一种可能性就是，是有什么事情确实着急。</p>
+<p>但是，如果确实有什么事情很着急，为什么不早点准备走呢？</p>
+<p>为了多学习两分钟？</p>
+<p>更有可能的情况是，心理作用，他是想用行动告诉别图书馆的其他人。<code>我是有急事，我不是不学习。我和你们是一起的。</code> </p>
+<p>当然，必然的，这两种情况都有。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">上一页</a>
+        </div>
+        <div class="pagination-next is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/page/4/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
+            
+            <li><a class="pagination-link is-current" href="/page/3/">3</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="huixiong">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        huixiong
+                    </p>
+                    
+                    
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        24
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="/" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/huixionghexiyi">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://wechat.com">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-qq"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://weibo.com/huixionghexiyi">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/arnoldteams" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Arnold</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/huixionghexiyi" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">huixionghexiyi</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/arithmeticNote/">
+            <span class="level-start">
+                <span class="level-item">arithmeticNote</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/其他/">
+            <span class="level-start">
+                <span class="level-item">其他</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/每天三道LeetCode/">
+            <span class="level-start">
+                <span class="level-item">每天三道LeetCode</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/笔记/">
+            <span class="level-start">
+                <span class="level-item">笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/设计模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/设计模式-创建型模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式-创建型模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Chaos/" style="font-size: 10px;">Chaos</a> <a href="/tags/others/" style="font-size: 10px;">others</a> <a href="/tags/programme/" style="font-size: 15px;">programme</a> <a href="/tags/thinking/" style="font-size: 20px;">thinking</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">19</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chaos/">
+                        <span class="tag">Chaos</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/others/">
+                        <span class="tag">others</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programme/">
+                        <span class="tag">programme</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/thinking/">
+                        <span class="tag">thinking</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tool/">
+                        <span class="tag">tool</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">19</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chaos/">
+                        <span class="tag">Chaos</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/others/">
+                        <span class="tag">others</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programme/">
+                        <span class="tag">programme</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/thinking/">
+                        <span class="tag">thinking</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tool/">
+                        <span class="tag">tool</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="huixiong`s Blog" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 huixiong&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

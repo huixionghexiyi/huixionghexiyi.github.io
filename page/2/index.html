@@ -140,6 +140,473 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 0 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/08/DesignModel/Decorator/"></a>
+            
+        </h1>
+        <div class="content">
+            
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-08T07:51:18.451Z">2019-04-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1045 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/08/DesignModel/Singleton/"></a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h2><ul>
+<li style="list-style: none"><input type="checkbox"> 添加案例。</li>
+<li style="list-style: none"><input type="checkbox"> 添加更多单例模式的模板。</li>
+</ul>
+<h1 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h1><p>原话是：</p>
+<blockquote>
+<p>Ensure a class has only one instance,and provide a global point of access to it.</p>
+<p>确保一个类只有一个实例，并且向整个系统提供这个实例。</p>
+</blockquote>
+<p><code>java</code>中实现单例模式通常有两种表现形式：</p>
+<ul>
+<li><a href="#饿汉模式">饿汉模式单例</a>：类加载时，就进行对象的实例化。</li>
+<li><a href="#懒汉模式">懒汉模式单例</a>：第一次引用类时，才进行对象的实例化。</li>
+</ul>
+<h2 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">new</span> Singleton();</span><br><span class="line">    <span class="hljs-comment">//构造方法私有，保证外界无法实例化</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton getInstance&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<p><code>static</code>关键字：<code>static</code>修饰的变量或方法是属于类的，变量在类加载的时候就已经实例化了。<code>static</code>修饰的方法所有的对象使用的是同一个方法。</p>
+<h2 id="private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。"><a href="#private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。" class="headerlink" title="private关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被private修饰，不能通过对象调用。只能通过static修饰的静态方法调用。"></a><code>private</code>关键字：这里Singleton只能生成单个的实例的根本原因是构造方法被<code>private</code>修饰，不能通过对象调用。只能通过<code>static</code>修饰的静态方法调用。</h2><h2 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h2><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function">synhronized <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(instance == <span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="hljs-keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<p><code>synhronized</code>关键字：<code>同步</code>，确保在多线程的环境下也是单例，因为，当多个线程同时调用这个方法时，由于使用了<code>synhronized</code>修饰，所以产生锁。允许最先到的线程访问，其他线程等待。当锁消除时，再去访问，实例已经被创建了。直接返回即可。</p>
+<p>为什么<code>懒汉模式</code>不用<code>sunhronized</code>修饰呢？因为实例已经被创建了。即使再多线程中同时调用也不会产生多例。</p>
+<hr>
+<h2 id="单例模式的优点"><a href="#单例模式的优点" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h2><ul>
+<li>频繁被创建和销毁的场景里，使用<code>单例模式</code>减少内存开支。</li>
+<li>创建一个对象需要较多的资源和性能开支的场景里（读取配置文件、产生其他依赖对象时），使用<code>单例模式</code>减少内存开支。</li>
+<li>避免多重占用（如：写文件）。避免了同一资源的同时操作。</li>
+<li>可以在系统设置全局访问点，优化和共享资源。（如：设计一个单例类，负责所有数据表的映射处理）</li>
+</ul>
+<hr>
+<h2 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h2><ul>
+<li>无法创建子类，扩展困难。（扩展只能修改代码）</li>
+<li>不利于测试。在并行开发的环境中，若采用单例模式的类没有完成，程序无法测试。</li>
+<li>由于单例类通常不实现接口。所以无法使用<code>mock</code>的方式虚拟一个对象。(我也不知道<code>mock</code>是什么方式)。</li>
+</ul>
+<hr>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>要求生成唯一序列号的环境。</li>
+<li>项目需要一个共享访问点或共享数据。（如：web页面中的计数器，不必存放到数据库中使用单例模式能保持数值，并能确保线程安全）</li>
+<li>创建一个对象需要消耗的资源过多，如访问IO和数据库等资源。</li>
+<li>需要大量静态常量和静态方法（如：工具类）的环境，（当然，也可以直接采用<code>static</code>声明的方式）。</li>
+</ul>
+<p>在Spring框架中每个<code>Bean</code>默认的就是单例模式。java基础库中<code>java.lang.Runtime</code>也是单例模式，其中<code>getRuntime()</code>方法返回了唯一实例。</p>
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>单例类分为<code>有状态</code>和<code>无状态</code>:</p>
+<ul>
+<li>有状态单例类：有状态的单例类一般是可变的，通常当作状态库使用。如：给系统提供唯一的序列号。</li>
+<li>无状态单例类:无状态单例类的对象一般是不变的，通常用来提供工具性的功能方法。如：IO或数据库等。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-08T02:04:16.244Z">2019-04-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 146 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/08/ThreeAlgorithmPerDay/FourthDay/">TAPD第四天</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/813/" target="_blank" rel="noopener">两个列表的最小索引和/输出元素</a></p>
+<p>思路：</p>
+<p>将其中一个<code>list</code>放入<code>HaspMap</code>中，遍历另一个<code>list</code>，通过<code>map.containsKey()</code>判断是否存在。具体代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> String[] findRestaurant(String[] list1, String[] list2) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> indexSum = Integer.MAX_VALUE;</span><br><span class="line">        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">        HashMap&lt;String,Integer&gt; map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list1.length;i++)&#123;<span class="hljs-comment">//将lsit1放入map中</span></span><br><span class="line">            map.put(list1[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;list2.length;j++)&#123;<span class="hljs-comment">//遍历list2</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(list2[j]))&#123;<span class="hljs-comment">//如果存在相同的key</span></span><br><span class="line">                <span class="hljs-keyword">if</span>((map.get(list2[j])+j)&lt;indexSum)&#123;<span class="hljs-comment">//如果索引最小</span></span><br><span class="line">                    indexSum = map.get(list2[j])+j;<span class="hljs-comment">//更新索引的和</span></span><br><span class="line">                    list.clear();<span class="hljs-comment">//清空结果</span></span><br><span class="line">                    list.add(list2[j]);<span class="hljs-comment">//重新添加</span></span><br><span class="line">                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>((map.get(list2[j])+j)==indexSum)&#123;<span class="hljs-comment">//如果索引和相等</span></span><br><span class="line">                    list.add(list2[j]);<span class="hljs-comment">//直接添加到结果</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] ss = <span class="hljs-keyword">new</span> String[list.size()];<span class="hljs-comment">//将list转成String[] 返回           </span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;k&lt;list.size();k++)&#123;</span><br><span class="line">            ss[k] = list.get(k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> ss;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/815/" target="_blank" rel="noopener">字符串中第一个唯一字符</a></p>
+<p><code>map</code>不只是用<code>java</code>给我们的<code>map</code>,数组，在某种意义上来讲也是<code>map</code>。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">firstUniqChar</span><span class="hljs-params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> map[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length();i++)</span><br><span class="line">            map[s.charAt(i) - <span class="hljs-string">'a'</span>]++;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length();i++)</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[s.charAt(i) - <span class="hljs-string">'a'</span>] == <span class="hljs-number">1</span>)</span><br><span class="line">                <span class="hljs-keyword">return</span> i;</span><br><span class="line">        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/64/introduction-to-a-bst/171/" target="_blank" rel="noopener">验证二叉搜索树</a></p>
+<p>二叉搜索树，如果用中序遍历的话，是一个递增的数列。输出这个数列，再看是否是递增数列。可是这样比较麻烦，如果这么做，怎么想也觉得不舒服。</p>
+<p>所以下面这个方法很舒服。</p>
+<p>每个节点中的值必须大于（或等于）存储在其左侧子树中的任何值。</p>
+<p>每个节点中的值必须小于（或等于）存储在其右子树中的任何值。</p>
+<p>递归判断，只需要判断当前的值比最大的小，最小的大，就可以了。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> f(root,Integer.MIN_VALUE,Integer.MAX_VALUE);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">f</span><span class="hljs-params">(TreeNode root,<span class="hljs-keyword">int</span> min,<span class="hljs-keyword">int</span> max)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root.val&lt;=min||root.val&gt;=max)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> f(root.left,min,root.val)&amp;&amp;f(root.right,root.val,max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-07T05:36:01.790Z">2019-04-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 分钟 读完 (大约 2117 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/07/DesignModel/DesignModel/"></a>
+            
+        </h1>
+        <div class="content">
+            <p>2019-4-7</p>
+<blockquote>
+<p>设计一个模式的过程就是将问题抽象化，忽略不重要的细节后发现问题本质，并找到普遍适用的解决方案的过程。</p>
+</blockquote>
+<p>上面那句话是参考了<code>西安电子科技大学出版</code>的<code>《java设计模式》</code>中对设计模式的理解。</p>
+<p>本文，将通过自己的理解或者参考书中内容。如有不对的地方，你也找不到我。</p>
+<p>首先。要先知道设计模式的六大原则：<a href="SixPrinciple.md">跳转</a></p>
+<hr>
+<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><p>一般写在前面的话，都是对内容的极大的总结，但是往往在没有后面的实例做铺垫的时候并不能深刻的理解。所以，最好的方式是：多读几遍或者多读几遍。</p>
+<blockquote>
+<p>创建型模式适用于创建对象的模式，抽象了实例化的过程，帮助一个系统独立于其关联对象的创建、组合和表示方式。</p>
+</blockquote>
+<p>功能：</p>
+<ul>
+<li>将系统所使用的具体类的信息封装。</li>
+<li>隐藏类的实例是如何被创建和组织的。外界对于这些对象只知道他们共同的接口，而不清楚具体实现细节。</li>
+</ul>
+<p>作用：</p>
+<ul>
+<li>封装创建逻辑。</li>
+<li>封装创建逻辑的变化，修改尽量少的代码甚至不修改代码。</li>
+</ul>
+<p>话外：功能和作用，有什么区别呢？</p>
+<p>功能，前面一边是由名词引导的，比如：<code>这个按钮的功能是什么？</code> </p>
+<p>作用，一般是由动词引导的，比如：<code>你按这个按钮有什么用？</code> 这里的用就是指<code>作用</code>。</p>
+<p>当然，你也可以说：<code>这个按钮的作用是指什么？</code> 这样的逻辑，其实省略了按这个动作。</p>
+<h3 id="常见的创建型设计模式"><a href="#常见的创建型设计模式" class="headerlink" title="常见的创建型设计模式"></a>常见的创建型设计模式</h3><ul>
+<li><a href="Singleton.md">单例模式</a>：一个类，只有一个实例，而且自行实例化，并且向整个系统提供这个实例。</li>
+<li>工厂方法模式：工厂类是抽象类，世纪的创建工作又其子类来完成。用意是定义一个创建产品对象的工厂接口，将世纪创建工作推迟到子类中，强调<code>单个对象</code>的变化。</li>
+<li><a href="Factory.md">抽象工厂模式</a>：抽象工厂可以向客户提供接口，使客户可以在没有指定产品的具体类型的情况下创建多个产品族中的产品对象，强调<code>系列对象</code>的变化。</li>
+<li><a href="Builder.md">建造者模式</a>：将构造对象实例的逻辑移到类的外部，在类的外部定义了该类的构造逻辑。把一个复杂对象的构造过程从对象的表示中分离出来，其结果是将复杂对象简化为一个简单对象，强调<code>产品的构造过程</code>。</li>
+<li><a href="Prototype.md">原型模式</a>：类似于工厂模式，不同在于原型模式通过复制一个现有对象生成新对象。</li>
+</ul>
+<hr>
+<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><blockquote>
+<p>是关于类和对象的结构的模式。采用继承机制来组合接口或实现(结结构型模式)，或通过组合一些对象实现新的功能(对象结构性模式)。不同结构性模式的区别在于侧重点不同。</p>
+</blockquote>
+<ul>
+<li><a href="Proxy.md">代理模式</a>：为其他对象提供一种代理以控制对该对象的访问。</li>
+<li><a href="Decorator.md">装饰模式</a>：动态的给一个对象添加一些额外的职责。比生成子类更为灵活。</li>
+<li><a href="Adapter.md">适配器模式</a>：将一个类的接口编程客户端所需要的接口，从而使原本因为接口不匹配而无法在一起工作的两个类能在一起工作。</li>
+<li><a href="Composite.md">组合模式</a>：将对象组合成树形结构以表示<code>部分-整体</code>的层次结构，使得用户对单个对象的组合对象的使用具有一致性。</li>
+<li><a href="Bridge.md">桥梁模式</a>：将抽象和实现解耦，使其能独立的变化。</li>
+<li><a href="Facade.md">外观模式</a>：要求一个子系统的内部和外部的通讯必须同通过一个统一的对象进行，外观模式提供一个高层次的接口。是的子系统更易于使用。</li>
+<li><a href="Flyweight.md">享元模式</a>：是池技术的重要实现方式，使用共享对象可有效地支持大量的细粒度的对象。</li>
+</ul>
+<hr>
+<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><blockquote>
+<p>关注的是对象的行为,用来解决对象之间的联系问题。</p>
+</blockquote>
+<ul>
+<li><a href="TemplateMethod.md">模板方法模式</a>：定义一个操作中的算法的框架，而将一些步骤延迟到子类中，使得子类可以在不改变算法的结构的情况下重写定义该算法某些步骤。</li>
+<li><a href="Command.md">命令模式</a>：是一种高内聚的模式。将一个请求封装成一个对象，从而使用不同的请求把客户端参数化。对请求排队或者记录请求日志，可以提供命令的撤消和恢复功能。</li>
+<li><a href="ChainOfResponsibility.md">责任链模式</a>：使多个对象都有机会处理请求，从而避免了<code>请求</code>的发送者和接受者之间的耦合关系。</li>
+<li><a href="Stategy.md">策略模式</a>：定义一组算法，将每个算法都封装起来，并且使他们之间可以互换。</li>
+<li><a href="Iterator.md">迭代器模式</a>：提供一种方法访问一个容器对象中的各个元素，而又不需要暴露该对象的内部结构。</li>
+<li><a href="Mediator.md">中介者模式</a>：用一个中介对象封装一系列对象交互，中介者使各个对象不需要显示相互作用，从而使其耦合松散，而且可以独立地改变他们之间的交互。</li>
+<li><a href="Oberver.md">观察者模式</a>：定义对象间的一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。</li>
+<li><a href="Memento.md">备忘录模式</a>：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。</li>
+<li><a href="Visitor.md">访问者模式</a>：封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新操作。</li>
+<li><a href="State.md">状态模式</a>：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类型，状态模式的核心是封装，状态的变更会引起行为的变更。</li>
+<li><a href="Interpreter.md">解释器模式</a>：给定一门<code>语言</code>，定义它的<code>文法</code>的一种表示，并定义一个<code>解释器</code>，该解释器使用该<code>文法</code>表示来解释语言中的句子。</li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p><code>创建型模式</code>适用于创建对象的模式，抽象了实例化的过程，帮助一个系统独立于其关联对象的创建、组合和表示方式。</p>
+</blockquote>
+<blockquote>
+<p><code>结构型模式</code>是关于类和对象的结构的模式。采用继承机制来组合接口或实现(结结构型模式)，或通过组合一些对象实现新的功能(对象结构性模式)。不同结构性模式的区别在于侧重点不同。</p>
+</blockquote>
+<blockquote>
+<p><code>行为型模式</code>关注的是对象的行为,用来解决对象之间的联系问题。</p>
+</blockquote>
+<p>今天就先大概的了解一下，多读几遍，名称和其功能可以说是比较吻合的。发挥想象力。记不住没关系，<code>重复是一种高效的记忆法。</code></p>
+<hr>
+<p>更新 2019年4月8日</p>
+<h2 id="六大原则"><a href="#六大原则" class="headerlink" title="六大原则"></a>六大原则</h2><ul>
+<li>单一职责原则</li>
+<li>里氏原则</li>
+<li>依赖倒置原则</li>
+<li>接口隔离原则</li>
+<li>迪米特原则</li>
+<li>开闭原则</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 511 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/">TAPD第三天</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/204/practical-application-hash-set/808/" target="_blank" rel="noopener">快乐数</a></p>
+<p>首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">getNum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">        res.add(temp);</span><br><span class="line">        n = n/<span class="hljs-number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后再考虑，循环条件，从题目可以知道，当再求和的过程中出现，我们已经求过的数，说明出现额循环。后面再计算也不会得到结果。</p>
+<p>所以，最终的算法如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet();</span><br><span class="line">        List&lt;Integer&gt; list = ex(n);</span><br><span class="line">        <span class="hljs-keyword">while</span>(!set.contains(n))&#123;</span><br><span class="line">            set.add(n);</span><br><span class="line">            n = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">                n = n+list.get(i)*list.get(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            list = ex(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">ex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">            temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">            res.add(temp);</span><br><span class="line">            n = n/<span class="hljs-number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然 你也可以从数学上的规律入手。当 <code>n == 4</code>的时候，就一定循环。</p>
+<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/811/" target="_blank" rel="noopener">两数之和，输出序号</a></p>
+<p>使用<code>Map</code>，模板如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * Template for using hash map to find duplicates.</span></span><br><span class="line"><span class="hljs-comment"> * Replace ReturnType with the actual type of your return value.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function">ReturnType <span class="hljs-title">aggregateByKey_hashmap</span><span class="hljs-params">(List&lt;Type&gt; keys)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// Replace Type and InfoType with actual type of your key and value</span></span><br><span class="line">    Map&lt;Type, InfoType&gt; hashmap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">for</span> (Type key : keys) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (hashmap.containsKey(key)) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (hashmap.get(key) satisfies the requirement) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">// Value can be any information you needed (e.g. index)</span></span><br><span class="line">        hashmap.put(key, value);    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) &#123;</span><br><span class="line">         <span class="hljs-keyword">if</span>(nums.length&lt;<span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">0</span>];</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] res= <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> sub = target - nums[i];</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(sub))&#123;</span><br><span class="line">                res[<span class="hljs-number">0</span>] = map.get(sub);</span><br><span class="line">                res[<span class="hljs-number">1</span>] = i;</span><br><span class="line">                <span class="hljs-keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/812/" target="_blank" rel="noopener">同构字符串</a></p>
+<p>这个问题，我的解法是比较麻烦的。看到大神的算法还是自叹不如。对语言掌握竟然到了如此地步。不过还是将自己的算法写出来。</p>
+<p>简单分析一下：其实和上一题的模板有点类似。也是<code>for</code>循环查找目标结果，没有的话，将参数添加进map，直到遍历完成。<code>map</code>中<code>key</code>不能重复，所以将<code>t</code><br>中的值，映射为<code>s</code>对应序号的值。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.length()==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        HashMap&lt;Character,Character&gt;  map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">char</span> c = <span class="hljs-string">' '</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;t.length();i++)&#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(c))&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(t.charAt(i)!=map.get(c))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(map.containsValue(t.charAt(i)))&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                map.put(c,t.charAt(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>时间最快的做法：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span>[] sc = s.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">char</span>[] tc = t.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] map = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">512</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = sc.length-<span class="hljs-number">1</span>;i &gt;= <span class="hljs-number">0</span>;i--) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[sc[i]] != map[tc[i]+<span class="hljs-number">256</span>]) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map[sc[i]] = map[tc[i] + <span class="hljs-number">256</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个算法的思路大概是这样：相同的<code>char</code>对应的ASCII码是相同的，<code>map</code>的长度其实使用ASCII码最大的数字乘2就可以了(即127*2+2，不溢出就行)。至于为什么是要用<code>512</code>，大概因为<code>512</code>是<code>整数</code>吧。映射的不是字符，而是数字，结果是一样的。这个想法非常巧妙。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-06T00:53:24.035Z">2019-04-06</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1207 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/">TAPD第二天</a>
+            
+        </h1>
+        <div class="content">
+            <p>昨天2019年4月5日是清明节，在宿舍玩了一天游戏。实在罪过，现在补上。</p>
+<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/3/solve-problems-recursively/14/" target="_blank" rel="noopener">路径总和</a></p>
+<p>还记得上次前面的文章讲的<code>自顶向下</code>和<code>自底向上</code>吗？考虑一下两种思路都可以吗？</p>
+<p>当遇到树问题时，请先思考一下两个问题：</p>
+<ul>
+<li>你能确定一些参数，从该节点自身解决出发寻找答案吗？</li>
+<li>你可以使用这些参数和节点本身的值来决定什么应该是传递给它子节点的参数吗？</li>
+</ul>
+<p>如果答案都是肯定的，那么请尝试使用 “自顶向下” 的递归来解决此问题。</p>
+<p>或者你可以这样思考：</p>
+<ul>
+<li>对于树中的任意一个节点，如果你知道它子节点的答案，你能计算出该节点的答案吗？ </li>
+</ul>
+<p>如果答案是肯定的，那么 “自底向上” 的递归可能是一个不错的解决方法。</p>
+<p>我们能确定一些参数传递给子节点吗？是的，可以，我们将<code>sum</code>减去自身传递下去，知道结束条件，并且等于<code>0</code>的时候。</p>
+<p>我们能觉得这些参数和节点本身的值来决定应该传递什么参数吗？当然，传递下去的值就是减去自身后的<code>sum</code>。(其实和第一个问题是类似的)。</p>
+<p>那么，我们载来考虑<code>自底向上</code>：</p>
+<p>对于任意节点，我们能知道其子节点求得自身的值吗？思考一下，好像也是可以的。当我们找到最后的<code>叶子节点</code>的时候，逐渐求和到头，如果等于我们需要的sum的华，就返回<code>true</code>。</p>
+<p>实现一下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//自顶向下</span></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root.left==<span class="hljs-keyword">null</span>&amp;&amp;root.right==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> sum-root.val==<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> hasPathSum(root.right,sum-root.val)||hasPathSum(root.left,sum-root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里解释一下，代码非常简洁。但是，我在思考的时候还是遇到了一些问题，我总结一下：</p>
+<ul>
+<li>首先，边界条件。有时候，用到递归的时候，我总是习惯性的将边界条件看成当root==null时为边界条件。但是，这里并不是。比如，有如下节点：<code>root，root.left!=null,root.right==null,root.left.left==null,root.left.right==null</code>的时候。右节点为空。如果直接传递下去的话就会直接返回结果。下面给出<strong>错误的代码：</strong></li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> sum==<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> hasPathSum(root.right,sum-root.val)||hasPathSum(root.left,sum-root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其次，参数。习惯的，我在一个数减一或加一的时候总是有<code>i--</code>或<code>++i</code>，这样的，自增自减的操作。但是传递参数的时候不可以，如果时<code>i--</code>,<code>java</code>会将<code>i</code>先传递到调用的方法再减一。所以建议在参数的传递中，使用<code>i-1</code>，而不是自增自减。</li>
+</ul>
+<pre><code>这里我遇到了一个问题，当测试用例是：
+[5,4,8,11,null,13,4,7,2,null,null,null,1]
+22
+的时候，
+将：return hasPathSum(root.right,sum-root.val)||hasPathSum(root.left,sum-root.val);
+变成：
+return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
+结果就会出错。
+</code></pre><p>自底向上：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/15/" target="_blank" rel="noopener">根据中序/后序遍历的序列构造二叉树</a></p>
+<p>思考以下，中序遍历和后续遍历的特点。</p>
+<p>中序遍历中，如果我们能确定一个点是根节点，那么。在根节点左边的就是左子树的所有节点。在根节点右边的就是右子树的所有节点。</p>
+<p>后序遍历呢？后序遍历的最后一个节点一定是根节点，两中遍历结合，我们就能找逐渐的将二叉树描述出来。</p>
+<p>所以，一个二叉树，可以简单的分为，根-左-右。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">buildTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] inorder, <span class="hljs-keyword">int</span>[] postorder)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> len = inorder.length;</span><br><span class="line">        <span class="hljs-keyword">return</span>  constructTree(inorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>,postorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * il,ir 中序遍历中从左到右，</span></span><br><span class="line"><span class="hljs-comment">     * pl,pr 后序遍历中 从左到右。</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-function">TreeNode <span class="hljs-title">constructTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] inorder,<span class="hljs-keyword">int</span> il,<span class="hljs-keyword">int</span> ir,<span class="hljs-keyword">int</span>[] postorder,<span class="hljs-keyword">int</span> pl,<span class="hljs-keyword">int</span> pr)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(il&gt;ir||pl&gt;pr)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode root = <span class="hljs-keyword">new</span> TreeNode(postorder[pr]);</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = il;i&lt;=ir;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(inorder[i]==root.val)&#123;</span><br><span class="line">                root.left = constructTree(inorder,il,i-<span class="hljs-number">1</span>,postorder,pl,pl+i-il-<span class="hljs-number">1</span>);</span><br><span class="line">                root.right = constructTree(inorder,i+<span class="hljs-number">1</span>,ir,postorder,pl+i-il,pr-<span class="hljs-number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-04T08:03:56.336Z">2019-04-04</time>
                 
                 <div class="level-item">
@@ -312,7 +779,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2097 个字)
+                    17 分钟 读完 (大约 2603 个字)
                 </span>
                 
                 
@@ -325,9 +792,9 @@
             
         </h1>
         <div class="content">
-            <h2 id="历史简介"><a href="#历史简介" class="headerlink" title="历史简介"></a>历史简介</h2><p>网景公司开发的<code>javascript</code>，微软模仿开发了JScript，最后几个公司联合开发了ECMA（European Computer Manufacturers Association），制定了标准，被称为<code>ECMAScript</code>标准，简单来说<code>JavaScript</code>时<code>ECMAScript</code>标准的实现。</p>
+            <h1 id="历史简介"><a href="#历史简介" class="headerlink" title="历史简介"></a>历史简介</h1><p>网景公司开发的<code>javascript</code>，微软模仿开发了JScript，最后几个公司联合开发了ECMA（European Computer Manufacturers Association），制定了标准，被称为<code>ECMAScript</code>标准，简单来说<code>JavaScript</code>时<code>ECMAScript</code>标准的实现。</p>
 <hr>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>引入<code>js</code><br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    alert(<span class="hljs-string">'Hello, world'</span>);</span><br><span class="line">  &lt;<span class="hljs-regexp">/script&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;<span class="hljs-regexp">/body&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>html&gt;</span><br><span class="line"><span class="hljs-comment">//&lt;script&gt;标签可以放在任何地方，习惯放在&lt;head&gt;里</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>引入<code>js</code><br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    alert(<span class="hljs-string">'Hello, world'</span>);</span><br><span class="line">  &lt;<span class="hljs-regexp">/script&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;<span class="hljs-regexp">/body&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>html&gt;</span><br><span class="line"><span class="hljs-comment">//&lt;script&gt;标签可以放在任何地方，习惯放在&lt;head&gt;里</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;script src=<span class="hljs-string">"/static/js/abc.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/head&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;body&gt;</span></span><br><span class="line"><span class="hljs-regexp">  ...</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/html&gt;</span></span><br><span class="line"><span class="hljs-regexp">/</span><span class="hljs-regexp">/也可以放在一个单独的.js文件中，通常也会放在单独的.js文件中</span></span><br></pre></td></tr></table></figure>
 <p>基本语法：</p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//赋值</span></span><br><span class="line"><span class="hljs-keyword">var</span> = <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//判断</span></span><br><span class="line"><span class="hljs-keyword">if</span>(<span class="hljs-number">2</span>&gt;<span class="hljs-number">1</span>)&#123;</span><br><span class="line">    x = <span class="hljs-number">1</span>;</span><br><span class="line">    y = <span class="hljs-number">2</span>;</span><br><span class="line">    z = <span class="hljs-number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -352,7 +819,7 @@
 <p>常用方法：</p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">//toUpperCase</span></span><br><span class="line"><span class="hljs-keyword">var</span> s = <span class="hljs-string">'Hello'</span>;</span><br><span class="line">s.toUpperCase(); <span class="hljs-comment">// 返回'HELLO'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//toLowerCase</span></span><br><span class="line"><span class="hljs-keyword">var</span> s = <span class="hljs-string">'Hello'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> lower = s.toLowerCase(); <span class="hljs-comment">// 返回'hello'并赋值给变量lower</span></span><br><span class="line">lower; <span class="hljs-comment">// 'hello'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//indexOf</span></span><br><span class="line"><span class="hljs-comment">//indexOf()会搜索指定字符串出现的位置：</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> s = <span class="hljs-string">'hello, world'</span>;</span><br><span class="line">s.indexOf(<span class="hljs-string">'world'</span>); <span class="hljs-comment">// 返回7</span></span><br><span class="line">s.indexOf(<span class="hljs-string">'World'</span>); <span class="hljs-comment">// 没有找到指定的子串，返回-1</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//substring</span></span><br><span class="line"><span class="hljs-keyword">var</span> s = <span class="hljs-string">'hello, world'</span></span><br><span class="line">s.substring(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// 从索引0开始到5（不包括5），返回'hello'</span></span><br><span class="line">s.substring(<span class="hljs-number">7</span>); <span class="hljs-comment">// 从索引7开始到结束，返回'world'</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="条件判断-循环"><a href="#条件判断-循环" class="headerlink" title="条件判断/循环"></a>条件判断/循环</h2><blockquote>
+<h1 id="条件判断-循环"><a href="#条件判断-循环" class="headerlink" title="条件判断/循环"></a>条件判断/循环</h1><blockquote>
 <p>if语句 和java一样，这里省略</p>
 </blockquote>
 <p><strong>需要注意的是</strong>:JavaScript是弱语言，变量类型是<code>var</code>。</p>
@@ -362,7 +829,7 @@
 <p>while/do while  和Java一样</p>
 </blockquote>
 <hr>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>Map </p>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>Map </p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> m = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([[<span class="hljs-string">'Micael'</span>,<span class="hljs-number">98</span>],[<span class="hljs-string">'Bob'</span>,<span class="hljs-number">75</span>],[<span class="hljs-string">'Tracy'</span>,<span class="hljs-number">67</span>]]);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(m.get(Miceal))</span><br></pre></td></tr></table></figure>
 <p>初始化<code>Map</code>需要一个二维数组(像上面)，或者一个空Map(像下面)：</p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> m = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();</span><br><span class="line">m.set(<span class="hljs-string">'nice'</span>,<span class="hljs-number">6</span>);</span><br><span class="line">m.set(<span class="hljs-string">'nice'</span>,<span class="hljs-number">8</span>);<span class="hljs-comment">//重复的key，value会被覆盖</span></span><br><span class="line">m.has(<span class="hljs-string">'nice'</span>);<span class="hljs-comment">//是否存在key'nice': true</span></span><br><span class="line">m.delete(<span class="hljs-string">'nice'</span>);<span class="hljs-comment">//删除'nice'</span></span><br><span class="line">m.get(<span class="hljs-string">'nice'</span>)<span class="hljs-comment">//再次获取'nice':undefined</span></span><br></pre></td></tr></table></figure>
@@ -376,547 +843,18 @@
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];</span><br><span class="line">a.sb = <span class="hljs-string">'you'</span></span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> x <span class="hljs-keyword">of</span> a) &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(x)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//输出:1、2、3、只会输出集合本身的元素，sb是集合的属性</span></span><br></pre></td></tr></table></figure>
 <p>与 <code>for ... in</code> 的区别：</p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];</span><br><span class="line">a.sb = <span class="hljs-string">'you'</span></span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> x <span class="hljs-keyword">in</span> a) &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(x)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//输出：0、1、2、'sb'</span></span><br></pre></td></tr></table></figure>
-<p>实质是:<code>for ... in</code> 输出的是属性名。这里重新加了一个属性名为<code>sb</code>的属性，所以会输出<code>sb</code></p>
+<p>实质是:其实数组<code>Array</code>是个对象,<code>for ... in</code> 输出的是属性名。这里重新加了一个属性名为<code>sb</code>的属性，所以会输出<code>sb</code>,但是数组的<code>length</code>不会输出,所以很怪异.</p>
 <p>更好的方式是：</p>
 <p>使用forEach输出</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];</span><br><span class="line">a.forEach(element,index,array)&#123;</span><br><span class="line">    <span class="hljs-comment">// element: 指向当前元素的值</span></span><br><span class="line">    <span class="hljs-comment">// index: 指向当前索引</span></span><br><span class="line">    <span class="hljs-comment">// array: 指向Array对象本身</span></span><br><span class="line">  <span class="hljs-built_in">console</span>.log(index+<span class="hljs-string">':'</span>+element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-30T06:27:15.877Z">2019-03-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    22 分钟 读完 (大约 3229 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/03/30/oracle/">oracle</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="oracle的基本介绍"><a href="#oracle的基本介绍" class="headerlink" title="oracle的基本介绍"></a>oracle的基本介绍</h2><ul>
-<li>关系型数据库</li>
-</ul>
-<h3 id="基本语法（CURD）："><a href="#基本语法（CURD）：" class="headerlink" title="基本语法（CURD）："></a>基本语法（CURD）：</h3><hr>
-<ul>
-<li><p>select</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">select</span></span><br><span class="line">     colum_1,</span><br><span class="line">     colum_2,</span><br><span class="line">     ...</span><br><span class="line"><span class="hljs-keyword">from</span></span><br><span class="line"> table_name;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update</p>
-<blockquote>
-<p>对数据进行修改</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">update</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">set</span> 列 = <span class="hljs-string">''</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>insert </li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span>  <span class="hljs-keyword">table</span>(colum_1,colum_2,...) <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">" "</span>,<span class="hljs-string">" "</span>,...);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>delete</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">WHERE</span> 条件</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>alter</p>
-<blockquote>
-<p>对表或列进行修改。</p>
-</blockquote>
-</li>
-<li></li>
-</ul>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];</span><br><span class="line">a.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-comment">// element: 指向当前元素的值</span></span><br><span class="line">    <span class="hljs-comment">// index: 指向当前索引</span></span><br><span class="line">    <span class="hljs-comment">// array: 指向Array对象本身</span></span><br><span class="line">  <span class="hljs-built_in">console</span>.log(index+<span class="hljs-string">':'</span>+element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>由于JavaScript不要求参数一致,不用完全传递参数.</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> <span class="hljs-keyword">set</span> =new Set([1, 2, 3]);</span><br><span class="line"><span class="hljs-keyword">set</span>.forEach(function (element,index,array)&#123;<span class="hljs-comment">//由于set没有value,所以index和element是一样的</span></span><br><span class="line">    <span class="hljs-comment">// element: 指向当前元素的值</span></span><br><span class="line">    <span class="hljs-comment">// index: 指向当前索引</span></span><br><span class="line">    <span class="hljs-comment">// array: 指向Array对象本身</span></span><br><span class="line">  <span class="hljs-built_in">console</span>.log(index+<span class="hljs-string">':'</span>+element);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//set的forEach</span></span><br><span class="line"><span class="hljs-keyword">var</span> <span class="hljs-keyword">set</span> =new Map([[1,"a"],[2,"b"],[3,"4"]]);</span><br><span class="line"><span class="hljs-keyword">set</span>.forEach(function(element,index,array)&#123;<span class="hljs-comment">//element是value,index是key相当于序号</span></span><br><span class="line">    <span class="hljs-comment">// element: 指向当前元素的值</span></span><br><span class="line">    <span class="hljs-comment">// index: 指向当前索引</span></span><br><span class="line">    <span class="hljs-comment">// array: 指向Array对象本身</span></span><br><span class="line">  <span class="hljs-built_in">console</span>.log(index+<span class="hljs-string">':'</span>+element+<span class="hljs-string">"-----&gt;"</span>+array);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <hr>
-<ul>
-<li>order by</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">    column_3,</span><br><span class="line">    ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    column_1 [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>] [<span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">FIRST</span> | <span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">LAST</span>],</span><br><span class="line">    column_1 [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>] [<span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">FIRST</span> | <span class="hljs-keyword">NULLS</span> <span class="hljs-keyword">LAST</span>],</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中<code>asc</code>表示升序(默认)，<code>desc</code> 降序， <code>nulls first</code> 空值放在前面</p>
-</blockquote>
-<p><strong>例句</strong>：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>, <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-----分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, credit_limit,address</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> credit_limit <span class="hljs-keyword">DESC</span>, <span class="hljs-keyword">name</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中两条语句是等价的，按照列在表中的位置指定也行。</span></span><br><span class="line"><span class="hljs-comment">--执行结果时先按credit_limit 降序，再按name 升序。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> customer_id, <span class="hljs-keyword">name</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> customers</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">UPPER</span>( <span class="hljs-keyword">name</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--按照函数排序，upper()表示，</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>distinct</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> </span><br><span class="line">    column_1,</span><br><span class="line">    column_2,</span><br><span class="line">        ...</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    table_name;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">--查询column_1 和column_2都不相同的行。（相当于去重）distinct 清楚、明确之意</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>where</p>
-</li>
-<li><p>and</p>
-</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 null、false、true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--and 两边同时满足</span></span><br><span class="line"><span class="hljs-comment">--（其中 as 的作用是将前面的列名变为order_date ，可以省略）</span></span><br><span class="line"><span class="hljs-comment">--TO_CHAR(order_date,'YYYY-MM-DD') 是将日期显示为指定的格式。</span></span><br><span class="line"><span class="hljs-comment">--EXTRACT(YEAR FROM order_date) 指定年份为2017的列</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> order_id, customer_id, <span class="hljs-keyword">status</span>, TO_CHAR(order_date,<span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span> orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span>  <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span>  <span class="hljs-keyword">AND</span> customer_id = <span class="hljs-number">2</span> </span><br><span class="line"><span class="hljs-keyword">AND</span> <span class="hljs-keyword">EXTRACT</span>(<span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">FROM</span> order_date) = <span class="hljs-number">2017</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> order_date;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">---分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--结合or</span></span><br><span class="line">WHERE</span><br><span class="line">    (status = 'Canceled' OR status = 'Pending')</span><br><span class="line">    AND customer_id = 44</span><br></pre></td></tr></table></figure>
-<ul>
-<li>OR</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--优先级 ture、null、false</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id,</span><br><span class="line">    customer_id,</span><br><span class="line">    <span class="hljs-keyword">status</span>,</span><br><span class="line">    TO_CHAR(order_date, <span class="hljs-string">'YYYY-MM-DD'</span>) <span class="hljs-keyword">AS</span> order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    <span class="hljs-keyword">status</span> = <span class="hljs-string">'Pending'</span></span><br><span class="line">    <span class="hljs-keyword">OR</span> <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--可以用  IN 来代替多个 or</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN(60, 61, 62)</span><br><span class="line">ORDER BY</span><br><span class="line">    order_date DESC;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>fetch子句语法</li>
-</ul>
-<p>语法：</p>
-<blockquote>
-<p>[ OFFSET offset ROWS]<br> FETCH  NEXT [  row_count | percent PERCENT  ] ROWS  [ ONLY | WITH TIES ]</p>
-</blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">-- OFFSET子句</span></span><br><span class="line"><span class="hljs-comment">--OFFSET子句指定在行限制开始之前要跳过行数。OFFSET子句是可选的。 如果跳过它，则偏移量为0，行限制从第一行开始计算。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- FETCH子句</span></span><br><span class="line"><span class="hljs-comment">--FETCH子句指定要返回的行数或百分比。</span></span><br><span class="line"></span><br><span class="line">FETCH NEXT 1 ROWS</span><br><span class="line">FETCH FIRST 1 ROW  <span class="hljs-comment">--两句结果相同，推荐使用第二句</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ONLY | WITH TIES选项</span></span><br><span class="line"><span class="hljs-comment">--仅返回FETCH NEXT(或FIRST)后的行数或行数的百分比。</span></span><br><span class="line"><span class="hljs-comment">--WITH TIES返回与最后一行相同的排序键。请注意，如果使用WITH TIES，则必须在查询中指定一个ORDER BY子句。如果不这样做，查询将不会返回额外的行。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下查询语句仅能在Oracle 12c以上版本执行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    quantity</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    inventories</span><br><span class="line"><span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> products</span><br><span class="line">        <span class="hljs-keyword">USING</span>(product_id)</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    quantity <span class="hljs-keyword">DESC</span> </span><br><span class="line"><span class="hljs-keyword">FETCH</span> <span class="hljs-keyword">NEXT</span> <span class="hljs-number">5</span> <span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">ONLY</span>;<span class="hljs-comment">--指定返回前五行</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 若是</span></span><br><span class="line">ORDER BY</span><br><span class="line">    quantity DESC </span><br><span class="line">FETCH NEXT 5 ROWS <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">TIES</span>;<span class="hljs-comment">--返回前五行，外加与最后一行的quantity值相同的行</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>IN </li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 确定表达式是否与值列表匹配的Oracle IN运算符的语法如下所示</span></span><br><span class="line">expression [NOT] IN (v1,v2,...)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 并且表达式的语法与子查询匹配</span></span><br><span class="line">expression [NOT] IN (subquery)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- expression - 该表达式(expression)是任何有效的表达式，它可以是要匹配的表的列。</span></span><br><span class="line"><span class="hljs-comment">-- v1, v2, v3.. - IN运算符后面是逗号分隔值列表，用于测试匹配。所有值必须与表达式具有相同的数据类型。</span></span><br><span class="line"><span class="hljs-comment">-- subquery - 子查询返回一列的结果集以测试匹配。该列还必须具有与表达式相同的数据类型。</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    salesman_id IN (54,55,56)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    status IN('Pending','Canceled')</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 以下示例返回负责订单状态为取消(Canceled)的销售员的ID，名字和姓氏，参考以下查询语句</span></span><br><span class="line">    <span class="hljs-keyword">SELECT</span> employee_id, first_name, last_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> employees</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    employee_id <span class="hljs-keyword">IN</span>(</span><br><span class="line">        <span class="hljs-keyword">SELECT</span></span><br><span class="line">            <span class="hljs-keyword">DISTINCT</span> salesman_id</span><br><span class="line">        <span class="hljs-keyword">FROM</span></span><br><span class="line">            orders</span><br><span class="line">        <span class="hljs-keyword">WHERE</span></span><br><span class="line">            <span class="hljs-keyword">status</span> = <span class="hljs-string">'Canceled'</span></span><br><span class="line">    )</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> first_Name;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Between</li>
-</ul>
-<blockquote>
-<p>BETWEEN运算符允许指定要测试的范围。当使用BETWEEN运算符为SELECT语句返回的行形成搜索条件时，只返回其值在指定范围内的行。</p>
-</blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- 以下说明BETWEEN运算符的语法：</span></span><br><span class="line">expression [ NOT ] BETWEEN low AND high</span><br><span class="line"></span><br><span class="line">value &gt;= low AND value &lt;= high</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--分割</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    product_name,</span><br><span class="line">    standard_cost</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    products</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    standard_cost <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">500</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">600</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    standard_cost;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--分割</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    standard_cost NOT BETWEEN 500 AND 600</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--查询2016年12月1日至2016年12月31日期间客户的订单，可以使用以下语句：</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    order_id, customer_id, <span class="hljs-keyword">status</span>, order_date</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    orders</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    order_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">DATE</span> <span class="hljs-string">'2016-12-31'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    order_date;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>LIKE</li>
-</ul>
-<blockquote>
-<p>Oracle LIKE运算符的语法如下所示：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">expresion [NOT] LIKE pattern [ ESCAPE escape_characters ]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--expression：该表达式是一个列名称或一个表达式，要针对该模式(pattern)进行测试。</span></span><br><span class="line"><span class="hljs-comment">-- pattern：该模式是在表达式中搜索的字符串。此模式包含以下通配符：％(百分号)匹配零个或多个字符的任何字符串。_(下划线)匹配任何单个字符。</span></span><br><span class="line"><span class="hljs-comment">-- escape_character：escape_character是出现在通配符前面的字符，用于指定通配符不应被解释为通配符而是常规字符。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- %通配符</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    phone</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    contacts</span><br><span class="line"><span class="hljs-keyword">WHERE</span></span><br><span class="line">    last_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'St%'</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    last_name;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- NOT LIKE</span></span><br><span class="line">WHERE</span><br><span class="line">    last_name NOT LIKE 'St%'  </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- _ 通配符，表示有由四个字符组成</span></span><br><span class="line"></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_i'</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 混合通配符，表示至少4个字符组成</span></span><br><span class="line">WHERE</span><br><span class="line">    first_name LIKE 'Je_%';</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
-<p>COMMIT语句可以用来提交当前事务的所有更改。提交后，其他用户将能够看到您的更改。</p>
-</blockquote>
-<h3 id="COMMIT语句语法："><a href="#COMMIT语句语法：" class="headerlink" title="COMMIT语句语法："></a>COMMIT语句语法：</h3><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">COMMIT</span> [ <span class="hljs-keyword">WORK</span> ] [ <span class="hljs-keyword">COMMENT</span> clause ] [ WRITE clause ] [ <span class="hljs-keyword">FORCE</span> clause ];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>WORK：可选的。它被Oracle添加为符合SQL标准。使用或不使用WORK参数来执行COMMIT将产生相同的结果。</li>
-<li>COMMENT clause：可选的。 它用于<code>指定与当前事务关联的注释</code>。 该注释最多可以包含在单引号中的255个字节的文本中。 如果出现问题，它将与事务ID一起存储在名为DBA_2PC_PENDING的系统视图中。</li>
-<li>WRITE clause：可选的。 它<code>用于指定将已提交事务的重做信息写入重做日志的优先级</code>。 用这个子句，有两个参数可以指定：<code>WAIT</code> 或 <code>NOWAIT</code> (如果省略，WAIT是默认值)IMMEDIATE或BATCH(IMMEDIATE是省略时的默认值)</li>
-<li><p>FORCE clause：可选的。 它用于强制提交可能已损坏或有疑问的事务。 有了这个子句，可以用3种方式指定FORCE：FORCE’string’，[integer]或FORCE CORRUPT_XID’string’或FORCE CORRUPT_XID_ALL</p>
-</li>
-<li><p>注意</p>
-<ul>
-<li>必须拥有DBA权限才能访问系统视图 - DBA_2PC_PENDING和V$CORRUPT_XID_LIST。</li>
-<li>必须拥有DBA权限才能指定COMMIT语句的某些功能。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- COMMIT </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">COMMIT</span>;</span><br><span class="line"><span class="hljs-comment">--等价于</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">WORK</span> WRITE <span class="hljs-keyword">WAIT</span> <span class="hljs-keyword">IMMEDIATE</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 添加备注</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'This is the comment for the transaction'</span>;</span><br><span class="line"><span class="hljs-comment">-- 如果事务出错或存在疑问，COMMIT会将包含在引号中的注释与事务ID一起存储在DBA_2PC_PENDING系统视图中。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 可以通过两种方式编写可疑事务的COMMIT：</span></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'22.14.67'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">COMMIT</span> <span class="hljs-keyword">WORK</span> <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'22.14.67'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="回滚事务-ROLLBACK"><a href="#回滚事务-ROLLBACK" class="headerlink" title="回滚事务  ROLLBACK"></a>回滚事务  ROLLBACK</h3><ul>
-<li><p>ROLLBACK语法</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ROLLBACK</span> [ <span class="hljs-keyword">WORK</span> ] [ <span class="hljs-keyword">TO</span> [<span class="hljs-keyword">SAVEPOINT</span>] savepoint_name  | <span class="hljs-keyword">FORCE</span> <span class="hljs-string">'string'</span> ];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>WORK：可选的。 它被Oracle添加为符合SQL标准。 使用或不使用WORK参数来发出ROLLBACK会导致相同的结果。</p>
-</li>
-<li>TO SAVEPOINT savepoint_name：可选的。 ROLLBACK语句撤消当前会话的所有更改，直到由savepoint_name指定的保存点。 如果省略该子句，则所有更改都将被撤消。</li>
-<li>FORCE ‘string’：可选的。它用于强制回滚可能已损坏或有问题的事务。 使用此子句，可以将单引号中的事务ID指定为字符串。 可以在系统视图中找到名为DBA_2PC_PENDING的事务标识。</li>
-<li>必须拥有DBA权限才能访问系统视图：DBA_2PC_PENDING和V$CORRUPT_XID_LIST。</li>
-<li>您无法将有问题的事务回滚到保存点。</li>
-</ul>
-<h3 id="SET-TRANSACTION语句（设置事务）"><a href="#SET-TRANSACTION语句（设置事务）" class="headerlink" title="SET TRANSACTION语句（设置事务）"></a>SET TRANSACTION语句（设置事务）</h3><ul>
-<li>Oracle中SET TRANSACTION语句的语法是：<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SET</span> <span class="hljs-keyword">TRANSACTION</span> [ <span class="hljs-keyword">READ</span> <span class="hljs-keyword">ONLY</span> | <span class="hljs-keyword">READ</span> WRITE ]</span><br><span class="line">                [ <span class="hljs-keyword">ISOLATION</span> <span class="hljs-keyword">LEVEL</span> [ SERIALIZE | <span class="hljs-keyword">READ</span> COMMITED ]</span><br><span class="line">                [ <span class="hljs-keyword">USE</span> <span class="hljs-keyword">ROLLBACK</span> <span class="hljs-keyword">SEGMENT</span> <span class="hljs-string">'segment_name'</span> ]</span><br><span class="line">                [ <span class="hljs-keyword">NAME</span> <span class="hljs-string">'transaction_name'</span> ];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>● READ ONLY：可以将事务设置为只读事务。</p>
-<p>● READ WRITE：可以将事务设置为读/写事务。</p>
-<p>● ISOLATION LEVEL： 如果指定，它有两个选项：</p>
-<pre><code>1.ISOLATION LEVEL SERIALIZE：如果事务尝试更新由另一个事务更新并未提交的资源，则事务将失败。
-
-2.ISOLATION LEVEL READ COMMITTED：如果事务需要另一个事务持有的行锁，则事务将等待，直到行锁被释放。
-</code></pre><p>● USE ROLLBACK SEGMENT：可选的。 如果指定，它将事务分配给由’segment_name’标识的回退段，该段是用引号括起来的段名称。</p>
-<p>● NAME：为’transaction_name’标识的事务分配一个名称，该事务用引号括起来。</p>
-<p>LOCK TABLE语句（锁表）</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">LOCK</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">tables</span> <span class="hljs-keyword">IN</span> lock_mode <span class="hljs-keyword">MODE</span> [ <span class="hljs-keyword">WAIT</span> [, <span class="hljs-built_in">integer</span>] | <span class="hljs-keyword">NOWAIT</span> ];</span><br></pre></td></tr></table></figure>
-<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><blockquote>
-<p>外键是强制实施参照完整性的一种方式，使用外键就意味着一个表中的值在另一个表中也必须出现。被引用的表称为父表，而带有外键的表称为子表。子表中的外键通常会引用父表中的主键。</p>
-</blockquote>
-<p>创建外键：</p>
-<ul>
-<li>使用CREATE TABLE语句创建<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">  column1 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  column2 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_column</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> supplier</span><br><span class="line">( supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  contact_name varchar2(<span class="hljs-number">50</span>),</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> supplier_pk PRIMARY <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-comment">-- CONSTRAINT 约束 ，FOREIGN KEY 外键，REFERENCES 参考 </span></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id)</span><br><span class="line">);</span><br><span class="line"><span class="hljs-comment">--在这个例子中，我们在supplier表上创建了一个名为supplier_pk的主键。 它只包含一个字段 - supplier_id字段。 然后，在products表上创建了一个名为fk_supplier的外键，该表根据supplier_id字段引用supplier表。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 多字段外键</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier_comp</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id, supplier_name)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id, supplier_name)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>ALTER TABLE语句创建：</p>
-<ul>
-<li>ALTER TABLE语句中创建外键的语法是：<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name</span><br><span class="line">   <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>示例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">  <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">  <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--多字段外键</span></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">  <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id, supplier_name)</span><br><span class="line">  <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id, supplier_name);</span><br></pre></td></tr></table></figure></p>
-<h3 id="级联删除"><a href="#级联删除" class="headerlink" title="级联删除"></a>级联删除</h3><p>CREATE TABLE语句定义级联删除：</p>
-<blockquote>
-<p>所谓的级联删除是指当主表中的一条记录被删除，那么子表中所关联的记录也相应的自动删除。</p>
-</blockquote>
-<ul>
-<li>使用CREATE TABLE语句定义级联删除</li>
-</ul>
-<p>语法：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">  column1 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  column2 datatype <span class="hljs-literal">null</span>/<span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_column</span><br><span class="line">     <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">     <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">     <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--本质上只需要在添加外键的最后添加 ON DELETE CASCADE 就可以。</span></span><br></pre></td></tr></table></figure></p>
-<p>示例：</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> supplier</span><br><span class="line">( supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_name varchar2(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  contact_name varchar2(<span class="hljs-number">50</span>),</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> supplier_pk PRIMARY <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line">( product_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  supplier_id <span class="hljs-built_in">numeric</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,</span><br><span class="line">  <span class="hljs-keyword">CONSTRAINT</span> fk_supplier</span><br><span class="line">    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (supplier_id)</span><br><span class="line">    <span class="hljs-keyword">REFERENCES</span> supplier(supplier_id)</span><br><span class="line">    <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 创建多字段的级联删除</span></span><br><span class="line"></span><br><span class="line">  CONSTRAINT fk_supplier_comp</span><br><span class="line">    FOREIGN KEY (supplier_id, supplier_name)</span><br><span class="line">    REFERENCES supplier(supplier_id, supplier_name)</span><br><span class="line">    ON <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br></pre></td></tr></table></figure>
-<p>ALTER TABLE语句定义级联删除：</p>
-<p>语法：</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name</span><br><span class="line">   <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">REFERENCES</span> parent_table (column1, column2, ... column_n)</span><br><span class="line">   <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="删除外键"><a href="#删除外键" class="headerlink" title="删除外键"></a>删除外键</h3><p>语法：</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
-<p>示例：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier;</span><br></pre></td></tr></table></figure></p>
-<h3 id="禁用外键"><a href="#禁用外键" class="headerlink" title="禁用外键"></a>禁用外键</h3><p>语法：<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">DISABLE</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure></p>
-<p>示例：</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products</span><br><span class="line"><span class="hljs-keyword">DISABLE</span> <span class="hljs-keyword">CONSTRAINT</span> fk_supplier;</span><br></pre></td></tr></table></figure>
-<h3 id="启用外键"><a href="#启用外键" class="headerlink" title="启用外键"></a>启用外键</h3><blockquote>
-<p>一般默认情况下，创建外键即启用外键</p>
-</blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name</span><br><span class="line"><span class="hljs-keyword">ENABLE</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p>Ascii()函数语法</p>
-<blockquote>
-<p>Ascii()函数可以返回代表指定字符的数字值代码<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ASCII('t')</span><br><span class="line">Result: 116</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>Asciistr()函数语法</p>
-<blockquote>
-<p>Asciistr()函数可以使用数据库字符集将任何字符集中的字符串转换为ASCII字符串。下面，就为大家介绍Asciistr()函数的语法及使用方法<br><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ASCIISTR('A B C Ä Ê')</span><br><span class="line">Result: 'A B C 0C4 0CA'</span><br><span class="line"></span><br><span class="line">ASCIISTR('A B C Õ Ø')</span><br><span class="line">Result: 'A B C 0D5 0D8'</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>Chr()函数语法</p>
-<blockquote>
-<p>Chr()函数可以根据数字代码返回字符，其功能和ASCII函数相反</p>
-</blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CHR(116)</span><br><span class="line">Result: 't'</span><br><span class="line"></span><br><span class="line">CHR(84)</span><br><span class="line">Result: 'T'</span><br></pre></td></tr></table></figure>
-<p>Compose()函数语法</p>
-<blockquote>
-<p>使用Compose()函数可以返回一个Unicode字符串</p>
-</blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COMPOSE('o' || unistr('\0308') )</span><br><span class="line">Result: ö</span><br><span class="line"></span><br><span class="line">COMPOSE('a' || unistr('\0302') )</span><br><span class="line">Result: â</span><br></pre></td></tr></table></figure>
-<p>||运算符</p>
-<blockquote>
-<p>||运算符可以将两个或两个以上的字符串连接在一起</p>
-</blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">'oraok' || '.com'</span><br><span class="line"><span class="hljs-comment">-- Result: 'oraok.com'</span></span><br><span class="line"></span><br><span class="line">'a' || 'b' || 'c' || 'd'</span><br><span class="line"><span class="hljs-comment">-- Result: 'abcd'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> first_name || <span class="hljs-string">' '</span> || last_name <span class="hljs-keyword">AS</span> customer_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--其中：  ''''  表示连接的 一个 '   ,可以认为 ''  在''  里时， '表示转义字符，类似于java中： "c:\\Windows\\..."  \表示转移字符 一样。</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-string">'Let'</span> || <span class="hljs-string">''''</span> || <span class="hljs-string">'s'</span> || <span class="hljs-string">' learn Oracle'</span></span><br><span class="line"><span class="hljs-keyword">FROM</span> dual;</span><br><span class="line"><span class="hljs-comment">-- Result: 'Let's learn Oracle'</span></span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-29T07:01:40.023Z">2019-03-29</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    9 分钟 读完 (大约 1377 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/03/29/git/">git</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="重要概念；"><a href="#重要概念；" class="headerlink" title="重要概念；"></a>重要概念；</h1><ul>
-<li><p>暂存区</p>
-<p>  <img src="./images/git分区.jpg" alt="分区"> </p>
-<ul>
-<li>工作区(workspace) </li>
-<li>暂存区(stage) </li>
-<li>当前版本(master) </li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>初始化：</p>
-<pre><code>git init
-</code></pre><p>把文件添加到仓库:三种类型</p>
-<pre><code>git add &lt;filename&gt;
-git add &lt;filename1&gt; &lt;filename2&gt;
-git add .
-</code></pre><p>把文件提交到仓库：message自行修改</p>
-<pre><code>git commit -m &quot;message&quot;
-</code></pre><p>查看当前仓库状态：</p>
-<pre><code>git status
-</code></pre><p>查看某个修改的内容：</p>
-<pre><code>git diff &lt;filename&gt;
-</code></pre><p>查看日志记录：</p>
-<pre><code>git log
-git log --pretty=oneline 
-</code></pre><p>回到前面的版本：</p>
-<pre><code>git reset --hard HEAD^
-git reset --hard HEAD^^
-git reset --hard HEAD~100
-</code></pre><p>查看历史提交的命令(用于查找commit id)：</p>
-<pre><code>git reflog
-</code></pre><p>我们使用<code>git add</code> 将修改的文件提交到stage，再使用<code>git commit</code>一次性将stage中的所有提交到<code>master</code>（这里指<code>master</code>这个分支）里。</p>
-<p>丢弃工作区的内容：（本质是用版本库替换掉工workspace的内容,也可以看作是切换分支）<br>若<code>stage</code>中有内容就恢复成<code>stage</code>,没有则恢复<code>master</code>中的。</p>
-<pre><code>git checkout -- &lt;filename&gt;
-</code></pre><p>创建并切换分支：</p>
-<pre><code>git checkout -b &lt;branch&gt;
-</code></pre><p>将<code>stage</code>中的恢复到<code>workspace</code>中</p>
-<pre><code>git reset HEAD &lt;filename&gt;
-</code></pre><p>删除文件</p>
-<pre><code>rm &lt;filename&gt;
-</code></pre><hr>
-<h1 id="远程仓库github的设置"><a href="#远程仓库github的设置" class="headerlink" title="远程仓库github的设置"></a>远程仓库github的设置</h1><p>创建SSH Key:</p>
-<pre><code>ssh-keygen -t rsa -C &quot;meail@mail.com&quot;
-</code></pre><p>再在GitHub里添加用户路径下的 <code>id_rsa.pub</code>公钥。</p>
-<p>关联一个远程仓库：</p>
-<pre><code>git remote add origin git@server-name:path/repo-name.git
-</code></pre><p>推送master分支到远程仓库：(第一次需要加 <code>-u</code> ，以后不需要)</p>
-<pre><code>git push -u origin master
-</code></pre><p>从远程仓库<code>clone</code> 一个仓库：</p>
-<pre><code>git clone git@github.com:huixionghexiyi/gitskills.git
-</code></pre><p>删除本地仓库和远程仓库的关联关系：</p>
-<pre><code>git remote remove origin
-</code></pre><hr>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>创建分支</p>
-<pre><code>git checkout -b dev
-或  
-git branch dev
-git checkout dev
-</code></pre><p>查看分支</p>
-<pre><code>git branch
-</code></pre><p>切换分支 </p>
-<pre><code>git checkout &lt;branch&gt;
-</code></pre><p>合并分支</p>
-<pre><code>将目标分支合并到当前分支
-git merge &lt;目标分支&gt;
-</code></pre><p>删除分支</p>
-<pre><code>git branch -d &lt;branch&gt;
-</code></pre><p>强制删除</p>
-<pre><code>git branch -D &lt;branch&gt;
-</code></pre><p>带参数的查看日志记录</p>
-<pre><code>git log --graph --pretty-oneline --abbrev-commit
-
---graph   表示查看图表
---pretty-oneline 单行查看
---abbrev-commit  缩写的commit id
-</code></pre><hr>
-<h3 id="分支的知识点："><a href="#分支的知识点：" class="headerlink" title="分支的知识点："></a>分支的知识点：</h3><p>通常情况下：合并分支的时候会默认使用<code>Fast forward</code> 方式。（即文件没有被修改/删除，文件只是被添加（ps:我自己的理解））</p>
-<p>禁止<code>Fast forward</code>方式的合并</p>
-<pre><code>git merge --no-ff -m &quot;message&quot; &lt;branch&gt; 
-</code></pre><h3 id="分支策略："><a href="#分支策略：" class="headerlink" title="分支策略："></a>分支策略：</h3><p><code>master</code>应该是非常稳定的，<code>dev</code>是不稳定的，干活的话，就是每个人就从<code>dev</code>上创建自己的分支。</p>
-<h3 id="对付bug分支："><a href="#对付bug分支：" class="headerlink" title="对付bug分支："></a>对付<code>bug</code>分支：</h3><p><code>stash</code>，储藏(临时保存点)</p>
-<p>保存当前工作区的进度</p>
-<pre><code>git stash
-</code></pre><p>查看进度的储存list</p>
-<pre><code>git stash list 
-</code></pre><p>读取进度</p>
-<pre><code>git stash apply
-git stash drop
-</code></pre><p>或</p>
-<pre><code>git stash pop
-</code></pre><p>读取指定的进度</p>
-<pre><code>git stash apply stash@{0}
-</code></pre><hr>
-<h1 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h1><p>多人需要协作时。在<code>github</code>的项目仓库的设置中的<code>Collaborators</code>选项中将对方邀请进来即可。对方接受，他就对项目可以有写的权限。但是只有项目的拥有者可以选择合并哪个分支到<code>master</code>上（ps：自己的理解）。</p>
-<hr>
-<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p>创建标签</p>
-<pre><code>git tag &lt;标签名&gt;
-</code></pre><p>对历史commit创建标签：</p>
-<pre><code>git tag &lt;标签名&gt;  &lt;commit id&gt;
-</code></pre><p>查看标签</p>
-<pre><code>git show
-</code></pre><p>创建带说明的标签：</p>
-<pre><code>git tag -a &lt;标签名&gt; -m &quot;message&quot; &lt;commit id&gt;
-</code></pre><blockquote>
-<p>注意，标签总是和commit挂钩。当commit出现在master和dev中那么，这两个分支都可以看见标签。</p>
-</blockquote>
-<p>删除标签：</p>
-<pre><code>git tag -d &lt;标签名&gt;
-</code></pre><p>推送标签到远端：</p>
-<pre><code>git push origin &lt;tagname&gt;
-
-git push origin --tags
-</code></pre><p>删除远端的标签：</p>
-<ul>
-<li><p>先删除本地的</p>
-<pre><code>git tag -d &lt;标签名&gt;
-</code></pre></li>
-<li><p>再删除远端的</p>
-<pre><code>git push origin :refs/tags/&lt;标签名&gt;
-</code></pre></li>
-</ul>
-<h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><p>将作者的仓库<code>fork</code>到自己的仓库，然后<code>clone</code>到本地。修改添加。可以<code>pull request</code> 给原作者。</p>
-<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>忽略特殊文件：</p>
-<p>只需要有一个<code>.gitignore</code> 文件即可。在里面添加要忽略的文件。</p>
-<p>常用用的<code>.gitignore</code>文件：</p>
-<p><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">忽略文件</a></p>
-<h2 id="忽略文件的原则是："><a href="#忽略文件的原则是：" class="headerlink" title="忽略文件的原则是："></a>忽略文件的原则是：</h2><p>忽略文件的原则是：</p>
-<ul>
-<li>忽略操作系统自动生成的文件，比如缩略图等；</li>
-<li>忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；</li>
-<li>忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。</li>
-</ul>
-<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><pre><code>将status 取别名为 st
-git config --global alias.st status
-</code></pre><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">建议使用的别名：</span><br><span class="line"></span><br><span class="line">    git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><br></pre></td></tr></table></figure>
-<p>删除别名：</p>
-<p>在config下文件<code>.gitconfig</code> 中有</p>
-<pre><code>    $ cat .gitconfig
-[alias]
-    co = checkout
-    ci = commit
-    br = branch
-    st = status
-[user]
-    name = Your Name
-    email = your@email.com
-</code></pre><p>只需要删除alias中的行即可</p>
-<h2 id="git服务器搭建"><a href="#git服务器搭建" class="headerlink" title="git服务器搭建"></a>git服务器搭建</h2><pre><code>这个暂时不需要。
-</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>每次<code>commit</code>之后都有一个<code>commit id</code> ，而所有的其他操作都是围绕着<code>commit id</code>在运转。所以在项目中<code>commit</code>之前一定要想好。</p>
-<p>无论是<code>master</code>、<code>dev</code>、还是<code>HEAD</code> 指针，都是围绕着<code>commit id</code>，变换指向，来实现不同版本之间的切换。</p>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>2019年3月30日</p>
-<p>强制本地覆盖远程的分支</p>
-<pre><code>git push origin &lt;branch&gt; --force
-</code></pre><p>2019年4月8日</p>
-<p>更新一些错别字</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-28T12:46:14.215Z">2019-03-28</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 250 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/03/28/DoWeNeedTesktop/"></a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h1><p>2019年3月29日13点28分</p>
-<ul>
-<li><p>超级人类知识储备系统，星际备份。月球2个，火星1个。</p>
-<ul>
-<li>虚拟地球、天网系统。</li>
-</ul>
-</li>
-<li><p>实验：</p>
-<ul>
-<li>将人类的婴儿放在陌生的环境里，自然培养。</li>
-</ul>
-</li>
-<li><p>脾气守恒定理：</p>
-</li>
-</ul>
-<ul>
-<li>广告词：正宗好凉茶，正中好声音。欢迎收看又凉茶领导者加多宝独家冠名的加多宝中国好声音。这个小天还是熟悉的味道。还时好听的声音。百雀羚草本，天然不刺激，中国好声音又百雀羚草本天然护肤独家特约播出，本届好声音有味道是最得意的门生将踏上百雀羚天然草本音乐之旅。天翼好网络，传递好声音，互动上翼聊。中国电信天锡菲Young邀你参与我们的节目互动，赢取飞Young五千元纯流量大礼包。</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-26T09:41:54.857Z">2019-03-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/其他/">其他</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 194 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/03/26/TheWinterIsComing/"></a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h1><p> 终于想通啦。</p>
-<h1 id="2019-4-4"><a href="#2019-4-4" class="headerlink" title="2019-4-4"></a>2019-4-4</h1><p>前几天因为毕设的事情注册了一个researcher账号，使用的是学校的邮箱。结果今天<code>google</code>给我推荐了 <code>RESEARCHER</code> 的应用给我。</p>
-<p>同一天，我更新了猎聘网的简历信息，猎聘网的员工就给我打电话。通知我在天津有招聘会。</p>
-<p>VSCode的<code>bug</code>，不能重复。但是一次编写的代码的过程中，突然且回到桌面。但后再切回来的时候。VSCode的窗口总是再最前面。不能被其他窗口覆盖。重启软件后恢复。细节：突然返回桌面的原因是，我将<code>双击触控板</code>设置为了显示桌面。</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数就是一组代码的集合。</p>
+<h2 id="定义和调用："><a href="#定义和调用：" class="headerlink" title="定义和调用："></a>定义和调用：</h2><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">abs</span>(<span class="hljs-params">x</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>)&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> x;</span><br><span class="line">  &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> -x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//匿名函数，由于函数赋值给了abs，所以通过abs可以调用这个函数。</span></span><br><span class="line"><span class="hljs-keyword">var</span> abs = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (x &gt;= <span class="hljs-number">0</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> x;</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;<span class="hljs-comment">// 分号表示赋值结束，不能省略</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//由于JavaScript允许传入任意个参数而不会影响调用，所以传入的参数比定义的多也没有问题。虽然不需要这些参数。</span></span><br><span class="line">abs(<span class="hljs-number">100</span>,<span class="hljs-string">'nice'</span>,<span class="hljs-string">'cool'</span>,<span class="hljs-literal">null</span>);</span><br><span class="line"><span class="hljs-comment">//少也没有问题</span></span><br><span class="line">adb();<span class="hljs-comment">//return NaN</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//为了避免受到undefined，计算结果为NaN。要进行校验</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">abs</span>(<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> x !== <span class="hljs-string">'number'</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-string">'Not a number'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (x &gt;= <span class="hljs-number">0</span>) &#123;</span><br><span class="line">&gt;         <span class="hljs-keyword">return</span> x;</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关键字:<code>arguments</code> </p>
+<p>它只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。<code>arguments</code>类似<code>Array</code>但它不是一个<code>Array</code></p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'x = '</span> + x); <span class="hljs-comment">// 10</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'arg '</span> + i + <span class="hljs-string">' = '</span> + <span class="hljs-built_in">arguments</span>[i]); <span class="hljs-comment">// 10, 20, 30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//利用arguments可以获得所有的参数，即使没有定义。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//常用于判断传入参数的个数</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// foo(a[, b], c)</span></span><br><span class="line"><span class="hljs-comment">// 接收2~3个参数，b是可选参数，如果只传2个参数，b默认为null：</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">a, b, c</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">2</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 实际拿到的参数是a和b，c为undefined</span></span><br><span class="line">        c = b; <span class="hljs-comment">// 把b赋给c</span></span><br><span class="line">        b = <span class="hljs-literal">null</span>; <span class="hljs-comment">// b变为默认值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -939,7 +877,7 @@ git config --global alias.st status
         <div class="pagination-previous">
             <a class="is-flex-grow has-text-black-ter" href="/">上一页</a>
         </div>
-        <div class="pagination-next is-invisible is-hidden-mobile">
+        <div class="pagination-next">
             <a class="is-flex-grow has-text-black-ter" href="/page/3/">下一页</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
@@ -947,6 +885,8 @@ git config --global alias.st status
             <li><a class="pagination-link has-text-black-ter" href="/">1</a></li>
             
             <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
             
         </ul>
     </nav>
@@ -985,7 +925,7 @@ git config --global alias.st status
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        24
                     </p>
                 </div>
             </div>
@@ -1118,7 +1058,7 @@ git config --global alias.st status
                 <span class="level-item">每天三道LeetCode</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/笔记/">
@@ -1142,7 +1082,7 @@ git config --global alias.st status
                 <span class="level-item">设计模式-创建型模式</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li>
             </ul>
@@ -1175,62 +1115,62 @@ git config --global alias.st status
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
-                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
                 </div>
             </div>
@@ -1254,7 +1194,7 @@ git config --global alias.st status
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1307,7 +1247,7 @@ git config --global alias.st status
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1345,62 +1285,62 @@ git config --global alias.st status
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-10T01:44:17.506Z">2019-04-10</time></div>
-                    <a href="/2019/04/10/ThreeAlgorithmPerDay/SixthDay/" class="has-link-black-ter is-size-6">TAPD第六天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/SixPrinciple/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/DesignModel/Factory/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/" class="has-link-black-ter is-size-6">TAPD第五天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/DesignModel/Decorator/" class="has-link-black-ter is-size-6"></a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T11:24:46.906Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/IGotSomething/取余操作/" class="has-link-black-ter is-size-6">取余操作</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
+                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
                     </p>
                 </div>
             </div>
@@ -1424,7 +1364,7 @@ git config --global alias.st status
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1477,7 +1417,7 @@ git config --global alias.st status
                 <div class="control">
                     <a class="tags has-addons" href="/tags/thinking/">
                         <span class="tag">thinking</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
