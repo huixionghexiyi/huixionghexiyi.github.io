@@ -140,6 +140,259 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 0 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/06/Operations/编写roles规则/"></a>
+            
+        </h1>
+        <div class="content">
+            
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 650 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/06/Operations/ansible-roles/">Ansible之roles的使用</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>我们只需要会使用别人的roles就可以了。以Nginx作为案例</p>
+</blockquote>
+<h2 id="Nginx的使用"><a href="#Nginx的使用" class="headerlink" title="Nginx的使用"></a>Nginx的使用</h2><p><code>Nginx</code>是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP代理服务器。类似于Apache的服务器一样，用于搭建http服务器。</p>
+<p>但是<code>Nginx</code>具有他独有的优势。</p>
+<p>这篇文章总结的很好：<a href="https://blog.csdn.net/liutengteng130/article/details/46700939" target="_blank" rel="noopener">点击跳转</a></p>
+<h2 id="使用Ansible给下面所有远程主机搭建Nigix"><a href="#使用Ansible给下面所有远程主机搭建Nigix" class="headerlink" title="使用Ansible给下面所有远程主机搭建Nigix"></a>使用Ansible给下面所有远程主机搭建Nigix</h2><p>使用规则是：</p>
+<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr"> - hosts:</span> <span class="hljs-string">test2</span> <span class="hljs-comment"># 主机分组</span></span><br><span class="line"><span class="hljs-attr">   remote_user:</span> <span class="hljs-string">root</span> <span class="hljs-comment"># 使用的用户名</span></span><br><span class="line"><span class="hljs-attr">   vars:</span>  <span class="hljs-comment"># 用到的参数</span></span><br><span class="line"><span class="hljs-attr">     nginx_vhost:</span></span><br><span class="line"><span class="hljs-attr">        - listen:</span> <span class="hljs-number">3104</span></span><br><span class="line"><span class="hljs-attr">          root:</span> <span class="hljs-string">"/var/www/nginx3104"</span></span><br><span class="line"><span class="hljs-attr">          index:</span> <span class="hljs-string">"index.html index.htm"</span></span><br><span class="line"><span class="hljs-attr">   roles:</span></span><br><span class="line"><span class="hljs-bullet">     -</span> <span class="hljs-string">shijingjing1221.nginx_on_redhat</span> <span class="hljs-comment"># 别人写的roles的路径</span></span><br></pre></td></tr></table></figure>
+<p>首先下载要用到的<code>ansible-roles</code>，作为案例。我们</p>
+<p>在<a href="https://galaxy.ansible.com" target="_blank" rel="noopener">这里</a>，我们可以下载需要的<code>roles</code>目录。</p>
+<p><a href="[ansible-galaxy install shijingjing1221.nginx_on_redhat](https://galaxy.ansible.com/shijingjing1221/nginx_on_redhat">这个是安装nginx的roles文件夹</a>)</p>
+<p>点击复制链接：<br><img src="https://i.loli.net/2019/05/06/5ccfdc17e2a44.png" alt="quicker_7db9242f-0ee6-4bc5-8a75-998d08aa839d.png"></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span>先在 etc/ansible/下创建一个roles文件夹</span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span>进入到etc/ansible/</span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span><br><span class="line"><span class="hljs-meta">#</span> 如果不指定，下载位置是：/root/.ansible/roles </span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
+<p>下载完成后，创建一个脚本执行roles即可：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span> 编辑内容如下，</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span><br><span class="line"><span class="hljs-meta">#</span> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span><br></pre></td></tr></table></figure>
+<p>如果成功，我们输入：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://test2:3104</span><br></pre></td></tr></table></figure>
+<p>即可访问路径：</p>
+<p><img src="https://i.loli.net/2019/05/06/5ccfde7e341e5.png" alt="quicker_5e6608a7-243b-493e-8680-64708fff550f.png"></p>
+<hr>
+<p>遇到的问题：</p>
+<ol>
+<li>yml的格式要求非常严格。写错几次</li>
+<li>安装之后，服务无法打开。原因是端口被占用。</li>
+</ol>
+<hr>
+<p>重点：</p>
+<p>test.yml 脚本中：</p>
+<ul>
+<li><code>listen</code>变量指端口</li>
+<li><code>root</code>变量指路径 </li>
+</ul>
+<hr>
+<p>回顾：</p>
+<ul>
+<li>网站的源文件放在 <code>/var/www/nginx3104</code></li>
+<li>nginx的配置文件在 <code>/etc/nginx/conf.d/default.conf</code></li>
+<li>网络配置文件是 <code>/etc/sysconfig/network-scripts/ifcfg-ens33</code></li>
+<li>修改hosts的文件是 <code>/etc/hosts</code></li>
+<li>DNS的配置是 <code>/etc/resolv.conf</code></li>
+</ul>
+<p>若想知道如何编写属于自己的<code>roles</code>可以参考<a href="编写roles规则.md">这篇文章</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 946 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/05/Operations/ansible/">Ansible的入门使用</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="入门了解"><a href="#入门了解" class="headerlink" title="入门了解"></a>入门了解</h1><blockquote>
+<p>Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如<code>SaltSack</code>、<code>Puppet</code>等。我们称<code>用于管理其他远程主机</code>的主机称为<code>管理节点</code>。称被管理的主机为<code>远程主机</code>。</p>
+</blockquote>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 安装epel源，因为ansible在elel源中</span><br><span class="line">sudo yum install epel-release</span><br><span class="line"><span class="hljs-meta">#</span> 安装ansible</span><br><span class="line">sudo yum install ansible -y</span><br></pre></td></tr></table></figure>
+<ul>
+<li>连接</li>
+</ul>
+<blockquote>
+<p>我们通常使用SSH来登录管理。</p>
+</blockquote>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-comment"># 生成ssh key</span></span><br><span class="line">$ ssh-keygen</span><br><span class="line">$ <span class="hljs-comment"># 拷贝ssh key到远程主机，ssh的时候就不需要输入密码了</span></span><br><span class="line">$ ssh-copy-id remoteuser@remoteserver</span><br><span class="line">$ <span class="hljs-comment"># ssh的时候不会提示是否保存key</span></span><br><span class="line">$ ssh-keyscan remote_servers &gt;&gt; ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理的服务器</li>
+</ul>
+<p>我们可以将ansible要管理的服务器添加到 <code>/etc/ansible/hosts</code></p>
+<p>并且可以分组管理。</p>
+<ul>
+<li>用命令管理主机</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 查看所有主机，是否以root创建了ansible可以访问的环境</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">其中ansilbe关键字指ansible命令，all指所有主机，-m 后面跟命令，-u 后面跟用户</span></span><br><span class="line">ansible all -m ping -u root</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">将web下的所有主机中的/etc/host 拷贝到 /tmp/hosts里。</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 其中 -a 后面跟参数 通常用 <span class="hljs-string">""</span>  引起来。</span></span><br><span class="line">ansible web -m copy -a "src=/etc/hosts dest=/tmp/hosts"</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更多的指令请参考官网。</p>
+</blockquote>
+<ul>
+<li>用脚本管理主机</li>
+</ul>
+<p>ansible使用的脚本是<code>yaml</code>的格式。文件以<code>yml</code>结束。</p>
+<p>执行脚本命令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook deploy.yml</span><br></pre></td></tr></table></figure>
+<p>deploy.yml的内容为：<br><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr">- hosts:</span> <span class="hljs-string">web</span></span><br><span class="line"><span class="hljs-attr">  vars:</span></span><br><span class="line"><span class="hljs-attr">    http_port:</span> <span class="hljs-number">80</span></span><br><span class="line"><span class="hljs-attr">    max_clients:</span> <span class="hljs-number">200</span></span><br><span class="line"><span class="hljs-attr">  remote_user:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">  tasks:</span></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">at</span> <span class="hljs-string">the</span> <span class="hljs-string">latest</span> <span class="hljs-string">version</span></span><br><span class="line"><span class="hljs-attr">    yum:</span> <span class="hljs-string">pkg=httpd</span> <span class="hljs-string">state=latest</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">configuration</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/httpd.conf.j2</span> <span class="hljs-string">dest=/etc/httpd/conf/httpd.conf</span></span><br><span class="line"><span class="hljs-attr">    notify:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">default</span> <span class="hljs-string">index.html</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/index.html.j2</span> <span class="hljs-string">dest=/var/www/html/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">running</span></span><br><span class="line"><span class="hljs-attr">    service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=started</span></span><br><span class="line"><span class="hljs-attr">  handlers:</span></span><br><span class="line"><span class="hljs-attr">    - name:</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"><span class="hljs-attr">      service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=restarted</span></span><br></pre></td></tr></table></figure></p>
+<p>本质上yaml格式的脚本，就是一个json格式。</p>
+<p><a href="http://www.json2yaml.com/" target="_blank" rel="noopener">yml与json转换工具</a></p>
+<ul>
+<li><p><code>yaml</code>中关键字的使用：</p>
+</li>
+<li><p><code>hosts</code>：主机IP，或者分组名或者关键字 all</p>
+</li>
+<li><p><code>reomte_user</code>：以哪个用户来执行</p>
+</li>
+<li><p><code>vars</code>：变量，可以自定义(我猜的)</p>
+</li>
+<li><p><code>tasks</code>：核心关键字，这里面编辑<code>action</code>，每个<code>action</code>调用一个ansible module</p>
+</li>
+<li><p><code>handers</code>:相当于方法，本身不会执行，在action中触发才会执行。多次触发执行一次。</p>
+</li>
+</ul>
+<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr">    - hosts:</span> <span class="hljs-string">test</span></span><br><span class="line"><span class="hljs-attr">      remote_user:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">      vars:</span> </span><br><span class="line"><span class="hljs-attr">        a:</span> <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-attr">        b:</span> <span class="hljs-number">2</span></span><br><span class="line"><span class="hljs-attr">        c:</span> <span class="hljs-string">"hello"</span></span><br><span class="line"><span class="hljs-attr">    tasks:</span></span><br><span class="line"><span class="hljs-attr">        - name:</span> <span class="hljs-string">just</span> <span class="hljs-string">to</span> <span class="hljs-string">test</span> <span class="hljs-string">ping</span> </span><br><span class="line"><span class="hljs-attr">          ping:</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是：vars后可以不用加 <code>-</code> 就声明变量。而其他下下一级的关键字，需要加<code>-</code></p>
+</blockquote>
+<hr>
+<h1 id="进阶module的使用"><a href="#进阶module的使用" class="headerlink" title="进阶module的使用"></a>进阶<code>module</code>的使用</h1><p>常用<code>Module</code>：</p>
+<ul>
+<li>调试和测试<ul>
+<li>ping - ping一下远程主机，如果可以通过ansible成功连接，返回pong</li>
+<li>debug - 用于调试的module，只是简单打印一些消息，有点像linux的echo命令</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>文件类</p>
+<ul>
+<li>copy - 从本地拷贝文件到远程节点</li>
+<li>template - 从本地拷贝文件到远程节点，并进行变量的替换</li>
+<li>file - 设置文件的属性</li>
+</ul>
+</li>
+<li><p>linux上常用操作</p>
+<ul>
+<li>user - 管理用户账户</li>
+<li>yum - red hat系linux上的包管理</li>
+<li>service - 管理服务</li>
+<li>firewalld - 管理防火墙中的服务和端口</li>
+</ul>
+</li>
+<li><p>执行shell命令</p>
+<ul>
+<li>shell - - 在节点上执行shell命令，支持$HOME和”&lt;”, “&gt;”, “|”, “;” and “&amp;”</li>
+<li>command - 在远程节点上面执行命令，不支持$HOME和”&lt;”, “&gt;”, “|”, “;” and “&amp;”</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://getansible.com/begin/basic_module/module_list_details" target="_blank" rel="noopener">常用Module的使用</a></p>
+<p>同时，我们也可以用<code>roles</code>这个关键字，相当于编程语言中的<code>package</code>。直接执行，就可以运行别人写好的脚本。</p>
+<ul>
+<li><a href="https://www.ansible.com/community/galaxy" target="_blank" rel="noopener">Ansible Galaxy 脚本库</a></li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time>
                 
                 
@@ -484,236 +737,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    几秒 读完 (大约 3 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/09/DesignModel/SixPrinciple/"></a>
-            
-        </h1>
-        <div class="content">
-            <ul>
-<li style="list-style: none"><input type="checkbox"> 待完成</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    14 分钟 读完 (大约 2167 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/09/DesignModel/Factory/"></a>
-            
-        </h1>
-        <div class="content">
-            <p>待完成：</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> <a href="#抽象工厂模式">抽象工厂模式</a> </li>
-</ul>
-<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>又叫虚拟构造函数(VIrtual Constructor)模式或者多态性工厂模式。工厂方法模式定义一个创建产品对象的工厂接口，将实际创建性工作推出到子类中。</p>
-<p>英文原话：</p>
-<p>Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to sub classes.</p>
-<p>定义一个用于创建对象的接口，让子类决定实例化哪个类。工厂方法使一个类的实例化延迟到其子类。</p>
-<ul>
-<li>简单工厂模式:一个工厂类在产品类实例化的中心位置，它知道每一个产品，它决定哪一个产品类应当被实例化。有点：允许客户端相对独立与产品的创建过程，并且在系统引入新产品的时候无需修复客户端，即在某种程度上支持“开-闭”原则。缺点：支持“开-闭”原则的力度不够，一旦有新的产品加入到系统中，就需要修改工厂类，并将逻辑加入到工厂类中。</li>
-<li><a href="#工厂方法模式">工厂方法模式</a>:是对简单工厂模式的进一步抽象。避免了其缺点，保留了优点。核心的工厂类不再负责所有产品的创建，而是将具体的创建工作交给其子类。这个核心类成为一个抽象工厂的角色，仅负责给出具体工厂子类必须实现的接口，不接触细节。</li>
-<li><a href="#抽象工厂模式">抽象工厂模式</a>:工厂方法模式是针对一个产品等级结构，而抽象工厂模式则需要面对多个产品等级结构。</li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    Creator-interface--&gt;Product-interface;</span><br><span class="line">    ConcreteCreator--&gt;Creator-interface;</span><br><span class="line">    ConcreteProduct--&gt;Product-interface;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h1><h2 id="工厂方法模式的四种角色："><a href="#工厂方法模式的四种角色：" class="headerlink" title="工厂方法模式的四种角色："></a>工厂方法模式的四种角色：</h2><ul>
-<li>抽象工厂角色（Creator）：该角色是工厂方法模式的核心，与应用系统无关，任何创建对象的工厂类都必须实现它.</li>
-<li>具体工厂角色（Concrete Creator）：该角色实现了抽象工厂接口，含有与应用密切相关的逻辑，并且通过调用应用程序来创建产品对象。</li>
-<li>抽象产品角色（Product）：该角色负责定义产品的共性，实现对产品最抽象的定义。</li>
-<li>具体产品角色（Concrete Product）：改角色实现抽象产品角色所声明的接口，工厂方法模式所创建的每一个对象都是某个具体产品角色的实例。</li>
-</ul>
-<p><code>抽象工厂角色接口Creator</code>的代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Creator</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//创建一个产品对象，其输入参数类型可以自行设置</span></span><br><span class="line">    <span class="hljs-keyword">public</span> &lt;T extends Product&gt; <span class="hljs-function">T <span class="hljs-title">factory</span><span class="hljs-params">(Class&lt;T&gt; c)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>抽象产品角色接口Product</code>代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Product</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//产品类的公共方法</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>具体工厂角色接口ConcreteCreator</code>代码如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteCreator</span> <span class="hljs-title">implement</span> <span class="hljs-title">Creator</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-keyword">public</span> &lt;T extends Product&gt; <span class="hljs-function">T <span class="hljs-title">factory</span><span class="hljs-params">(Class&lt;T&gt; c)</span></span>&#123;</span><br><span class="line">        Product product = <span class="hljs-keyword">null</span>;</span><br><span class="line">        <span class="hljs-keyword">try</span>&#123;</span><br><span class="line">            product = (Product) Class.forName(c.getName()).newInstance();</span><br><span class="line">        &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span>  (T) product;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>具体产品角色接口ConcreteProduct</code>代码如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteProduct</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Product</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//业务逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//业务逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(Srring args[])</span></span>&#123;</span><br><span class="line">        Creator creator = <span class="hljs-keyword">new</span> ConcreteCreator();<span class="hljs-comment">//工厂</span></span><br><span class="line">        Product product = creator.factory(ConcreteProduct.class);<span class="hljs-comment">//要产生的具体类。</span></span><br><span class="line">        </span><br><span class="line">        <span class="hljs-comment">//其他业务逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="工厂方法模式的应用："><a href="#工厂方法模式的应用：" class="headerlink" title="工厂方法模式的应用："></a>工厂方法模式的应用：</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
-<li>封装良好，代码结构清晰。创建对象室友约束条件的，如果一个调用者需要使用一个具体的产品对象，只需要知道这个产品对象的类名或约束字符串即可，不用知道创建对象的过程如何。降低了模块间的耦合度。</li>
-<li>可扩展：在要增加产品类时，只要修改具体的工厂类或扩展一个工厂类就可以适应变化。</li>
-<li>屏蔽产品类：产品类的实现如何变化，调用者不需要关系，只需要关系产品的接口，只要接口不变，上层模块就不需要变化。因为产品的实例化是由工厂负责的，具体生产何种产品对象时由不同的工厂类决定的。</li>
-<li>解耦框架：高层模块只需要知道产品的抽象类，其他实现类都不需要关心。符合<code>迪米特法则</code>、<code>依赖倒置原则</code>（只依赖产品类的抽象）、<code>里氏替换原则</code>（可以使用子类替换父类产品）。</li>
-</ul>
-<h3 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h3><ul>
-<li><code>工厂方法模式</code>是创建一个方法的替代品，因此在所有需要生成对象的地方都可以使用，但是需要慎重考虑是否需要增加一个工厂类进行管理，增加代码的复杂度。</li>
-<li>灵活、可扩展的框架可使用工厂模式。</li>
-<li>用在异构项目中。如：通过WebService与一个非java项目交互。</li>
-<li>测试驱动开发的框架下使用。如：测试类A就需要同时产生类A关联的类B，使用工厂方法模式可以虚拟出类B，避免耦合。</li>
-<li>与其他模式混合使用。从而构造出扩展性更好的设计。</li>
-</ul>
-<hr>
-<h1 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h1><p>英文原话：</p>
-<p>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
-<p>为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类。</p>
-<p>当有多个业务品种需要分类时，通过抽象工厂模式产生需要的对象时一种非常好多解决方法。</p>
-<p>四种角色：</p>
-<p><a href="#工厂方法模式的四种角色：">与工厂方法模式相同。</a></p>
-<p>针对的是一族产品。如果产品族中只有一族产品，则等同于工厂方法模式。</p>
-<p>优点：</p>
-<p>约束为非公开状态，在不同的工厂中，各种产品之间可能具有不同的相互依赖关系，这些依赖关系由工厂封装在其内部对于工厂的使用者来说不可见。</p>
-<p>扩展非常容易。若要针对同一产品族简历新的生产线，只需实现产品族中所有产品接口并建立新的工厂类即可。</p>
-<p>缺点：</p>
-<p>产品族本身的扩展非常困难。如果产品族中增加一个新的产品类型，则需要修改多个接口，并影响已有的工厂类。</p>
-<p>应用场景：</p>
-<p>当一个对象族（或是一组没有任何关系的对象）都有一组相同的约束时，可以使用抽象工厂模式。</p>
-<p>例如：应用需要涉及不同的操作系统时，可以考虑使用抽象工厂模式，如果需要在三个不同的平台（Windows、Linux、Android）上运行，则可以通过抽象工厂模式屏蔽操作系统对应用的影响。三个擦欧总系统的功能、逻辑、UI都应该非常相似，不同的时调用的工厂方法不同。有不同的产品类去处理其与操作系统交互的信息。</p>
-<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a><code>实例：</code></h3><p>抽象工厂：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//英雄生产抽象工厂</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//获取力量型英雄</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体工厂:<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SentinelFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line"><span class="hljs-comment">//近卫军团工厂</span></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StrengHero(<span class="hljs-string">"斧王-力量"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IAgileHero <span class="hljs-title">getAgileHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AgileHero(<span class="hljs-string">"影魔-敏捷"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>具体工厂<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScourgeFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line"><span class="hljs-comment">//天灭军团工厂</span></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StrengHero(<span class="hljs-string">"流浪剑圣-力量"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IAgileHero <span class="hljs-title">getAgileHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AgileHero(<span class="hljs-string">"剑客-敏捷"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>抽象产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IStrengthHero</span></span>&#123;<span class="hljs-comment">//力量型</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>具体产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StrengHero</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IStrengthHero</span></span>&#123;<span class="hljs-comment">//力量型英雄的具体实现类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StrengHero</span><span class="hljs-params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>();</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"创建力量型英雄："</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>抽象产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IAgileHero</span></span>&#123;<span class="hljs-comment">//敏捷型</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>具体产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AgileHero</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IAgileHero</span></span>&#123;<span class="hljs-comment">//力量型英雄的具体实现类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AgileHero</span><span class="hljs-params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>();</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"创建敏捷型英雄："</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    7 分钟 读完 (大约 1073 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/">TAPD第五天</a>
-            
-        </h1>
-        <div class="content">
-            <p><a href="https://leetcode-cn.com/problems/word-subsets/submissions/" target="_blank" rel="noopener">单词子集</a></p>
-<p>题目讲得可能让人有点迷糊，简单再介绍一下题目的意思。大概意思是：<br>在<code>String[] A</code>中有很多单词，<code>String[] B</code>中有很多单词片段(单词片段就是，从一个单词中提取出来的字母的组合，没有顺序)。</p>
-<p>要求，找出A中包含B中所有单词片段的单词。注意：是找出单词。</p>
-<p>思路：让<code>每个单词中字母的数量</code>和<code>片段B中同一字母在所有片段中出现的次数的最高值</code>做比较。</p>
-<p>如果比前者所有的字母的数量都比后者多，那么这个单词满足条件。</p>
-<p>具体实现：通过<code>Map</code>是一种比较容易想到的方法。为A中没每个单词申请一个<code>Map</code>，存入字母和它在单词中的数量。将B中所有片段的<code>同一字母</code>和它<code>出现次数的最高值</code>保存到一个Map中。</p>
-<p>当然，数组也可以看成一种Map。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">wordSubsets</span><span class="hljs-params">(String[] A, String[] B)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">        <span class="hljs-keyword">if</span>(A == <span class="hljs-keyword">null</span>||B == <span class="hljs-keyword">null</span>||A.length == <span class="hljs-number">0</span> || B.length == <span class="hljs-number">0</span>)</span><br><span class="line">            <span class="hljs-keyword">return</span> res;</span><br><span class="line">        <span class="hljs-keyword">int</span> n = A.length;</span><br><span class="line">        <span class="hljs-keyword">int</span> m = B.length;</span><br><span class="line">        <span class="hljs-comment">//map中的key为A[i]中某个字符，value为A[i]中某个字符出现的次数</span></span><br><span class="line">         <span class="hljs-keyword">int</span>[][] mapA = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n][<span class="hljs-number">26</span>];</span><br><span class="line">         <span class="hljs-keyword">int</span>[]   mapB = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">        <span class="hljs-comment">//每一个map分别存储A中每一个单词的每一个字母出现的次数。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;A[i].length();j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">char</span> key = A[i].charAt(j);</span><br><span class="line">                mapA[i][key-<span class="hljs-string">'a'</span>]+=<span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="hljs-comment">//temp存储B中一个单词所有字母出现的次数。</span></span><br><span class="line">            <span class="hljs-keyword">int</span>[] temp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j =<span class="hljs-number">0</span>; j&lt;B[i].length();j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">char</span> key = B[i].charAt(j);</span><br><span class="line">                temp[key-<span class="hljs-string">'a'</span>] += <span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;temp.length;j++)&#123;</span><br><span class="line">        <span class="hljs-comment">//mapB中key存储B中所有单词的所有字母，value：该字母再所有单词中出现的次数最多的值。</span></span><br><span class="line">                <span class="hljs-keyword">if</span>(temp[j] == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                <span class="hljs-keyword">if</span>(mapB[j]!=<span class="hljs-number">0</span>)</span><br><span class="line">                    mapB[j] =Math.max(mapB[j],temp[j]);</span><br><span class="line">                <span class="hljs-keyword">else</span></span><br><span class="line">                    mapB[j] = temp[j];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//判断A[i]是否是B的父集有2种可能：A中没有字母B中的字母，A中字母出现的次数小于B中出现的次数。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;mapB.length;j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(mapB[j]!=<span class="hljs-number">0</span>)&#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span>(mapA[i][j]&lt;mapB[j])</span><br><span class="line">                        flag = <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(flag)</span><br><span class="line">                res.add(A[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/64/introduction-to-a-bst/172/" target="_blank" rel="noopener">二叉搜索树迭代器</a></p>
-<p>我们知道二叉搜索树里，往往和中序遍历联系在一起。迭代器也是这样。</p>
-<p>最愚蠢的一种做法时，我们将树通过中序遍历放入一个list中，然后再用一个索引指向我们要输出的值。</p>
-<p>回忆一下，中序遍历时如何实现的呢？</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//递归</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> ;</span><br><span class="line">        dfs(root.left);</span><br><span class="line">        list.add(root.val);</span><br><span class="line">        dfs(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//迭代</span></span><br><span class="line">    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">inorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        Stack&lt;TreeNode&gt; st = <span class="hljs-keyword">new</span> Stack();</span><br><span class="line">        TreeNode curr = root;</span><br><span class="line">        <span class="hljs-keyword">while</span>(curr!=<span class="hljs-keyword">null</span>||!st.isEmpty())&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(curr!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                st.push(curr);</span><br><span class="line">                curr = curr.left;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                curr = st.pop();</span><br><span class="line">                list.add(curr.val);</span><br><span class="line">                curr = curr.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>很显然，我们在递归的中序遍历中很难再插入操作。而在迭代的中序遍历中很方便插入操作。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BSTIterator</span> </span>&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BSTIterator</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">while</span>(root!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            stack.push(root);<span class="hljs-comment">//先将所有的left的根放入栈中</span></span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/** <span class="hljs-doctag">@return</span> the next smallest number */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        TreeNode node = stack.pop();<span class="hljs-comment">//弹出栈顶元素</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(node.right!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            TreeNode temp = node.right;</span><br><span class="line">            <span class="hljs-keyword">while</span>(temp!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                stack.push(temp);</span><br><span class="line">                temp = temp.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> node.val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/** <span class="hljs-doctag">@return</span> whether we have a next smallest number */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(stack.isEmpty())</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/16/" target="_blank" rel="noopener">从前序与中序遍历序列构造二叉树</a></p>
-<p>和第二天的类似。这里我详细讲一下下标的问题。先看代码：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">buildTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] preorder, <span class="hljs-keyword">int</span>[] inorder)</span> </span>&#123;<span class="hljs-comment">//前序遍历、中序遍历</span></span><br><span class="line">        <span class="hljs-keyword">int</span> len = preorder.length;</span><br><span class="line">        <span class="hljs-keyword">return</span> constructTree(preorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>,inorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function">TreeNode <span class="hljs-title">constructTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] preorder,<span class="hljs-keyword">int</span> pl,<span class="hljs-keyword">int</span> pr,<span class="hljs-keyword">int</span>[] inorder,<span class="hljs-keyword">int</span> il,<span class="hljs-keyword">int</span> ir)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(pl&gt;pr||il&gt;ir)</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        TreeNode root = <span class="hljs-keyword">new</span> TreeNode(preorder[pl]);</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = il;i&lt;=ir;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(root.val==inorder[i])&#123;</span><br><span class="line">                root.left = constructTree(preorder,pl+<span class="hljs-number">1</span>,pl+i-il,inorder,il,i-<span class="hljs-number">1</span>);</span><br><span class="line">                root.right = constructTree(preorder,pl-il+i+<span class="hljs-number">1</span>,pr,inorder,i+<span class="hljs-number">1</span>,ir);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为什么总是要和<code>中序遍历</code>搭配呢？因为只有中序才能将一个序列分为两部分，利用递归求出二叉树的结构。</p>
-<p>在递归方法中，我们通过前序遍历的特点，知道了第一个是<code>head</code>节点，而在中序遍历中这个节点将一个序列分为两部分。我们只要找出在中序遍历中的这两部分序列的起始和结束节点就能将序列划分。</p>
-<p>然后根据在中序遍历中<code>结束节点的位置-起始节点的位置=序列长度</code>，然后这个长度再拿到前序遍历中，前序遍历的head节点的位置+1再加上这个距离就是前半部分的结束坐标。后半部分的坐标就是剩下的右边的元素了。</p>
-<p>数学上了说就是：</p>
-<p>设：前序遍历的序列为<code>pre[pl]~pre[pr]</code>，中序遍历的序列为<code>in[il]~in[ir]</code></p>
-<p>那么，head = pre[pl]</p>
-<p>设 in[x] = head  (il&lt;=x&lt;=ir) </p>
-<p>则，x左边的序列为 left[il]~left[x-1]</p>
-<p>则，x右边的序列为 right[x+1]~right[ir]</p>
-<p>求得：left的长度 ll = x-1-il</p>
-<p>求得：right的长度 rl = ir-x-1</p>
-<p>则在前序遍历中的序列就很好求了。就是起始坐标+长度 即可。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -769,7 +792,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        28
                     </p>
                 </div>
             </div>
@@ -959,6 +982,45 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
+                    <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
                     <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -981,45 +1043,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1031,6 +1054,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1129,6 +1163,45 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
+                    <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
                     <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -1151,45 +1224,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1201,6 +1235,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">

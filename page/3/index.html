@@ -140,6 +140,164 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-04T05:01:48.975Z">2019-04-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/arithmeticNote/">arithmeticNote</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 444 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/04/arithmeticNote/">算法思路总结</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="总结一些算法的思路。"><a href="#总结一些算法的思路。" class="headerlink" title="总结一些算法的思路。"></a>总结一些算法的思路。</h2><h3 id="找出最大公约数"><a href="#找出最大公约数" class="headerlink" title="找出最大公约数"></a>找出最大公约数</h3><p>有许多问题的子问题里面就包含了<code>找最大公约数的问题</code>，所以在这里写出一个最常用的。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">comDivisor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> b&gt;<span class="hljs-number">0</span>?comDivisor(b,a%b):a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面可以看出，要求<code>a</code>和<code>b</code>的最大公约数，使用递归，并且不断的使用取余的方式求得。就是<code>辗转相除法</code>！中学学过啊。快忘记了。</p>
+<p>这里给出一个<code>LeetCode</code>上的例子：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">给定一副牌，每张牌上都写着一个整数。</span><br><span class="line"></span><br><span class="line">此时，你需要选定一个数字 X，使我们可以将整副牌按下述规则分成 <span class="hljs-number">1</span> 组或更多组：</span><br><span class="line"></span><br><span class="line">每组都有 X 张牌。</span><br><span class="line">组内所有的牌上都写着相同的整数。</span><br><span class="line">仅当你可选的 X &gt;= <span class="hljs-number">2</span> 时返回 <span class="hljs-keyword">true</span>。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">示例 <span class="hljs-number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]，[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]，[<span class="hljs-number">4</span>,<span class="hljs-number">4</span>]</span><br><span class="line">示例 <span class="hljs-number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]</span><br><span class="line">输出：<span class="hljs-keyword">false</span></span><br><span class="line">解释：没有满足要求的分组。</span><br><span class="line">示例 <span class="hljs-number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">false</span></span><br><span class="line">解释：没有满足要求的分组。</span><br><span class="line">示例 <span class="hljs-number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line">示例 <span class="hljs-number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="hljs-number">1</span> &lt;= deck.length &lt;= <span class="hljs-number">10000</span></span><br><span class="line"><span class="hljs-number">0</span> &lt;= deck[i] &lt; <span class="hljs-number">10000</span></span><br></pre></td></tr></table></figure>
+<p>思路是：将所有相同的数字的个数都统计出来。再取其最大公约数即可。统计所有数字可以利用Map的特点。以数组的值为key，个数为value。</p>
+<p>当然，你也可以用其他方法统计各个元素的数量，最后总是会转化成求最大公约数。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-02T07:30:28.152Z">2019-04-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 770 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/02/fast-sort/">快速排序</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><p>快速排序是一种较经典的算法。基本思想就是分治法。即，将一个问题分解成若干个子问题，且子问题和原始问题有同样的规律。又因为有着相同的规律，所以，往往需要用到递归或者迭代</p>
+<p>而运用到快速排序中，大概就是，将一段数列的排序，分为若干个小排序。我们只需要将每个小排序都排好那整体的排序一定页就排好了。</p>
+<p>可以这样思考，一段排好序的数列有什么特点？</p>
+<p>通过简单的思考，我们很容易得到这样的结论：</p>
+<p>一段排好的数列，取其中任意一个元素<code>X</code>，总有：<code>X</code>左边元素的总是小于<code>X</code>，<code>X</code>右边的总是大于<code>X</code>。</p>
+<p>不要小看这个显而易见的结论哦。</p>
+<p>那么，我们可以这样，在一段无序的数列中随机取一个数。将比它小的放到它的左边，比他大的放到它右边不就好了吗？</p>
+<p>这不还是无序的吗？</p>
+<p>那么，我们继续，以刚才那个数为分界线，将左边看成一个数列。执行同样的操作。在左边的数列随机取一个数将比它小的放到它的左边，比他大的放到它右边？一直这样下去。直到剩下3个的时候，我们再随机去一个数。如果正好取到着3个数的中间个那就太好了。将剩下2个中小的放到它左边，大的放到它右边。如果不是正好是中间个，那也没关系，再来一次，剩下2个，随便取那个都可以了。那这最小的子段不久排好了吗？同样的所有段都排好了。</p>
+<p>但是往往，我们的随机就是取数列中的第一个或者最后一个。</p>
+<p>那么怎么实现呢？</p>
+<p>实现的方式有很多种。</p>
+<p>第一种：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nums[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> pivot = right;<span class="hljs-comment">//将一段无序数列的最右边定为轴(poivt)。无所谓轴在不在中间。想想是不是？</span></span><br><span class="line">    <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">    定义一个索引，一会这个索引是要和最右边的poivt交换的。</span></span><br><span class="line"><span class="hljs-comment">    从left开始遍历，如果遍历的当前元素比poivt小，则和索引所指的元素交换。</span></span><br><span class="line"><span class="hljs-comment">    索引再自增1.</span></span><br><span class="line"><span class="hljs-comment">     那么所有比pivot小的都在索引的右边了。</span></span><br><span class="line"><span class="hljs-comment">    */</span></span><br><span class="line">    <span class="hljs-keyword">int</span> index = left;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =left;i&lt;right;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(nums[i]&lt;nums[pivot])&#123;</span><br><span class="line">            swap(nums[i],nums[index]);<span class="hljs-comment">//交换</span></span><br><span class="line">            index++;<span class="hljs-comment">//自增</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//遍历完之后呢，就交换索引所指的元素和pivot</span></span><br><span class="line">     swap(nums[index],nums[pivot]);</span><br><span class="line">     <span class="hljs-keyword">return</span> pivot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//swap是交换,这里就不写了。</span></span><br><span class="line"></span><br><span class="line"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fastSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nums[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;</span><br><span class="line">     <span class="hljs-keyword">int</span> pivot = <span class="hljs-number">0</span>;</span><br><span class="line">     <span class="hljs-keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">         pivot = partition(nums,left,right);</span><br><span class="line">         fastSort(nums,left,pivot-<span class="hljs-number">1</span>);</span><br><span class="line">         fastSort(nums,pivot+<span class="hljs-number">1</span>,right);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-01T11:10:39.451Z">2019-04-01</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 174 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/01/linux/">CenOS</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="学习阶段"><a href="#学习阶段" class="headerlink" title="学习阶段"></a>学习阶段</h1><pre><code>Linux的学习大概分为4个阶段：
+</code></pre><ul>
+<li>入门阶段</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">入门阶段又分为4个小阶段：</span><br><span class="line">这个阶段主要就是了解基础知识，基本的命令。</span><br><span class="line">然后是用户及权限的管理。</span><br><span class="line">系统进程的管理。</span><br><span class="line">高效率文本，文件处理命令(vim、grep、sed、awk、find等)</span><br><span class="line">然后就是shell脚本的编写。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开悟阶段</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这个阶段可以在与入门阶段的最后的脚本编写里，一起执行。</span><br><span class="line"></span><br><span class="line">网络基础</span><br><span class="line">常用服务(dns、http、ftp、mail、nfs)</span><br><span class="line">安全原理与防护入门</span><br><span class="line">shell进阶</span><br></pre></td></tr></table></figure>
+<p>后面再慢慢进阶咯~</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-03-30T11:50:13.509Z">2019-03-30</time>
                 
                 <div class="level-item">
@@ -773,7 +931,7 @@ git config --global alias.st status
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 536 个字)
+                    4 分钟 读完 (大约 586 个字)
                 </span>
                 
                 
@@ -796,11 +954,12 @@ git config --global alias.st status
 <p>为了多学习两分钟？</p>
 <p>更有可能的情况是，心理作用，他是想用行动告诉别图书馆的其他人。<code>我是有急事，我不是不学习。我和你们是一起的。</code> </p>
 <p>当然，必然的，这两种情况都有。</p>
-<h1 id="2019年5月5日"><a href="#2019年5月5日" class="headerlink" title="2019年5月5日"></a>2019年5月5日</h1><p>自动化运维的蛀牙功能就是</p>
+<h1 id="2019年5月5日"><a href="#2019年5月5日" class="headerlink" title="2019年5月5日"></a>2019年5月5日</h1><p>自动化运维的主要功能就是：</p>
 <ol>
 <li><code>监测</code>：各种实例的运行。比如：数据库、数据库中的某个表、表中的某行数据都算是一个实例。再有就是：软件的运行情况、主机的运行情况、等等数据都能监控。</li>
 <li><code>预警</code>：当实例中的数据超出了指定的范围，发出各种类型的预警。比如：邮件、短信、语音、预警灯等等。</li>
 <li><code>自动化处理</code>：当发生一些常见的问题的时候，采用我们规定的通用的处理策略。</li>
+<li><code>部署</code>：统一部署实例，大多数情况下，我们需要管理非常多的服务器。通过一台远程服务器，管理一群服务器。</li>
 </ol>
 
         </div>
@@ -872,7 +1031,7 @@ git config --global alias.st status
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        28
                     </p>
                 </div>
             </div>
@@ -1062,6 +1221,45 @@ git config --global alias.st status
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
+                    <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
                     <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -1084,45 +1282,6 @@ git config --global alias.st status
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1134,6 +1293,17 @@ git config --global alias.st status
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1232,6 +1402,45 @@ git config --global alias.st status
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
+                    <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
                     <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -1254,45 +1463,6 @@ git config --global alias.st status
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1304,6 +1474,17 @@ git config --global alias.st status
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">

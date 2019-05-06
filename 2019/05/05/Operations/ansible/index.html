@@ -2,23 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>TAPD第三天 - huixiong`s Blog</title>
+<title>Ansible的入门使用 - huixiong`s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     
-    <meta name="description" content="快乐数 首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。 12345678910  List&amp;lt;Integer&amp;gt; getNum(int n)&amp;#123;    List&amp;lt;Integer&amp;gt; res= new ArrayList&amp;lt;&amp;gt;();    int temp =0;    while(n">
+    <meta name="description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TAPD第三天">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/index.html">
+<meta property="og:title" content="Ansible的入门使用">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/Operations/ansible/index.html">
 <meta property="og:site_name" content="huixiong`s Blog">
-<meta property="og:description" content="快乐数 首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。 12345678910  List&amp;lt;Integer&amp;gt; getNum(int n)&amp;#123;    List&amp;lt;Integer&amp;gt; res= new ArrayList&amp;lt;&amp;gt;();    int temp =0;    while(n">
+<meta property="og:description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T05:32:07.074Z">
+<meta property="og:updated_time" content="2019-05-06T02:44:49.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TAPD第三天">
-<meta name="twitter:description" content="快乐数 首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。 12345678910  List&amp;lt;Integer&amp;gt; getNum(int n)&amp;#123;    List&amp;lt;Integer&amp;gt; res= new ArrayList&amp;lt;&amp;gt;();    int temp =0;    while(n">
+<meta name="twitter:title" content="Ansible的入门使用">
+<meta name="twitter:description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
 
 
 
@@ -92,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="TAPD第三天" height="28">
+                <img src="/images/logo.svg" alt="Ansible的入门使用" height="28">
             
             </a>
         </div>
@@ -143,17 +143,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 511 个字)
+                    6 分钟 读完 (大约 946 个字)
                 </span>
                 
                 
@@ -162,28 +158,100 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                TAPD第三天
+                Ansible的入门使用
             
         </h1>
         <div class="content">
-            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/204/practical-application-hash-set/808/" target="_blank" rel="noopener">快乐数</a></p>
-<p>首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">getNum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">        res.add(temp);</span><br><span class="line">        n = n/<span class="hljs-number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后再考虑，循环条件，从题目可以知道，当再求和的过程中出现，我们已经求过的数，说明出现额循环。后面再计算也不会得到结果。</p>
-<p>所以，最终的算法如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet();</span><br><span class="line">        List&lt;Integer&gt; list = ex(n);</span><br><span class="line">        <span class="hljs-keyword">while</span>(!set.contains(n))&#123;</span><br><span class="line">            set.add(n);</span><br><span class="line">            n = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">                n = n+list.get(i)*list.get(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            list = ex(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">ex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">            temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">            res.add(temp);</span><br><span class="line">            n = n/<span class="hljs-number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然 你也可以从数学上的规律入手。当 <code>n == 4</code>的时候，就一定循环。</p>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/811/" target="_blank" rel="noopener">两数之和，输出序号</a></p>
-<p>使用<code>Map</code>，模板如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * Template for using hash map to find duplicates.</span></span><br><span class="line"><span class="hljs-comment"> * Replace ReturnType with the actual type of your return value.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function">ReturnType <span class="hljs-title">aggregateByKey_hashmap</span><span class="hljs-params">(List&lt;Type&gt; keys)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// Replace Type and InfoType with actual type of your key and value</span></span><br><span class="line">    Map&lt;Type, InfoType&gt; hashmap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">for</span> (Type key : keys) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (hashmap.containsKey(key)) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (hashmap.get(key) satisfies the requirement) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">// Value can be any information you needed (e.g. index)</span></span><br><span class="line">        hashmap.put(key, value);    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) &#123;</span><br><span class="line">         <span class="hljs-keyword">if</span>(nums.length&lt;<span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">0</span>];</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] res= <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> sub = target - nums[i];</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(sub))&#123;</span><br><span class="line">                res[<span class="hljs-number">0</span>] = map.get(sub);</span><br><span class="line">                res[<span class="hljs-number">1</span>] = i;</span><br><span class="line">                <span class="hljs-keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/812/" target="_blank" rel="noopener">同构字符串</a></p>
-<p>这个问题，我的解法是比较麻烦的。看到大神的算法还是自叹不如。对语言掌握竟然到了如此地步。不过还是将自己的算法写出来。</p>
-<p>简单分析一下：其实和上一题的模板有点类似。也是<code>for</code>循环查找目标结果，没有的话，将参数添加进map，直到遍历完成。<code>map</code>中<code>key</code>不能重复，所以将<code>t</code><br>中的值，映射为<code>s</code>对应序号的值。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.length()==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        HashMap&lt;Character,Character&gt;  map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">char</span> c = <span class="hljs-string">' '</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;t.length();i++)&#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(c))&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(t.charAt(i)!=map.get(c))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(map.containsValue(t.charAt(i)))&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                map.put(c,t.charAt(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>时间最快的做法：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span>[] sc = s.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">char</span>[] tc = t.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] map = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">512</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = sc.length-<span class="hljs-number">1</span>;i &gt;= <span class="hljs-number">0</span>;i--) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[sc[i]] != map[tc[i]+<span class="hljs-number">256</span>]) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map[sc[i]] = map[tc[i] + <span class="hljs-number">256</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个算法的思路大概是这样：相同的<code>char</code>对应的ASCII码是相同的，<code>map</code>的长度其实使用ASCII码最大的数字乘2就可以了(即127*2+2，不溢出就行)。至于为什么是要用<code>512</code>，大概因为<code>512</code>是<code>整数</code>吧。映射的不是字符，而是数字，结果是一样的。这个想法非常巧妙。</p>
+            <h1 id="入门了解"><a href="#入门了解" class="headerlink" title="入门了解"></a>入门了解</h1><blockquote>
+<p>Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如<code>SaltSack</code>、<code>Puppet</code>等。我们称<code>用于管理其他远程主机</code>的主机称为<code>管理节点</code>。称被管理的主机为<code>远程主机</code>。</p>
+</blockquote>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 安装epel源，因为ansible在elel源中</span><br><span class="line">sudo yum install epel-release</span><br><span class="line"><span class="hljs-meta">#</span> 安装ansible</span><br><span class="line">sudo yum install ansible -y</span><br></pre></td></tr></table></figure>
+<ul>
+<li>连接</li>
+</ul>
+<blockquote>
+<p>我们通常使用SSH来登录管理。</p>
+</blockquote>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-comment"># 生成ssh key</span></span><br><span class="line">$ ssh-keygen</span><br><span class="line">$ <span class="hljs-comment"># 拷贝ssh key到远程主机，ssh的时候就不需要输入密码了</span></span><br><span class="line">$ ssh-copy-id remoteuser@remoteserver</span><br><span class="line">$ <span class="hljs-comment"># ssh的时候不会提示是否保存key</span></span><br><span class="line">$ ssh-keyscan remote_servers &gt;&gt; ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理的服务器</li>
+</ul>
+<p>我们可以将ansible要管理的服务器添加到 <code>/etc/ansible/hosts</code></p>
+<p>并且可以分组管理。</p>
+<ul>
+<li>用命令管理主机</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 查看所有主机，是否以root创建了ansible可以访问的环境</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">其中ansilbe关键字指ansible命令，all指所有主机，-m 后面跟命令，-u 后面跟用户</span></span><br><span class="line">ansible all -m ping -u root</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">将web下的所有主机中的/etc/host 拷贝到 /tmp/hosts里。</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 其中 -a 后面跟参数 通常用 <span class="hljs-string">""</span>  引起来。</span></span><br><span class="line">ansible web -m copy -a "src=/etc/hosts dest=/tmp/hosts"</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更多的指令请参考官网。</p>
+</blockquote>
+<ul>
+<li>用脚本管理主机</li>
+</ul>
+<p>ansible使用的脚本是<code>yaml</code>的格式。文件以<code>yml</code>结束。</p>
+<p>执行脚本命令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook deploy.yml</span><br></pre></td></tr></table></figure>
+<p>deploy.yml的内容为：<br><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr">- hosts:</span> <span class="hljs-string">web</span></span><br><span class="line"><span class="hljs-attr">  vars:</span></span><br><span class="line"><span class="hljs-attr">    http_port:</span> <span class="hljs-number">80</span></span><br><span class="line"><span class="hljs-attr">    max_clients:</span> <span class="hljs-number">200</span></span><br><span class="line"><span class="hljs-attr">  remote_user:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">  tasks:</span></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">at</span> <span class="hljs-string">the</span> <span class="hljs-string">latest</span> <span class="hljs-string">version</span></span><br><span class="line"><span class="hljs-attr">    yum:</span> <span class="hljs-string">pkg=httpd</span> <span class="hljs-string">state=latest</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">configuration</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/httpd.conf.j2</span> <span class="hljs-string">dest=/etc/httpd/conf/httpd.conf</span></span><br><span class="line"><span class="hljs-attr">    notify:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">default</span> <span class="hljs-string">index.html</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/index.html.j2</span> <span class="hljs-string">dest=/var/www/html/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">running</span></span><br><span class="line"><span class="hljs-attr">    service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=started</span></span><br><span class="line"><span class="hljs-attr">  handlers:</span></span><br><span class="line"><span class="hljs-attr">    - name:</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"><span class="hljs-attr">      service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=restarted</span></span><br></pre></td></tr></table></figure></p>
+<p>本质上yaml格式的脚本，就是一个json格式。</p>
+<p><a href="http://www.json2yaml.com/" target="_blank" rel="noopener">yml与json转换工具</a></p>
+<ul>
+<li><p><code>yaml</code>中关键字的使用：</p>
+</li>
+<li><p><code>hosts</code>：主机IP，或者分组名或者关键字 all</p>
+</li>
+<li><p><code>reomte_user</code>：以哪个用户来执行</p>
+</li>
+<li><p><code>vars</code>：变量，可以自定义(我猜的)</p>
+</li>
+<li><p><code>tasks</code>：核心关键字，这里面编辑<code>action</code>，每个<code>action</code>调用一个ansible module</p>
+</li>
+<li><p><code>handers</code>:相当于方法，本身不会执行，在action中触发才会执行。多次触发执行一次。</p>
+</li>
+</ul>
+<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr">    - hosts:</span> <span class="hljs-string">test</span></span><br><span class="line"><span class="hljs-attr">      remote_user:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">      vars:</span> </span><br><span class="line"><span class="hljs-attr">        a:</span> <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-attr">        b:</span> <span class="hljs-number">2</span></span><br><span class="line"><span class="hljs-attr">        c:</span> <span class="hljs-string">"hello"</span></span><br><span class="line"><span class="hljs-attr">    tasks:</span></span><br><span class="line"><span class="hljs-attr">        - name:</span> <span class="hljs-string">just</span> <span class="hljs-string">to</span> <span class="hljs-string">test</span> <span class="hljs-string">ping</span> </span><br><span class="line"><span class="hljs-attr">          ping:</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是：vars后可以不用加 <code>-</code> 就声明变量。而其他下下一级的关键字，需要加<code>-</code></p>
+</blockquote>
+<hr>
+<h1 id="进阶module的使用"><a href="#进阶module的使用" class="headerlink" title="进阶module的使用"></a>进阶<code>module</code>的使用</h1><p>常用<code>Module</code>：</p>
+<ul>
+<li>调试和测试<ul>
+<li>ping - ping一下远程主机，如果可以通过ansible成功连接，返回pong</li>
+<li>debug - 用于调试的module，只是简单打印一些消息，有点像linux的echo命令</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>文件类</p>
+<ul>
+<li>copy - 从本地拷贝文件到远程节点</li>
+<li>template - 从本地拷贝文件到远程节点，并进行变量的替换</li>
+<li>file - 设置文件的属性</li>
+</ul>
+</li>
+<li><p>linux上常用操作</p>
+<ul>
+<li>user - 管理用户账户</li>
+<li>yum - red hat系linux上的包管理</li>
+<li>service - 管理服务</li>
+<li>firewalld - 管理防火墙中的服务和端口</li>
+</ul>
+</li>
+<li><p>执行shell命令</p>
+<ul>
+<li>shell - - 在节点上执行shell命令，支持$HOME和”&lt;”, “&gt;”, “|”, “;” and “&amp;”</li>
+<li>command - 在远程节点上面执行命令，不支持$HOME和”&lt;”, “&gt;”, “|”, “;” and “&amp;”</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://getansible.com/begin/basic_module/module_list_details" target="_blank" rel="noopener">常用Module的使用</a></p>
+<p>同时，我们也可以用<code>roles</code>这个关键字，相当于编程语言中的<code>package</code>。直接执行，就可以运行别人写好的脚本。</p>
+<ul>
+<li><a href="https://www.ansible.com/community/galaxy" target="_blank" rel="noopener">Ansible Galaxy 脚本库</a></li>
+</ul>
 
         </div>
         
@@ -234,16 +302,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/07/DesignModel/DesignModel/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/05/06/Operations/ansible-roles/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item"></span>
+                <span class="level-item">Ansible之roles的使用</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/">
-                <span class="level-item">TAPD第二天</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/24/python/基本操作/">
+                <span class="level-item"></span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -828,7 +896,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="TAPD第三天" height="28">
+                    <img src="/images/logo.svg" alt="Ansible的入门使用" height="28">
                 
                 </a>
                 <p class="is-size-7">

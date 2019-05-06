@@ -140,6 +140,236 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T07:59:07.883Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 3 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/09/DesignModel/SixPrinciple/"></a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li style="list-style: none"><input type="checkbox"> 待完成</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T07:33:16.506Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式-创建型模式/">设计模式-创建型模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 分钟 读完 (大约 2167 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/09/DesignModel/Factory/"></a>
+            
+        </h1>
+        <div class="content">
+            <p>待完成：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> <a href="#抽象工厂模式">抽象工厂模式</a> </li>
+</ul>
+<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>又叫虚拟构造函数(VIrtual Constructor)模式或者多态性工厂模式。工厂方法模式定义一个创建产品对象的工厂接口，将实际创建性工作推出到子类中。</p>
+<p>英文原话：</p>
+<p>Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to sub classes.</p>
+<p>定义一个用于创建对象的接口，让子类决定实例化哪个类。工厂方法使一个类的实例化延迟到其子类。</p>
+<ul>
+<li>简单工厂模式:一个工厂类在产品类实例化的中心位置，它知道每一个产品，它决定哪一个产品类应当被实例化。有点：允许客户端相对独立与产品的创建过程，并且在系统引入新产品的时候无需修复客户端，即在某种程度上支持“开-闭”原则。缺点：支持“开-闭”原则的力度不够，一旦有新的产品加入到系统中，就需要修改工厂类，并将逻辑加入到工厂类中。</li>
+<li><a href="#工厂方法模式">工厂方法模式</a>:是对简单工厂模式的进一步抽象。避免了其缺点，保留了优点。核心的工厂类不再负责所有产品的创建，而是将具体的创建工作交给其子类。这个核心类成为一个抽象工厂的角色，仅负责给出具体工厂子类必须实现的接口，不接触细节。</li>
+<li><a href="#抽象工厂模式">抽象工厂模式</a>:工厂方法模式是针对一个产品等级结构，而抽象工厂模式则需要面对多个产品等级结构。</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    Creator-interface--&gt;Product-interface;</span><br><span class="line">    ConcreteCreator--&gt;Creator-interface;</span><br><span class="line">    ConcreteProduct--&gt;Product-interface;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h1><h2 id="工厂方法模式的四种角色："><a href="#工厂方法模式的四种角色：" class="headerlink" title="工厂方法模式的四种角色："></a>工厂方法模式的四种角色：</h2><ul>
+<li>抽象工厂角色（Creator）：该角色是工厂方法模式的核心，与应用系统无关，任何创建对象的工厂类都必须实现它.</li>
+<li>具体工厂角色（Concrete Creator）：该角色实现了抽象工厂接口，含有与应用密切相关的逻辑，并且通过调用应用程序来创建产品对象。</li>
+<li>抽象产品角色（Product）：该角色负责定义产品的共性，实现对产品最抽象的定义。</li>
+<li>具体产品角色（Concrete Product）：改角色实现抽象产品角色所声明的接口，工厂方法模式所创建的每一个对象都是某个具体产品角色的实例。</li>
+</ul>
+<p><code>抽象工厂角色接口Creator</code>的代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Creator</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//创建一个产品对象，其输入参数类型可以自行设置</span></span><br><span class="line">    <span class="hljs-keyword">public</span> &lt;T extends Product&gt; <span class="hljs-function">T <span class="hljs-title">factory</span><span class="hljs-params">(Class&lt;T&gt; c)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>抽象产品角色接口Product</code>代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Product</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//产品类的公共方法</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>具体工厂角色接口ConcreteCreator</code>代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteCreator</span> <span class="hljs-title">implement</span> <span class="hljs-title">Creator</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-keyword">public</span> &lt;T extends Product&gt; <span class="hljs-function">T <span class="hljs-title">factory</span><span class="hljs-params">(Class&lt;T&gt; c)</span></span>&#123;</span><br><span class="line">        Product product = <span class="hljs-keyword">null</span>;</span><br><span class="line">        <span class="hljs-keyword">try</span>&#123;</span><br><span class="line">            product = (Product) Class.forName(c.getName()).newInstance();</span><br><span class="line">        &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span>  (T) product;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>具体产品角色接口ConcreteProduct</code>代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteProduct</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Product</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//业务逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//业务逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(Srring args[])</span></span>&#123;</span><br><span class="line">        Creator creator = <span class="hljs-keyword">new</span> ConcreteCreator();<span class="hljs-comment">//工厂</span></span><br><span class="line">        Product product = creator.factory(ConcreteProduct.class);<span class="hljs-comment">//要产生的具体类。</span></span><br><span class="line">        </span><br><span class="line">        <span class="hljs-comment">//其他业务逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="工厂方法模式的应用："><a href="#工厂方法模式的应用：" class="headerlink" title="工厂方法模式的应用："></a>工厂方法模式的应用：</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
+<li>封装良好，代码结构清晰。创建对象室友约束条件的，如果一个调用者需要使用一个具体的产品对象，只需要知道这个产品对象的类名或约束字符串即可，不用知道创建对象的过程如何。降低了模块间的耦合度。</li>
+<li>可扩展：在要增加产品类时，只要修改具体的工厂类或扩展一个工厂类就可以适应变化。</li>
+<li>屏蔽产品类：产品类的实现如何变化，调用者不需要关系，只需要关系产品的接口，只要接口不变，上层模块就不需要变化。因为产品的实例化是由工厂负责的，具体生产何种产品对象时由不同的工厂类决定的。</li>
+<li>解耦框架：高层模块只需要知道产品的抽象类，其他实现类都不需要关心。符合<code>迪米特法则</code>、<code>依赖倒置原则</code>（只依赖产品类的抽象）、<code>里氏替换原则</code>（可以使用子类替换父类产品）。</li>
+</ul>
+<h3 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h3><ul>
+<li><code>工厂方法模式</code>是创建一个方法的替代品，因此在所有需要生成对象的地方都可以使用，但是需要慎重考虑是否需要增加一个工厂类进行管理，增加代码的复杂度。</li>
+<li>灵活、可扩展的框架可使用工厂模式。</li>
+<li>用在异构项目中。如：通过WebService与一个非java项目交互。</li>
+<li>测试驱动开发的框架下使用。如：测试类A就需要同时产生类A关联的类B，使用工厂方法模式可以虚拟出类B，避免耦合。</li>
+<li>与其他模式混合使用。从而构造出扩展性更好的设计。</li>
+</ul>
+<hr>
+<h1 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h1><p>英文原话：</p>
+<p>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
+<p>为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类。</p>
+<p>当有多个业务品种需要分类时，通过抽象工厂模式产生需要的对象时一种非常好多解决方法。</p>
+<p>四种角色：</p>
+<p><a href="#工厂方法模式的四种角色：">与工厂方法模式相同。</a></p>
+<p>针对的是一族产品。如果产品族中只有一族产品，则等同于工厂方法模式。</p>
+<p>优点：</p>
+<p>约束为非公开状态，在不同的工厂中，各种产品之间可能具有不同的相互依赖关系，这些依赖关系由工厂封装在其内部对于工厂的使用者来说不可见。</p>
+<p>扩展非常容易。若要针对同一产品族简历新的生产线，只需实现产品族中所有产品接口并建立新的工厂类即可。</p>
+<p>缺点：</p>
+<p>产品族本身的扩展非常困难。如果产品族中增加一个新的产品类型，则需要修改多个接口，并影响已有的工厂类。</p>
+<p>应用场景：</p>
+<p>当一个对象族（或是一组没有任何关系的对象）都有一组相同的约束时，可以使用抽象工厂模式。</p>
+<p>例如：应用需要涉及不同的操作系统时，可以考虑使用抽象工厂模式，如果需要在三个不同的平台（Windows、Linux、Android）上运行，则可以通过抽象工厂模式屏蔽操作系统对应用的影响。三个擦欧总系统的功能、逻辑、UI都应该非常相似，不同的时调用的工厂方法不同。有不同的产品类去处理其与操作系统交互的信息。</p>
+<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a><code>实例：</code></h3><p>抽象工厂：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//英雄生产抽象工厂</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//获取力量型英雄</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体工厂:<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SentinelFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line"><span class="hljs-comment">//近卫军团工厂</span></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StrengHero(<span class="hljs-string">"斧王-力量"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IAgileHero <span class="hljs-title">getAgileHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AgileHero(<span class="hljs-string">"影魔-敏捷"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体工厂<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScourgeFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IHeroFactory</span></span>&#123;</span><br><span class="line"><span class="hljs-comment">//天灭军团工厂</span></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IStrengthHero <span class="hljs-title">getStrengthHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StrengHero(<span class="hljs-string">"流浪剑圣-力量"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IAgileHero <span class="hljs-title">getAgileHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AgileHero(<span class="hljs-string">"剑客-敏捷"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抽象产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IStrengthHero</span></span>&#123;<span class="hljs-comment">//力量型</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StrengHero</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IStrengthHero</span></span>&#123;<span class="hljs-comment">//力量型英雄的具体实现类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StrengHero</span><span class="hljs-params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>();</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"创建力量型英雄："</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抽象产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IAgileHero</span></span>&#123;<span class="hljs-comment">//敏捷型</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体产品<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AgileHero</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IAgileHero</span></span>&#123;<span class="hljs-comment">//力量型英雄的具体实现类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AgileHero</span><span class="hljs-params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>();</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createHero</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"创建敏捷型英雄："</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T01:36:06.292Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1073 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/09/ThreeAlgorithmPerDay/FifthDay/">TAPD第五天</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://leetcode-cn.com/problems/word-subsets/submissions/" target="_blank" rel="noopener">单词子集</a></p>
+<p>题目讲得可能让人有点迷糊，简单再介绍一下题目的意思。大概意思是：<br>在<code>String[] A</code>中有很多单词，<code>String[] B</code>中有很多单词片段(单词片段就是，从一个单词中提取出来的字母的组合，没有顺序)。</p>
+<p>要求，找出A中包含B中所有单词片段的单词。注意：是找出单词。</p>
+<p>思路：让<code>每个单词中字母的数量</code>和<code>片段B中同一字母在所有片段中出现的次数的最高值</code>做比较。</p>
+<p>如果比前者所有的字母的数量都比后者多，那么这个单词满足条件。</p>
+<p>具体实现：通过<code>Map</code>是一种比较容易想到的方法。为A中没每个单词申请一个<code>Map</code>，存入字母和它在单词中的数量。将B中所有片段的<code>同一字母</code>和它<code>出现次数的最高值</code>保存到一个Map中。</p>
+<p>当然，数组也可以看成一种Map。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">wordSubsets</span><span class="hljs-params">(String[] A, String[] B)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">        <span class="hljs-keyword">if</span>(A == <span class="hljs-keyword">null</span>||B == <span class="hljs-keyword">null</span>||A.length == <span class="hljs-number">0</span> || B.length == <span class="hljs-number">0</span>)</span><br><span class="line">            <span class="hljs-keyword">return</span> res;</span><br><span class="line">        <span class="hljs-keyword">int</span> n = A.length;</span><br><span class="line">        <span class="hljs-keyword">int</span> m = B.length;</span><br><span class="line">        <span class="hljs-comment">//map中的key为A[i]中某个字符，value为A[i]中某个字符出现的次数</span></span><br><span class="line">         <span class="hljs-keyword">int</span>[][] mapA = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n][<span class="hljs-number">26</span>];</span><br><span class="line">         <span class="hljs-keyword">int</span>[]   mapB = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">        <span class="hljs-comment">//每一个map分别存储A中每一个单词的每一个字母出现的次数。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;A[i].length();j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">char</span> key = A[i].charAt(j);</span><br><span class="line">                mapA[i][key-<span class="hljs-string">'a'</span>]+=<span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="hljs-comment">//temp存储B中一个单词所有字母出现的次数。</span></span><br><span class="line">            <span class="hljs-keyword">int</span>[] temp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">26</span>];</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j =<span class="hljs-number">0</span>; j&lt;B[i].length();j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">char</span> key = B[i].charAt(j);</span><br><span class="line">                temp[key-<span class="hljs-string">'a'</span>] += <span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;temp.length;j++)&#123;</span><br><span class="line">        <span class="hljs-comment">//mapB中key存储B中所有单词的所有字母，value：该字母再所有单词中出现的次数最多的值。</span></span><br><span class="line">                <span class="hljs-keyword">if</span>(temp[j] == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;</span><br><span class="line">                <span class="hljs-keyword">if</span>(mapB[j]!=<span class="hljs-number">0</span>)</span><br><span class="line">                    mapB[j] =Math.max(mapB[j],temp[j]);</span><br><span class="line">                <span class="hljs-keyword">else</span></span><br><span class="line">                    mapB[j] = temp[j];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//判断A[i]是否是B的父集有2种可能：A中没有字母B中的字母，A中字母出现的次数小于B中出现的次数。</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;mapB.length;j++)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(mapB[j]!=<span class="hljs-number">0</span>)&#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span>(mapA[i][j]&lt;mapB[j])</span><br><span class="line">                        flag = <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(flag)</span><br><span class="line">                res.add(A[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/64/introduction-to-a-bst/172/" target="_blank" rel="noopener">二叉搜索树迭代器</a></p>
+<p>我们知道二叉搜索树里，往往和中序遍历联系在一起。迭代器也是这样。</p>
+<p>最愚蠢的一种做法时，我们将树通过中序遍历放入一个list中，然后再用一个索引指向我们要输出的值。</p>
+<p>回忆一下，中序遍历时如何实现的呢？</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//递归</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> ;</span><br><span class="line">        dfs(root.left);</span><br><span class="line">        list.add(root.val);</span><br><span class="line">        dfs(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//迭代</span></span><br><span class="line">    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">inorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        Stack&lt;TreeNode&gt; st = <span class="hljs-keyword">new</span> Stack();</span><br><span class="line">        TreeNode curr = root;</span><br><span class="line">        <span class="hljs-keyword">while</span>(curr!=<span class="hljs-keyword">null</span>||!st.isEmpty())&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(curr!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                st.push(curr);</span><br><span class="line">                curr = curr.left;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                curr = st.pop();</span><br><span class="line">                list.add(curr.val);</span><br><span class="line">                curr = curr.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>很显然，我们在递归的中序遍历中很难再插入操作。而在迭代的中序遍历中很方便插入操作。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BSTIterator</span> </span>&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BSTIterator</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">while</span>(root!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            stack.push(root);<span class="hljs-comment">//先将所有的left的根放入栈中</span></span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/** <span class="hljs-doctag">@return</span> the next smallest number */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        TreeNode node = stack.pop();<span class="hljs-comment">//弹出栈顶元素</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(node.right!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            TreeNode temp = node.right;</span><br><span class="line">            <span class="hljs-keyword">while</span>(temp!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                stack.push(temp);</span><br><span class="line">                temp = temp.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> node.val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/** <span class="hljs-doctag">@return</span> whether we have a next smallest number */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(stack.isEmpty())</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/4/conclusion/16/" target="_blank" rel="noopener">从前序与中序遍历序列构造二叉树</a></p>
+<p>和第二天的类似。这里我详细讲一下下标的问题。先看代码：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="hljs-comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="hljs-comment"> *     int val;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode left;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode right;</span></span><br><span class="line"><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="hljs-comment"> * &#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">buildTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] preorder, <span class="hljs-keyword">int</span>[] inorder)</span> </span>&#123;<span class="hljs-comment">//前序遍历、中序遍历</span></span><br><span class="line">        <span class="hljs-keyword">int</span> len = preorder.length;</span><br><span class="line">        <span class="hljs-keyword">return</span> constructTree(preorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>,inorder,<span class="hljs-number">0</span>,len-<span class="hljs-number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function">TreeNode <span class="hljs-title">constructTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] preorder,<span class="hljs-keyword">int</span> pl,<span class="hljs-keyword">int</span> pr,<span class="hljs-keyword">int</span>[] inorder,<span class="hljs-keyword">int</span> il,<span class="hljs-keyword">int</span> ir)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(pl&gt;pr||il&gt;ir)</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        TreeNode root = <span class="hljs-keyword">new</span> TreeNode(preorder[pl]);</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = il;i&lt;=ir;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(root.val==inorder[i])&#123;</span><br><span class="line">                root.left = constructTree(preorder,pl+<span class="hljs-number">1</span>,pl+i-il,inorder,il,i-<span class="hljs-number">1</span>);</span><br><span class="line">                root.right = constructTree(preorder,pl-il+i+<span class="hljs-number">1</span>,pr,inorder,i+<span class="hljs-number">1</span>,ir);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么总是要和<code>中序遍历</code>搭配呢？因为只有中序才能将一个序列分为两部分，利用递归求出二叉树的结构。</p>
+<p>在递归方法中，我们通过前序遍历的特点，知道了第一个是<code>head</code>节点，而在中序遍历中这个节点将一个序列分为两部分。我们只要找出在中序遍历中的这两部分序列的起始和结束节点就能将序列划分。</p>
+<p>然后根据在中序遍历中<code>结束节点的位置-起始节点的位置=序列长度</code>，然后这个长度再拿到前序遍历中，前序遍历的head节点的位置+1再加上这个距离就是前半部分的结束坐标。后半部分的坐标就是剩下的右边的元素了。</p>
+<p>数学上了说就是：</p>
+<p>设：前序遍历的序列为<code>pre[pl]~pre[pr]</code>，中序遍历的序列为<code>in[il]~in[ir]</code></p>
+<p>那么，head = pre[pl]</p>
+<p>设 in[x] = head  (il&lt;=x&lt;=ir) </p>
+<p>则，x左边的序列为 left[il]~left[x-1]</p>
+<p>则，x右边的序列为 right[x+1]~right[ir]</p>
+<p>求得：left的长度 ll = x-1-il</p>
+<p>求得：right的长度 rl = ir-x-1</p>
+<p>则在前序遍历中的序列就很好求了。就是起始坐标+长度 即可。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-08T07:58:00.339Z">2019-04-08</time>
                 
                 
@@ -660,163 +890,6 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-04T05:01:48.975Z">2019-04-04</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/arithmeticNote/">arithmeticNote</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 444 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/04/arithmeticNote/">算法思路总结</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="总结一些算法的思路。"><a href="#总结一些算法的思路。" class="headerlink" title="总结一些算法的思路。"></a>总结一些算法的思路。</h2><h3 id="找出最大公约数"><a href="#找出最大公约数" class="headerlink" title="找出最大公约数"></a>找出最大公约数</h3><p>有许多问题的子问题里面就包含了<code>找最大公约数的问题</code>，所以在这里写出一个最常用的。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">comDivisor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> b&gt;<span class="hljs-number">0</span>?comDivisor(b,a%b):a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面可以看出，要求<code>a</code>和<code>b</code>的最大公约数，使用递归，并且不断的使用取余的方式求得。就是<code>辗转相除法</code>！中学学过啊。快忘记了。</p>
-<p>这里给出一个<code>LeetCode</code>上的例子：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">给定一副牌，每张牌上都写着一个整数。</span><br><span class="line"></span><br><span class="line">此时，你需要选定一个数字 X，使我们可以将整副牌按下述规则分成 <span class="hljs-number">1</span> 组或更多组：</span><br><span class="line"></span><br><span class="line">每组都有 X 张牌。</span><br><span class="line">组内所有的牌上都写着相同的整数。</span><br><span class="line">仅当你可选的 X &gt;= <span class="hljs-number">2</span> 时返回 <span class="hljs-keyword">true</span>。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">示例 <span class="hljs-number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]，[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]，[<span class="hljs-number">4</span>,<span class="hljs-number">4</span>]</span><br><span class="line">示例 <span class="hljs-number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]</span><br><span class="line">输出：<span class="hljs-keyword">false</span></span><br><span class="line">解释：没有满足要求的分组。</span><br><span class="line">示例 <span class="hljs-number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">false</span></span><br><span class="line">解释：没有满足要求的分组。</span><br><span class="line">示例 <span class="hljs-number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]</span><br><span class="line">示例 <span class="hljs-number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</span><br><span class="line">输出：<span class="hljs-keyword">true</span></span><br><span class="line">解释：可行的分组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]，[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="hljs-number">1</span> &lt;= deck.length &lt;= <span class="hljs-number">10000</span></span><br><span class="line"><span class="hljs-number">0</span> &lt;= deck[i] &lt; <span class="hljs-number">10000</span></span><br></pre></td></tr></table></figure>
-<p>思路是：将所有相同的数字的个数都统计出来。再取其最大公约数即可。统计所有数字可以利用Map的特点。以数组的值为key，个数为value。</p>
-<p>当然，你也可以用其他方法统计各个元素的数量，最后总是会转化成求最大公约数。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-02T07:30:28.152Z">2019-04-02</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 分钟 读完 (大约 736 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/02/fast-sort/">快速排序</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><p>快速排序是一种较经典的算法。基本思想就是分治法。即，将一个问题分解成若干个子问题，且子问题和原始问题有同样的规律。又因为有着相同的规律，所以，往往需要用到递归。</p>
-<p>而运用到快速排序种，大概就是，将一段数列的排序，分为若干个小排序。我们只需要将每个小排序都排好那整体的排序一定页就排好了。</p>
-<p>可以这样思考，一段排好序的数列有什么特点？</p>
-<p>通过简单的思考，我们很容易得到这样的结论：</p>
-<p>一段排好的数列，取其中任意一个元素<code>X</code>，总有：<code>X</code>左边元素的总是小于<code>X</code>，<code>X</code>右边的总是大于<code>X</code>。</p>
-<p>不要小看这个显而易见的结论哦。</p>
-<p>那么，我们可以这样，在一段无序的数列中随机取一个数。将比它小的放到它的左边，比他大的放到它右边不就好了吗？</p>
-<p>这不还是无序的吗？</p>
-<p>那么，我们继续，以刚才那个数为分界线，将左边看成一个数列。执行同样的操作。在左边的数列随机取一个数将比它小的放到它的左边，比他大的放到它右边？一直这样下去。直到剩下3个的时候，我们再随机去一个数。如果正好取到着3个数的中间个那就太好了。将剩下2个中小的放到它左边，大的放到它右边。如果不是正好是中间个，那也没关系，再来一次，剩下2个，随便取那个都可以了。那这最小的子段不久排好了吗？同样的所有段都排好了。</p>
-<p>那么怎么实现呢？</p>
-<p>实现的方式有很多种。</p>
-<p>第一种：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nums[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> pivot = right;<span class="hljs-comment">//将一段无序数列的最右边定为轴。无所谓轴在不在中间。想想是不是？</span></span><br><span class="line">    <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">    定义一个索引，一会这个索引是要和最右边的poivt交换的。</span></span><br><span class="line"><span class="hljs-comment">    从left开始遍历，如果遍历的当前元素比poivt小，则和索引所指的元素交换。</span></span><br><span class="line"><span class="hljs-comment">    索引再自增1.</span></span><br><span class="line"><span class="hljs-comment">     那么所有比pivot小的都在索引的右边了。</span></span><br><span class="line"><span class="hljs-comment">    */</span></span><br><span class="line">    <span class="hljs-keyword">int</span> index = left;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =left;i&lt;right;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(nums[i]&lt;nums[pivot])&#123;</span><br><span class="line">            swap(nums[i],nums[index]);<span class="hljs-comment">//交换</span></span><br><span class="line">            index++;<span class="hljs-comment">//自增</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//遍历完之后呢，就交换索引所指的元素和pivot</span></span><br><span class="line">     swap(nums[index],nums[pivot]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//swap是交换,这里就不写了。</span></span><br><span class="line"></span><br><span class="line"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fastSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nums[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;</span><br><span class="line">     <span class="hljs-keyword">int</span> pivot = <span class="hljs-number">0</span>;</span><br><span class="line">     <span class="hljs-keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">         pivot = partition(nums,left,right);</span><br><span class="line">         fastSort(nums,left,pivot-<span class="hljs-number">1</span>);</span><br><span class="line">         fastSort(nums,pivot+<span class="hljs-number">1</span>,right);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-01T11:10:39.451Z">2019-04-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/笔记/">笔记</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 174 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/01/linux/">CenOS</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="学习阶段"><a href="#学习阶段" class="headerlink" title="学习阶段"></a>学习阶段</h1><pre><code>Linux的学习大概分为4个阶段：
-</code></pre><ul>
-<li>入门阶段</li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">入门阶段又分为4个小阶段：</span><br><span class="line">这个阶段主要就是了解基础知识，基本的命令。</span><br><span class="line">然后是用户及权限的管理。</span><br><span class="line">系统进程的管理。</span><br><span class="line">高效率文本，文件处理命令(vim、grep、sed、awk、find等)</span><br><span class="line">然后就是shell脚本的编写。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>开悟阶段</li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这个阶段可以在与入门阶段的最后的脚本编写里，一起执行。</span><br><span class="line"></span><br><span class="line">网络基础</span><br><span class="line">常用服务(dns、http、ftp、mail、nfs)</span><br><span class="line">安全原理与防护入门</span><br><span class="line">shell进阶</span><br></pre></td></tr></table></figure>
-<p>后面再慢慢进阶咯~</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -872,7 +945,7 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        28
                     </p>
                 </div>
             </div>
@@ -1062,6 +1135,45 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
+                    <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
                     <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -1084,45 +1196,6 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1134,6 +1207,17 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1232,6 +1316,45 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
+                    <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
                     <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
@@ -1254,45 +1377,6 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T07:34:51.545Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/oracleMethod/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T01:36:54.042Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/mysql/" class="has-link-black-ter is-size-6"></a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T11:05:14.171Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/ThreeAlgorithmPerDay/7th/" class="has-link-black-ter is-size-6">TAPD第七天</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1304,6 +1388,17 @@ return hasPathSum(root.right,sum-=root.val)||hasPathSum(root.left,sum-root.val);
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">

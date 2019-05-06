@@ -2,23 +2,19 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>TAPD第三天 - huixiong`s Blog</title>
+<title>归档: 2019/5 - huixiong`s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     
-    <meta name="description" content="快乐数 首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。 12345678910  List&amp;lt;Integer&amp;gt; getNum(int n)&amp;#123;    List&amp;lt;Integer&amp;gt; res= new ArrayList&amp;lt;&amp;gt;();    int temp =0;    while(n">
-<meta property="og:type" content="article">
-<meta property="og:title" content="TAPD第三天">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/ThreeAlgorithmPerDay/ThirdDay/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="huixiong`s Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2019/05/index.html">
 <meta property="og:site_name" content="huixiong`s Blog">
-<meta property="og:description" content="快乐数 首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。 12345678910  List&amp;lt;Integer&amp;gt; getNum(int n)&amp;#123;    List&amp;lt;Integer&amp;gt; res= new ArrayList&amp;lt;&amp;gt;();    int temp =0;    while(n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T05:32:07.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TAPD第三天">
-<meta name="twitter:description" content="快乐数 首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。 12345678910  List&amp;lt;Integer&amp;gt; getNum(int n)&amp;#123;    List&amp;lt;Integer&amp;gt; res= new ArrayList&amp;lt;&amp;gt;();    int temp =0;    while(n">
+<meta name="twitter:title" content="huixiong`s Blog">
 
 
 
@@ -92,7 +88,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="TAPD第三天" height="28">
+                <img src="/images/logo.svg" alt="huixiong`s Blog" height="28">
             
             </a>
         </div>
@@ -137,117 +133,61 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-07T00:45:03.345Z">2019-04-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/每天三道LeetCode/">每天三道LeetCode</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 511 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                TAPD第三天
-            
-        </h1>
-        <div class="content">
-            <p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/204/practical-application-hash-set/808/" target="_blank" rel="noopener">快乐数</a></p>
-<p>首先需要找到，取出一个整数每一位上的数的方法。对10取余得到末尾的数，存起来。再除以10，删除掉末尾的数。并且原数缩小10倍。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">getNum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">        res.add(temp);</span><br><span class="line">        n = n/<span class="hljs-number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后再考虑，循环条件，从题目可以知道，当再求和的过程中出现，我们已经求过的数，说明出现额循环。后面再计算也不会得到结果。</p>
-<p>所以，最终的算法如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHappy</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet();</span><br><span class="line">        List&lt;Integer&gt; list = ex(n);</span><br><span class="line">        <span class="hljs-keyword">while</span>(!set.contains(n))&#123;</span><br><span class="line">            set.add(n);</span><br><span class="line">            n = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">                n = n+list.get(i)*list.get(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            list = ex(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function">List&lt;Integer&gt; <span class="hljs-title">ex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res= <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span> temp =<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;</span><br><span class="line">            temp = n%<span class="hljs-number">10</span>;</span><br><span class="line">            res.add(temp);</span><br><span class="line">            n = n/<span class="hljs-number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然 你也可以从数学上的规律入手。当 <code>n == 4</code>的时候，就一定循环。</p>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/811/" target="_blank" rel="noopener">两数之和，输出序号</a></p>
-<p>使用<code>Map</code>，模板如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * Template for using hash map to find duplicates.</span></span><br><span class="line"><span class="hljs-comment"> * Replace ReturnType with the actual type of your return value.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function">ReturnType <span class="hljs-title">aggregateByKey_hashmap</span><span class="hljs-params">(List&lt;Type&gt; keys)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// Replace Type and InfoType with actual type of your key and value</span></span><br><span class="line">    Map&lt;Type, InfoType&gt; hashmap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">for</span> (Type key : keys) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (hashmap.containsKey(key)) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (hashmap.get(key) satisfies the requirement) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">// Value can be any information you needed (e.g. index)</span></span><br><span class="line">        hashmap.put(key, value);    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> needed_information;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) &#123;</span><br><span class="line">         <span class="hljs-keyword">if</span>(nums.length&lt;<span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">0</span>];</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] res= <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> sub = target - nums[i];</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(sub))&#123;</span><br><span class="line">                res[<span class="hljs-number">0</span>] = map.get(sub);</span><br><span class="line">                res[<span class="hljs-number">1</span>] = i;</span><br><span class="line">                <span class="hljs-keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode-cn.com/explore/learn/card/hash-table/205/practical-application-hash-map/812/" target="_blank" rel="noopener">同构字符串</a></p>
-<p>这个问题，我的解法是比较麻烦的。看到大神的算法还是自叹不如。对语言掌握竟然到了如此地步。不过还是将自己的算法写出来。</p>
-<p>简单分析一下：其实和上一题的模板有点类似。也是<code>for</code>循环查找目标结果，没有的话，将参数添加进map，直到遍历完成。<code>map</code>中<code>key</code>不能重复，所以将<code>t</code><br>中的值，映射为<code>s</code>对应序号的值。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.length()==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        HashMap&lt;Character,Character&gt;  map = <span class="hljs-keyword">new</span> HashMap();</span><br><span class="line">        <span class="hljs-keyword">char</span> c = <span class="hljs-string">' '</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;t.length();i++)&#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="hljs-keyword">if</span>(map.containsKey(c))&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(t.charAt(i)!=map.get(c))&#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(map.containsValue(t.charAt(i)))&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                map.put(c,t.charAt(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>时间最快的做法：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span>[] sc = s.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">char</span>[] tc = t.toCharArray();</span><br><span class="line">        <span class="hljs-keyword">int</span>[] map = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">512</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = sc.length-<span class="hljs-number">1</span>;i &gt;= <span class="hljs-number">0</span>;i--) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (map[sc[i]] != map[tc[i]+<span class="hljs-number">256</span>]) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map[sc[i]] = map[tc[i] + <span class="hljs-number">256</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个算法的思路大概是这样：相同的<code>char</code>对应的ASCII码是相同的，<code>map</code>的长度其实使用ASCII码最大的数字乘2就可以了(即127*2+2，不溢出就行)。至于为什么是要用<code>512</code>，大概因为<code>512</code>是<code>整数</code>吧。映射的不是字符，而是数字，结果是一样的。这个想法非常巧妙。</p>
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-<div class="card">
+<div class="card widget">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
+        <h3 class="tag is-link">
+        五月 2019
+        </h3>
+        <div class="timeline">
+        
+            <article class="media">
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time>
+                        <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
                 
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-05-06T02:43:57.389Z">2019-05-06</time>
+                        <a href="/2019/05/06/Operations/ansible-roles/" class="has-link-black-ter is-size-6">Ansible之roles的使用</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
                 
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time>
+                        <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
         </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/07/DesignModel/DesignModel/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item"></span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/06/ThreeAlgorithmPerDay/SecondDay/">
-                <span class="level-item">TAPD第二天</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
     </div>
 </div>
 
@@ -828,7 +768,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="TAPD第三天" height="28">
+                    <img src="/images/logo.svg" alt="huixiong`s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">
