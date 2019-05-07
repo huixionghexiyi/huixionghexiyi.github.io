@@ -140,13 +140,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time>
+                <time class="level-item has-text-grey" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 0 个字)
+                    2 分钟 读完 (大约 351 个字)
                 </span>
                 
                 
@@ -155,11 +155,90 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/05/06/Operations/编写roles规则/"></a>
+                <a class="has-link-black-ter" href="/2019/05/07/Operations/saltstack/">saltstack入门</a>
             
         </h1>
         <div class="content">
+            <ol>
+<li>服务端安装salt-master</li>
+</ol>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install salt-master -y</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>客户端安装salt-minion</li>
+</ol>
+<p>这里我们的客户端是<code>192.168.65.134</code>，我们使用<code>ansible</code>来安装。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible test2 -m yum -a "name=salt-master state=present"</span><br></pre></td></tr></table></figure>
+<p>安装过程中发现端口被占用。</p>
+<p>使用<code>netstat -tunpl</code> 查看端口使用情况<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunpl</span><br><span class="line"><span class="hljs-meta">#</span> 其他的就不详细写了，因为我页不是很清楚</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>启动服务<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span>使用服务启动</span><br><span class="line">service salt-master start</span><br><span class="line"><span class="hljs-meta">#</span> 使用命令行启动,即以守护进程的方式启动</span><br><span class="line">salt-master -d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>注意：Salt Master 需要绑定的两个端口4505和4506.声明下master机子是哪一台: 修改/etc/salt/minion:文件,将master那栏解注,然后填入master的IP(10.101.10.10)</p>
+</blockquote>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 修改主机名</span><br><span class="line"><span class="hljs-meta">#</span> 查看主机名的情况</span><br><span class="line">hostnamectl</span><br><span class="line"><span class="hljs-meta">#</span>或者</span><br><span class="line">hostnamectl status</span><br><span class="line"><span class="hljs-meta">#</span> 设置主机名</span><br><span class="line">hostnamectl set-hostname hostname --static</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>使用salt-key</li>
+</ol>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 查看当前管理的主机的状态</span><br><span class="line">salt-key -L</span><br><span class="line"><span class="hljs-meta">#</span> 接受所有pending状态的keys</span><br><span class="line">salt-key -A</span><br><span class="line"><span class="hljs-meta">#</span> 查看未接受的keys的码</span><br><span class="line">salt-key -f foo.domain.com</span><br><span class="line"><span class="hljs-meta">#</span> 在minion上运行，查看本机的码</span><br><span class="line">salt-call key.finger --local</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p>常用函数<br><a href="shttps://docs.saltstack.com/en/latest/ref/modules/index.html" target="_blank" rel="noopener">常用函数网站，点击访问</a></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 查看磁盘信息</span><br><span class="line">salt '*' disk.usage</span><br><span class="line"><span class="hljs-meta">#</span> 远程执行命令</span><br><span class="line">salt '*' com.run 'ls -al'</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他执行与配置</p>
+</li>
+</ol>
+<p><a href="https://www.linuxprobe.com/saltstack-quick.html" target="_blank" rel="noopener">查看链接</a></p>
+<p>内容包含：</p>
+<ul>
+<li>target</li>
+<li>function 有module提供</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>states文件</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 4 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
+                <a class="has-link-black-ter" href="/2019/05/06/Operations/编写roles规则/">Ansible-roles的编写</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="等待更新"><a href="#等待更新" class="headerlink" title="等待更新"></a>等待更新</h1>
         </div>
         
         
@@ -211,10 +290,10 @@
 <p>在<a href="https://galaxy.ansible.com" target="_blank" rel="noopener">这里</a>，我们可以下载需要的<code>roles</code>目录。</p>
 <p><a href="[ansible-galaxy install shijingjing1221.nginx_on_redhat](https://galaxy.ansible.com/shijingjing1221/nginx_on_redhat">这个是安装nginx的roles文件夹</a>)</p>
 <p>点击复制链接：<br><img src="https://i.loli.net/2019/05/06/5ccfdc17e2a44.png" alt="quicker_7db9242f-0ee6-4bc5-8a75-998d08aa839d.png"></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span>先在 etc/ansible/下创建一个roles文件夹</span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span>进入到etc/ansible/</span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span><br><span class="line"><span class="hljs-meta">#</span> 如果不指定，下载位置是：/root/.ansible/roles </span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">先在 etc/ansible/下创建一个roles文件夹</span></span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">进入到etc/ansible/</span></span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 如果不指定，下载位置是：/root/.ansible/roles </span></span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
 <p>下载完成后，创建一个脚本执行roles即可：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span> 编辑内容如下，</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span><br><span class="line"><span class="hljs-meta">#</span> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 编辑内容如下，</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span></span><br></pre></td></tr></table></figure>
 <p>如果成功，我们输入：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://test2:3104</span><br></pre></td></tr></table></figure>
 <p>即可访问路径：</p>
@@ -372,47 +451,6 @@
 <ul>
 <li><a href="https://www.ansible.com/community/galaxy" target="_blank" rel="noopener">Ansible Galaxy 脚本库</a></li>
 </ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    几秒 读完 (大约 0 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/24/python/基本操作/"></a>
-            
-        </h1>
-        <div class="content">
-            <p># </p>
 
         </div>
         
@@ -982,8 +1020,21 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
-                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6">Ansible-roles的编写</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1010,19 +1061,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
                     <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
-                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1061,7 +1099,7 @@
                     <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1072,7 +1110,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">20</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1163,8 +1201,21 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T07:30:07.759Z">2019-05-06</time></div>
-                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6"></a>
+                    <a href="/2019/05/06/Operations/编写roles规则/" class="has-link-black-ter is-size-6">Ansible-roles的编写</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1191,19 +1242,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T01:24:36.202Z">2019-05-05</time></div>
                     <a href="/2019/05/05/Operations/ansible/" class="has-link-black-ter is-size-6">Ansible的入门使用</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T09:54:34.049Z">2019-04-24</time></div>
-                    <a href="/2019/04/24/python/基本操作/" class="has-link-black-ter is-size-6"></a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1242,7 +1280,7 @@
                     <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1253,7 +1291,7 @@
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">20</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
