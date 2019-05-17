@@ -146,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 351 个字)
+                    3 分钟 读完 (大约 482 个字)
                 </span>
                 
                 
@@ -155,7 +155,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/05/07/Operations/saltstack/">saltstack入门</a>
+                <a class="has-link-black-ter" href="/2019/05/07/Operations/saltstack/">Ansible之roles入门使用</a>
             
         </h1>
         <div class="content">
@@ -198,7 +198,15 @@
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>states文件</li>
 </ul>
-
+<hr>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li>安装了一个grafana</li>
+</ul>
+<p>grafana主要是对后端数据进行实时展示。</p>
+<blockquote>
+<p>用于可视化大型测量数据的开源程序，他提供了强大和优雅的方式去创建、共享、浏览数据。dashboard中显示了你不同metric数据源中的数据。</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--由于没有远程访问的权限，所以使用如下语句赋予权限。赋予所有权限在所有ip上</span></span><br><span class="line"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'youpassword'</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -265,7 +273,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 650 个字)
+                    4 分钟 读完 (大约 651 个字)
                 </span>
                 
                 
@@ -290,10 +298,10 @@
 <p>在<a href="https://galaxy.ansible.com" target="_blank" rel="noopener">这里</a>，我们可以下载需要的<code>roles</code>目录。</p>
 <p><a href="[ansible-galaxy install shijingjing1221.nginx_on_redhat](https://galaxy.ansible.com/shijingjing1221/nginx_on_redhat">这个是安装nginx的roles文件夹</a>)</p>
 <p>点击复制链接：<br><img src="https://i.loli.net/2019/05/06/5ccfdc17e2a44.png" alt="quicker_7db9242f-0ee6-4bc5-8a75-998d08aa839d.png"></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">先在 etc/ansible/下创建一个roles文件夹</span></span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">进入到etc/ansible/</span></span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 如果不指定，下载位置是：/root/.ansible/roles </span></span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span>先在 etc/ansible/下创建一个roles文件夹</span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span>进入到etc/ansible/</span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span><br><span class="line"><span class="hljs-meta">#</span> 如果不指定，下载位置是：/root/.ansible/roles </span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
 <p>下载完成后，创建一个脚本执行roles即可：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 编辑内容如下，</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span> 编辑内容如下，</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span><br><span class="line"><span class="hljs-meta">#</span> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span><br></pre></td></tr></table></figure>
 <p>如果成功，我们输入：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://test2:3104</span><br></pre></td></tr></table></figure>
 <p>即可访问路径：</p>
@@ -301,7 +309,7 @@
 <hr>
 <p>遇到的问题：</p>
 <ol>
-<li>yml的格式要求非常严格。写错几次</li>
+<li>yml的格式要求非常严格。写错几次。</li>
 <li>安装之后，服务无法打开。原因是端口被占用。</li>
 </ol>
 <hr>
@@ -348,7 +356,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 946 个字)
+                    6 分钟 读完 (大约 966 个字)
                 </span>
                 
                 
@@ -390,11 +398,11 @@
 <ul>
 <li>用脚本管理主机</li>
 </ul>
-<p>ansible使用的脚本是<code>yaml</code>的格式。文件以<code>yml</code>结束。</p>
+<p>ansible使用的脚本是<code>yaml</code>的格式。文件以<code>.yml</code>结束。</p>
 <p>执行脚本命令：</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook deploy.yml</span><br></pre></td></tr></table></figure>
 <p>deploy.yml的内容为：<br><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr">- hosts:</span> <span class="hljs-string">web</span></span><br><span class="line"><span class="hljs-attr">  vars:</span></span><br><span class="line"><span class="hljs-attr">    http_port:</span> <span class="hljs-number">80</span></span><br><span class="line"><span class="hljs-attr">    max_clients:</span> <span class="hljs-number">200</span></span><br><span class="line"><span class="hljs-attr">  remote_user:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">  tasks:</span></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">at</span> <span class="hljs-string">the</span> <span class="hljs-string">latest</span> <span class="hljs-string">version</span></span><br><span class="line"><span class="hljs-attr">    yum:</span> <span class="hljs-string">pkg=httpd</span> <span class="hljs-string">state=latest</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">configuration</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/httpd.conf.j2</span> <span class="hljs-string">dest=/etc/httpd/conf/httpd.conf</span></span><br><span class="line"><span class="hljs-attr">    notify:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">default</span> <span class="hljs-string">index.html</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/index.html.j2</span> <span class="hljs-string">dest=/var/www/html/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">running</span></span><br><span class="line"><span class="hljs-attr">    service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=started</span></span><br><span class="line"><span class="hljs-attr">  handlers:</span></span><br><span class="line"><span class="hljs-attr">    - name:</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"><span class="hljs-attr">      service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=restarted</span></span><br></pre></td></tr></table></figure></p>
-<p>本质上yaml格式的脚本，就是一个json格式。</p>
+<p>本质上<code>yaml</code>格式的脚本，就是一个json格式。</p>
 <p><a href="http://www.json2yaml.com/" target="_blank" rel="noopener">yml与json转换工具</a></p>
 <ul>
 <li><p><code>yaml</code>中关键字的使用：</p>
@@ -415,7 +423,8 @@
 <p>需要注意的是：vars后可以不用加 <code>-</code> 就声明变量。而其他下下一级的关键字，需要加<code>-</code></p>
 </blockquote>
 <hr>
-<h1 id="进阶module的使用"><a href="#进阶module的使用" class="headerlink" title="进阶module的使用"></a>进阶<code>module</code>的使用</h1><p>常用<code>Module</code>：</p>
+<h1 id="进阶module的使用"><a href="#进阶module的使用" class="headerlink" title="进阶module的使用"></a>进阶<code>module</code>的使用</h1><p><code>Module</code>: 指的就是<code>yum</code>、<code>ping</code>等的指令,写在tasks关键字中。</p>
+<p>常用<code>Module</code>：</p>
 <ul>
 <li>调试和测试<ul>
 <li>ping - ping一下远程主机，如果可以通过ansible成功连接，返回pong</li>
@@ -1021,7 +1030,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1202,7 +1211,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>

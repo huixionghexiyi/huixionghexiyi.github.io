@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/05/06/5ccfdc17e2a44.png">
 <meta property="og:image" content="https://i.loli.net/2019/05/06/5ccfde7e341e5.png">
-<meta property="og:updated_time" content="2019-05-06T07:34:44.271Z">
+<meta property="og:updated_time" content="2019-05-09T02:37:22.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible之roles的使用">
 <meta name="twitter:description" content="我们只需要会使用别人的roles就可以了。以Nginx作为案例  Nginx的使用Nginx是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP代理服务器。类似于Apache的服务器一样，用于搭建http服务器。 但是Nginx具有他独有的优势。 这篇文章总结的很好：点击跳转 使用Ansible给下面所有远程主机搭建Nigix使用规则是： 12345678910--- -">
@@ -152,7 +152,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 650 个字)
+                    4 分钟 读完 (大约 651 个字)
                 </span>
                 
                 
@@ -177,10 +177,10 @@
 <p>在<a href="https://galaxy.ansible.com" target="_blank" rel="noopener">这里</a>，我们可以下载需要的<code>roles</code>目录。</p>
 <p><a href="[ansible-galaxy install shijingjing1221.nginx_on_redhat](https://galaxy.ansible.com/shijingjing1221/nginx_on_redhat">这个是安装nginx的roles文件夹</a>)</p>
 <p>点击复制链接：<br><img src="https://i.loli.net/2019/05/06/5ccfdc17e2a44.png" alt="quicker_7db9242f-0ee6-4bc5-8a75-998d08aa839d.png"></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">先在 etc/ansible/下创建一个roles文件夹</span></span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">进入到etc/ansible/</span></span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 如果不指定，下载位置是：/root/.ansible/roles </span></span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span>先在 etc/ansible/下创建一个roles文件夹</span><br><span class="line">mkdir etc/ansible/roles</span><br><span class="line"><span class="hljs-meta">#</span>进入到etc/ansible/</span><br><span class="line">cd  etc/ansible</span><br><span class="line"><span class="hljs-meta">#</span> 输入指令下载我们需要的roles脚本，并添加 -p roles 指定下载到roles文件夹下。</span><br><span class="line"><span class="hljs-meta">#</span> 如果不指定，下载位置是：/root/.ansible/roles </span><br><span class="line">ansible-galaxy install shijingjing1221.nginx_on_redhat -p roles</span><br></pre></td></tr></table></figure>
 <p>下载完成后，创建一个脚本执行roles即可：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 编辑内容如下，</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touck test.yml</span><br><span class="line">vi test.yml</span><br><span class="line"><span class="hljs-meta">#</span> 编辑内容如下，</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"> - hosts: test2 # 主机分组</span><br><span class="line">   remote_user: root # 使用的用户名</span><br><span class="line">   vars:  # 用到的参数</span><br><span class="line">     nginx_vhost:</span><br><span class="line">        - listen: 3104</span><br><span class="line">          root: "/var/www/nginx3104"</span><br><span class="line">          index: "index.html index.htm"</span><br><span class="line">   roles:</span><br><span class="line">     - shijingjing1221.nginx_on_redhat </span><br><span class="line"><span class="hljs-meta">#</span> 就是下载的文件的路径，由于test.yml和该文件是一个路径，所以是相对路径</span><br><span class="line"><span class="hljs-meta">#</span> 完整路径是： /etc/ansible/roles/shijingjing1221.nginx_on_redhat</span><br></pre></td></tr></table></figure>
 <p>如果成功，我们输入：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://test2:3104</span><br></pre></td></tr></table></figure>
 <p>即可访问路径：</p>
@@ -188,7 +188,7 @@
 <hr>
 <p>遇到的问题：</p>
 <ol>
-<li>yml的格式要求非常严格。写错几次</li>
+<li>yml的格式要求非常严格。写错几次。</li>
 <li>安装之后，服务无法打开。原因是端口被占用。</li>
 </ol>
 <hr>
@@ -501,7 +501,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -682,7 +682,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="huixiong`s Blog">
 <meta property="og:description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-06T02:44:49.634Z">
+<meta property="og:updated_time" content="2019-05-09T02:29:23.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible的入门使用">
 <meta name="twitter:description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
@@ -149,7 +149,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 946 个字)
+                    6 分钟 读完 (大约 966 个字)
                 </span>
                 
                 
@@ -191,11 +191,11 @@
 <ul>
 <li>用脚本管理主机</li>
 </ul>
-<p>ansible使用的脚本是<code>yaml</code>的格式。文件以<code>yml</code>结束。</p>
+<p>ansible使用的脚本是<code>yaml</code>的格式。文件以<code>.yml</code>结束。</p>
 <p>执行脚本命令：</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook deploy.yml</span><br></pre></td></tr></table></figure>
 <p>deploy.yml的内容为：<br><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">---</span></span><br><span class="line"><span class="hljs-attr">- hosts:</span> <span class="hljs-string">web</span></span><br><span class="line"><span class="hljs-attr">  vars:</span></span><br><span class="line"><span class="hljs-attr">    http_port:</span> <span class="hljs-number">80</span></span><br><span class="line"><span class="hljs-attr">    max_clients:</span> <span class="hljs-number">200</span></span><br><span class="line"><span class="hljs-attr">  remote_user:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">  tasks:</span></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">at</span> <span class="hljs-string">the</span> <span class="hljs-string">latest</span> <span class="hljs-string">version</span></span><br><span class="line"><span class="hljs-attr">    yum:</span> <span class="hljs-string">pkg=httpd</span> <span class="hljs-string">state=latest</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">configuration</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/httpd.conf.j2</span> <span class="hljs-string">dest=/etc/httpd/conf/httpd.conf</span></span><br><span class="line"><span class="hljs-attr">    notify:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">Write</span> <span class="hljs-string">the</span> <span class="hljs-string">default</span> <span class="hljs-string">index.html</span> <span class="hljs-string">file</span></span><br><span class="line"><span class="hljs-attr">    template:</span> <span class="hljs-string">src=templates/index.html.j2</span> <span class="hljs-string">dest=/var/www/html/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">  - name:</span> <span class="hljs-string">ensure</span> <span class="hljs-string">apache</span> <span class="hljs-string">is</span> <span class="hljs-string">running</span></span><br><span class="line"><span class="hljs-attr">    service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=started</span></span><br><span class="line"><span class="hljs-attr">  handlers:</span></span><br><span class="line"><span class="hljs-attr">    - name:</span> <span class="hljs-string">restart</span> <span class="hljs-string">apache</span></span><br><span class="line"><span class="hljs-attr">      service:</span> <span class="hljs-string">name=httpd</span> <span class="hljs-string">state=restarted</span></span><br></pre></td></tr></table></figure></p>
-<p>本质上yaml格式的脚本，就是一个json格式。</p>
+<p>本质上<code>yaml</code>格式的脚本，就是一个json格式。</p>
 <p><a href="http://www.json2yaml.com/" target="_blank" rel="noopener">yml与json转换工具</a></p>
 <ul>
 <li><p><code>yaml</code>中关键字的使用：</p>
@@ -216,7 +216,8 @@
 <p>需要注意的是：vars后可以不用加 <code>-</code> 就声明变量。而其他下下一级的关键字，需要加<code>-</code></p>
 </blockquote>
 <hr>
-<h1 id="进阶module的使用"><a href="#进阶module的使用" class="headerlink" title="进阶module的使用"></a>进阶<code>module</code>的使用</h1><p>常用<code>Module</code>：</p>
+<h1 id="进阶module的使用"><a href="#进阶module的使用" class="headerlink" title="进阶module的使用"></a>进阶<code>module</code>的使用</h1><p><code>Module</code>: 指的就是<code>yum</code>、<code>ping</code>等的指令,写在tasks关键字中。</p>
+<p>常用<code>Module</code>：</p>
 <ul>
 <li>调试和测试<ul>
 <li>ping - ping一下远程主机，如果可以通过ansible成功连接，返回pong</li>
@@ -545,7 +546,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -726,7 +727,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>saltstack入门 - huixiong`s Blog</title>
+<title>Ansible之roles入门使用 - huixiong`s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,14 +10,14 @@
     
     <meta name="description" content="服务端安装salt-master  1yum install salt-master -y  客户端安装salt-minion  这里我们的客户端是192.168.65.134，我们使用ansible来安装。 1ansible test2 -m yum -a &quot;name=salt-master state=present&quot; 安装过程中发现端口被占用。 使用netstat -tunpl 查看端口使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="saltstack入门">
+<meta property="og:title" content="Ansible之roles入门使用">
 <meta property="og:url" content="http://yoursite.com/2019/05/07/Operations/saltstack/index.html">
 <meta property="og:site_name" content="huixiong`s Blog">
 <meta property="og:description" content="服务端安装salt-master  1yum install salt-master -y  客户端安装salt-minion  这里我们的客户端是192.168.65.134，我们使用ansible来安装。 1ansible test2 -m yum -a &quot;name=salt-master state=present&quot; 安装过程中发现端口被占用。 使用netstat -tunpl 查看端口使">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-07T07:10:56.261Z">
+<meta property="og:updated_time" content="2019-05-09T09:21:29.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="saltstack入门">
+<meta name="twitter:title" content="Ansible之roles入门使用">
 <meta name="twitter:description" content="服务端安装salt-master  1yum install salt-master -y  客户端安装salt-minion  这里我们的客户端是192.168.65.134，我们使用ansible来安装。 1ansible test2 -m yum -a &quot;name=salt-master state=present&quot; 安装过程中发现端口被占用。 使用netstat -tunpl 查看端口使">
 
 
@@ -92,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="saltstack入门" height="28">
+                <img src="/images/logo.svg" alt="Ansible之roles入门使用" height="28">
             
             </a>
         </div>
@@ -149,7 +149,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 351 个字)
+                    3 分钟 读完 (大约 482 个字)
                 </span>
                 
                 
@@ -158,7 +158,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                saltstack入门
+                Ansible之roles入门使用
             
         </h1>
         <div class="content">
@@ -201,7 +201,15 @@
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>states文件</li>
 </ul>
-
+<hr>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li>安装了一个grafana</li>
+</ul>
+<p>grafana主要是对后端数据进行实时展示。</p>
+<blockquote>
+<p>用于可视化大型测量数据的开源程序，他提供了强大和优雅的方式去创建、共享、浏览数据。dashboard中显示了你不同metric数据源中的数据。</p>
+</blockquote>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--由于没有远程访问的权限，所以使用如下语句赋予权限。赋予所有权限在所有ip上</span></span><br><span class="line"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'youpassword'</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -487,7 +495,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -668,7 +676,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-07T01:32:09.802Z">2019-05-07</time></div>
-                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">saltstack入门</a>
+                    <a href="/2019/05/07/Operations/saltstack/" class="has-link-black-ter is-size-6">Ansible之roles入门使用</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -838,7 +846,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="saltstack入门" height="28">
+                    <img src="/images/logo.svg" alt="Ansible之roles入门使用" height="28">
                 
                 </a>
                 <p class="is-size-7">
