@@ -90,7 +90,12 @@ public class test {
 //////
 
 //////
-
+class Student {
+    public String name;
+    public Student(String n){
+        name = n;
+    }
+}
     public static void main(String[] args) {
         test test = new test();
         // System.out.println(test.isHappy(19));
@@ -105,12 +110,22 @@ public class test {
         // int[] m = new  int['c'];
         // String s = new String();
         // s.split(" ");
-        Set<Integer> set = new HashSet();
-        char[] cs = str.toCharArray();
-        for (char var : cs) {
+        // Set<Integer> set = new HashSet();
+        // char[] cs = str.toCharArray();
+        // for (char var : cs) {
             
-        }
+        // }
+        Student s =test.new Student("王老五");
+        f(s);
+        System.out.println(s.name);
 
     }
+
+    static void f(Student stu){
+        stu.name = "小周";
+        System.out.println(stu.name); 
+    }
+
+    
 }
 

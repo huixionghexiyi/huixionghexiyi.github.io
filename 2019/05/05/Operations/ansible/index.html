@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="huixiong`s Blog">
 <meta property="og:description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-09T02:29:23.348Z">
+<meta property="og:updated_time" content="2019-06-17T01:24:29.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible的入门使用">
 <meta name="twitter:description" content="入门了解 Ansible主要作用是用于部署和统一管理远程服务器。还有其他工具许多开源也是用于部署远程服务器。如SaltSack、Puppet等。我们称用于管理其他远程主机的主机称为管理节点。称被管理的主机为远程主机。   安装  1234# 安装epel源，因为ansible在elel源中sudo yum install epel-release# 安装ansiblesudo yum instal">
@@ -168,7 +168,7 @@
 <ul>
 <li>安装</li>
 </ul>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 安装epel源，因为ansible在elel源中</span><br><span class="line">sudo yum install epel-release</span><br><span class="line"><span class="hljs-meta">#</span> 安装ansible</span><br><span class="line">sudo yum install ansible -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 安装epel源，因为ansible在elel源中</span></span><br><span class="line">sudo yum install epel-release</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 安装ansible</span></span><br><span class="line">sudo yum install ansible -y</span><br></pre></td></tr></table></figure>
 <ul>
 <li>连接</li>
 </ul>
@@ -184,7 +184,7 @@
 <ul>
 <li>用命令管理主机</li>
 </ul>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 查看所有主机，是否以root创建了ansible可以访问的环境</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">其中ansilbe关键字指ansible命令，all指所有主机，-m 后面跟命令，-u 后面跟用户</span></span><br><span class="line">ansible all -m ping -u root</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">将web下的所有主机中的/etc/host 拷贝到 /tmp/hosts里。</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 其中 -a 后面跟参数 通常用 <span class="hljs-string">""</span>  引起来。</span></span><br><span class="line">ansible web -m copy -a "src=/etc/hosts dest=/tmp/hosts"</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 查看所有主机，是否以root创建了ansible可以访问的环境</span></span><br><span class="line"><span class="hljs-comment">#其中ansilbe关键字指ansible命令，all指所有主机，-m 后面跟命令，-u 后面跟用户</span></span><br><span class="line">ansible all -m ping -u root</span><br><span class="line"><span class="hljs-comment">#将web下的所有主机中的/etc/host 拷贝到 /tmp/hosts里。</span></span><br><span class="line"><span class="hljs-comment"># 其中 -a 后面跟参数 通常用 ""  引起来。</span></span><br><span class="line">ansible web -m copy -a <span class="hljs-string">"src=/etc/hosts dest=/tmp/hosts"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>更多的指令请参考官网。</p>
 </blockquote>

@@ -429,7 +429,9 @@
 <p>GROUP BY子句通常与AVG()，COUNT()，MAX()，MIN()和SUM()之类的集合函数一起使用。 在这种情况下，聚合函数返回每个分组的摘要信息。 例如，给定几个类别的产品，AVG()函数返回每个类别中产品的平均价格。</p>
 <figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--在有提供WHERE子句的情况下，GROUP BY子句必须放在WHERE子句之前。</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    c1,</span><br><span class="line">    c2, </span><br><span class="line">    c3;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">--如果要指定应该一次计算的多个分组级别，请使用ROLLUP语法</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span></span><br><span class="line">    column_list</span><br><span class="line"><span class="hljs-keyword">FROM</span></span><br><span class="line">    T</span><br><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span><br><span class="line">    <span class="hljs-keyword">ROLLUP</span>(c1,c2,c3);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>HAVING</p>
+<li><ol>
+<li>HAVING</li>
+</ol>
 <blockquote>
 <p>HAVING子句是SELECT语句的可选子句。它用于过滤由GROUP BY子句返回的行分组。 这就是为什么HAVING子句通常与GROUP BY子句一起使用的原因。</p>
 </blockquote>
@@ -580,7 +582,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1380 个字)
+                    9 分钟 读完 (大约 1399 个字)
                 </span>
                 
                 
@@ -749,6 +751,8 @@ git config --global alias.st status
 <pre><code>git push origin &lt;branch&gt; --force
 </code></pre><p>2019年4月8日</p>
 <p>更新一些错别字</p>
+<p>2019年6月21日</p>
+<p>酱暂存区的东西恢复到工作区<br><figure class="highlight sh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
